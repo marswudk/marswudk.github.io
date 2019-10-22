@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@media screen練習</title>
+    <style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+    }
+    #all{
+        width: 85%;
+        height: 60vh;
+        background-color: red;
+        margin: 0 auto;        
+        
+    }
+    #x{
+        width: 33%;
+        height: 100%;
+        background-color: black;
+        float: left;
+    }
+    #y{
+        width: 34%;
+        height: 100%;
+        background-color: yellow;
+        float: left;
+    }
+    #z{
+        width: 33%;
+        height: 100%;
+        background-color: green;
+        float: left;
+    }
+    .clearfix{
+        clear: both;
+    }
+    @media screen and (max-width: 800px){
+        #all{
+        width: 85%;
+        height: 60vh;
+        background-color: red;
+        margin: 0 auto;        
+        display: flex;
+        flex-wrap: wrap;
+        }
+        #x{
+        width: 100%;
+        height: 50%;
+        background-color: black;
+        
+        }
+        #y{
+            width: 50%;
+            height: 50%;
+            background-color: yellow;
+            
+        }
+        #z{
+            width: 50%;
+            height: 50%;
+            background-color: green;
+            
+        }
+        
+        
+    }
+    @media screen and (max-width: 375px){
+        #all{
+        width: 100%;
+        height: 60vh;
+        background-color: red;
+        margin: 0 auto;        
+        display: flex;
+        flex-wrap: wrap;
+        }
+        #x{
+        width: 100%;
+        height: 33%;
+        background-color: black;
+        
+        }
+        #y{
+            width: 100%;
+            height: 33%;
+            background-color: yellow;
+            
+        }
+        #z{
+            width: 100%;
+            height: 34%;
+            background-color: green;
+            
+        }
+        
+        
+    }
+    
+    
+    
+    </style>
+
+</head>
+<body>
+    <div id="all">
+        <div id="x">XXX</div>
+        <div id="y">YYY</div>
+        <div id="z">ZZZ</div>
+        <div class="clearfix"></div>
+    </div>
+    
+</body>
+</html>
