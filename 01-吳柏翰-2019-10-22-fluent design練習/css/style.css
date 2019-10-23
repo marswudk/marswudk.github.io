@@ -17,6 +17,9 @@ nav{
 nav .container{
     width: 1536px;
     margin: 0 auto;
+    height: 100%;
+    align-items: center;
+    
 }
 @media screen and (max-width: 1680px){
     nav .container{
@@ -31,6 +34,7 @@ nav .container{
 @media screen and (max-width: 1460px){
     nav .container{
         width: 1136px;
+
     }
 }
 @media screen and (max-width: 1280px){
@@ -46,8 +50,15 @@ nav .container{
 }
 nav .logo{
     width: 190px;
-    height: 100%;
+    height: 48px;    
+    display: flex;
+    align-items: center;
+    
 
+}
+nav .logo a{
+    color: white;
+    text-decoration: none;
 }
 @media screen and (max-width: 1024px){
     nav .logo{
@@ -61,28 +72,86 @@ nav .logo{
 }
 nav .mainpage h1{
     margin: 0;
+    height: 48px;
     font-size: 16px;
     font-weight: 600;
     line-height: 49px;
 }
 nav .links{
     margin: 0;
-    padding: 0 60px 0 120px;
+    /* padding: 0 120px 0 420px; */
+    /* width: 100%; */
+    height: 48px;
     list-style-type: none;
     justify-content: space-between;    
     
 }
+nav .link_group{
+    width: 100%;
+    flex-grow: 1;
+    padding: 0 60px 0  120px;
+}
+
+
 nav .links a{
     color: white;
     font-weight: 600;
     text-decoration: none;
+    line-height: 49px;
+    display: block;
 }
 
 /* 手機版 */
 nav .menu_btn{
     display: none;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+
     
 }
-nav .menu_list{
-    display: none;
+nav .menu_btn span{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    transition: all 200ms linear 0ms;
+
 }
+nav .menu_btn span .top_bar{
+    top: 17px;
+    left: 12px;
+    transform: rotate(0deg);
+}
+nav .menu_btn span .mid_bar{
+    top: 24px;
+    left: 12px;
+    opacity: 1;
+}
+nav .menu_btn span .btm_bar{
+    top: 31px;
+    left: 12px;
+    transform: rotate(0deg);
+}
+
+nav .menu_list{
+    /* display: none; */
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    height: calc(100vh - 48px);
+    background-color: black;
+    transition: 1s;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    
+}
+nav .menu_list.active{
+    opacity: 1;
+    pointer-events: all;
+}
+nav .menu
+

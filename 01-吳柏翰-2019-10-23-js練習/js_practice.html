@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+       
+    </style>    
+</head>
+<body>
+
+    <h1 class="title_1" onclick="change_title()">Title for Test</h1>
+    <h2 class="title_2">click to change</h2>
+    <button id="btn_1">click</button>
+    <img class="pic_1" src="https://image.freepik.com/free-photo/long-shot-motorcylist-man-sitting-motorbike_23-2148306206.jpg" alt="">
+    <!-- <img class="pic_2" src="https://image.freepik.com/free-photo/man-riding-motorbike-dirt-road-with-helmet_23-2148322004.jpg" alt=""> -->
+    
+    <script>
+        function change_title() {
+            var myHeading = document.querySelector('.title_1');
+            myHeading.textContent = 'hello world';
+            
+        }
+        var title_2 = document.querySelector('.title_2');
+        var btn_1 = document.querySelector('#btn_1');
+
+        btn_1.onclick = function(){
+            title_2.textContent ='dijekd'
+        }
+
+        var pic_A = 'https://image.freepik.com/free-photo/long-shot-motorcylist-man-sitting-motorbike_23-2148306206.jpg';
+        var pic_B = 'https://image.freepik.com/free-photo/man-riding-motorbike-dirt-road-with-helmet_23-2148322004.jpg';
+        // pic_1.onclick = function(){
+        //     var current_pic_src = pic_1.getAttribute('src');
+        //     if(current_pic_src =='https://image.freepik.com/free-photo/long-shot-motorcylist-man-sitting-motorbike_23-2148306206.jpg'){
+        //         pic_1.setAttribute('src','https://image.freepik.com/free-photo/man-riding-motorbike-dirt-road-with-helmet_23-2148322004.jpg');
+        //     }else{
+        //         pic_1.setAttribute('src','https://image.freepik.com/free-photo/long-shot-motorcylist-man-sitting-motorbike_23-2148306206.jpg');
+        //     }
+        // }
+        var pic_1 = document.querySelector('.pic_1');
+        pic_1.onclick = function(){
+            var current_pic_src = pic_1.src
+            if(current_pic_src == pic_A){
+                pic_1.src = pic_B
+            }else{
+                pic_1.src = pic_A
+            }
+        }
+            
+         
+        // var myHeading = document.querySelector('.title_1');
+    // 宣告變數並命名"myHeading"，且同時將文件中查詢到的.title_1選擇器放入變數中
+        // myHeading.textContent = 'hello world';
+    // 將變數"myHeading的文字內容轉換成'hello world'
+    
+    
+    </script>
+</body>
+</html>
