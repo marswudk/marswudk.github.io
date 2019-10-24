@@ -34,7 +34,9 @@ nav .container{
 @media screen and (max-width: 1460px){
     nav .container{
         width: 1136px;
-
+    }
+    nav .container .link_group{
+        padding: 0 60px 0 120px;
     }
 }
 @media screen and (max-width: 1280px){
@@ -47,14 +49,21 @@ nav .container{
         width: 100%;
         padding: 0 30px;
     }
+    nav .container .link_group{
+        padding: 0 0 0 120px;
+    }
+    
 }
 nav .logo{
     width: 190px;
     height: 48px;    
     display: flex;
-    align-items: center;
-    
+    align-items: center;   
 
+}
+nav .logo img{
+    width: 16px;
+    height: 16px;
 }
 nav .logo a{
     color: white;
@@ -65,7 +74,7 @@ nav .logo a{
         width: 60px;
     }
 }
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 670px){
     nav .logo{
         width: 30px;
     }
@@ -77,10 +86,13 @@ nav .mainpage h1{
     font-weight: 600;
     line-height: 49px;
 }
+nav .mainpage h1 a{
+    color: white;
+    text-decoration: none;
+    border-spacing: 0px;
+}
 nav .links{
-    margin: 0;
-    /* padding: 0 120px 0 420px; */
-    /* width: 100%; */
+    margin: 0;    
     height: 48px;
     list-style-type: none;
     justify-content: space-between;    
@@ -89,7 +101,7 @@ nav .links{
 nav .link_group{
     width: 100%;
     flex-grow: 1;
-    padding: 0 60px 0  120px;
+    padding: 0 120px 0  420px;
 }
 
 
@@ -99,6 +111,9 @@ nav .links a{
     text-decoration: none;
     line-height: 49px;
     display: block;
+}
+nav .links a:hover{
+    color: blue;
 }
 
 /* 手機版 */
@@ -115,29 +130,40 @@ nav .menu_btn{
 nav .menu_btn span{
     position: absolute;
     width: 24px;
-    height: 24px;
+    height: 2px;
     background-color: white;
-    transition: all 200ms linear 0ms;
+    transition: 1s;
 
 }
-nav .menu_btn span .top_bar{
+nav .menu_btn .top_bar{
     top: 17px;
     left: 12px;
-    transform: rotate(0deg);
+    transform: rotate(0deg);    
 }
-nav .menu_btn span .mid_bar{
+nav .menu_btn .mid_bar{
     top: 24px;
     left: 12px;
     opacity: 1;
 }
-nav .menu_btn span .btm_bar{
+nav .menu_btn .btm_bar{
     top: 31px;
     left: 12px;
     transform: rotate(0deg);
 }
+nav .menu_btn .top_bar.active{
+    top: 24px;
+    transform: rotate(-45deg);
+}
+nav .menu_btn .mid_bar.active{
+    opacity: 0;
+}
+nav .menu_btn .btm_bar.active{
+    top: 24px;
+    transform: rotate(45deg);
+}
 
-nav .menu_list{
-    /* display: none; */
+
+nav .menu_list{   
     opacity: 0;
     pointer-events: none;
     width: 100%;
@@ -153,5 +179,29 @@ nav .menu_list.active{
     opacity: 1;
     pointer-events: all;
 }
-nav .menu
-
+nav .menu_list ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+nav .menu_list ul a{
+    color: white;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    padding: 25px 30px;
+}
+nav .menu_list ul a:hover{
+    background-color: white;
+    color: black;
+}
+/* 手機板選單出現 */
+@media (max-width: 767px){
+    nav .container .menu_btn {
+        display: flex;
+    }
+    nav .container .link_group{
+        display: none;
+    }
+}
