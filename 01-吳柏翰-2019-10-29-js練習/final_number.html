@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .game_center {
+            max-width: 400px;
+            height: 400px;
+            background-color: dimgrey;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 2px double greenyellow;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family: 微軟正黑體;
+            color: lightcoral;
+            line-height: 20px;
+            margin: 20px;
+        }
+
+        p {
+            font-size: 26px;
+            font-family: 標楷體;
+            color: lightgreen;
+            line-height: 14px;
+        }
+
+        .game_window {
+            width: 150px;
+            margin: 30px;
+
+        }
+
+        .confirm_btn {
+            margin-bottom: 30px;
+        }
+
+        .again_btn {
+            display: none;
+        }
+
+        .again_btn.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game_center">
+        <h1>終極密碼 1~100</h1>
+        <p id="content">遊戲開始，請填入數字：</p>
+        <input class="game_window" type="number" min="0" max="100">
+        <button class="confirm_btn">確認</button>
+        <button class="again_btn">再來一局</button>
+    </div>
+
+    <script>
+        // math.random=0~1的數字  math.floor是無條件捨去
+        var final_answer = Math.floor(Math.random() * 101);
+        console.log("the answer is:", final_answer);
+        var confirm_btn = document.querySelector('.confirm_btn');
+        var again_btn = document.querySelector('.again_btn');
+
+        var content = document.querySelector('#content');
+        var guess_round = 1;
+        var start_number = 0;
+        var end_number = 100;
+
+        // 確認按鈕發生點擊事件後
+        confirm_btn.onclick = function () {
+            // 宣告guess_number 透過parseInt使原本的string性質轉變為number方可做比較
+            // .value可以提取該數值
+            var guess_number = parseInt(document.querySelector('.game_window').value);
+            console.log(typeof guess_number);
+            // 若猜中數值則文字改變 ${}內的數字為遊戲回合數 並使再來一局的按鈕增加active效果
+            // 若猜的數字<答案 則將猜的數字替換掉起始數值0
+            // 若猜的數字>答案 則將猜的數字替換掉結束數值0
+            if (final_answer === guess_number) {
+                content.textContent = `恭喜答對！左邊的人要喝${guess_round}杯！`;
+                again_btn.classList.add('active');
+            } else if (final_answer > guess_number) {
+                start_number = guess_number;
+                content.textContent = `太小了！ ${start_number} ~ ${end_number}`;
+                guess_round++;
+            } else if (final_answer < guess_number) {
+                end_number = guess_number;
+                content.textContent = `太大了！ ${start_number} ~ ${end_number}`;
+                guess_round++;
+            }
+            // else if (guess_number > end_number){
+            //     content.textContent ="請重新輸入範圍內的數值!"
+            // }
+
+        }
+        // 點擊再來一局按鈕後將一切重計
+        again_btn.onclick = function(){
+            final_answer = Math.floor(Math.random() * 101);
+            console.log("the answer is:", final_answer);
+            guess_round = 1;
+            again_btn.classList.remove('active');
+            start_number = 0;
+            end_number = 100;
+            document.querySelector('.game_window').value ="";
+            // 令input中的數值消失
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
