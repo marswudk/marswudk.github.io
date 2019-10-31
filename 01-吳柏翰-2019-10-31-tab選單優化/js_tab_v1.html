@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分頁練習</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: bisque;
+    }
+
+    .tabs_all {
+        display: flex;
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .tab_btn {
+        padding: 5px;
+        margin: 5px 5px 0 0;
+        /* border: 1px solid; */
+        border-radius: 8px 8px 0 0;
+        background-color: darkgray;
+        color: white;
+        cursor: pointer;
+    }
+
+    .tab_btn.active {
+        background-color: white;
+        color: black;
+    }
+
+    .contents_all {
+        max-width: 400px;
+        height: 400px;
+        color: black;
+        margin: 0 auto;
+        
+    }
+    /* 先隱藏，方法可用display:none或opacity:0 搭配pointer-events:none height:0 overflow:hidden */
+    .tab_content {
+        background-color: lightgray;
+        height: 0;
+        /* display: none; */
+        opacity: 0;
+        pointer-events: none;
+        text-align: center;
+        transition: opacity 0.7s;
+        overflow: hidden;      
+
+    }
+    /* 把要顯示的狀態寫進一個class裡面，再用js加入這個class達到切換的效果 */
+    .tab_content.active{
+        /* display: block; */
+        height: auto;
+        opacity: 1;
+        pointer-events: all;
+        background-color: white;
+        padding: 10px;
+        
+    }
+</style>
+
+<body>
+    <!-- tab_btn可以改用<ul><li>來寫 -->
+    <div id="all">
+        <div class="tabs_all"> 
+            <div id="tab_btn1" class="tab_btn active">tab_1</div>
+            <div id="tab_btn2" class="tab_btn">tab_2</div>
+            <div id="tab_btn3" class="tab_btn">tab_3</div>
+        </div>
+        <div class="contents_all">
+            <div id="tab_content1" class="tab_content active">
+                <h1>tab1 title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, sapiente.Lorem ipsum dolor sit ametconsectetur adipist amet consectetur adipisicing elit. Sequi, sapiente.Lorem ipsum dolor sit ametconsectetur adipicing elit. Sequi, sapiente.</p>
+            </div>
+            <div id="tab_content2" class="tab_content">
+                <h1>tab2 title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, sapiente.Lorem ipsum dolor sit ametconsectetur adipisicingt amet consectetur adipisicing elit. Sequi, sapiente.Lorem ipsum dolor sit ametconsectetur adip elit. Sequi, sapiente.</p>
+            </div>
+            <div id="tab_content3" class="tab_content">
+                <h1>tab3 title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, sapiente.Lorem ipsum dolor sit ametconsectetur adipisicint amet consectetur adipisicing elit. Sequi, sapiente.Lorem ipsum dolor sit ametconsectetur adipg elit. Sequi, sapiente.</p>
+            </div>
+
+        </div>
+
+
+        <script>
+        var tab_btn1 = document.querySelector('#tab_btn1');
+        var tab_btn2 = document.querySelector('#tab_btn2');
+        var tab_btn3 = document.querySelector('#tab_btn3');
+        var tab_content1 = document.querySelector('#tab_content1');
+        var tab_content2 = document.querySelector('#tab_content2');
+        var tab_content3 = document.querySelector('#tab_content3');
+
+            // 分別列出tab1~3的點擊事件
+        tab_btn1.onclick = function(){
+            remove_active()
+            
+            tab_btn1.classList.add('active');
+            tab_content1.classList.add('active');
+        }
+        tab_btn2.onclick = function(){
+            remove_active()
+            
+            tab_btn2.classList.add('active');
+            tab_content2.classList.add('active');
+        }
+        tab_btn3.onclick = function(){
+            remove_active()
+            
+            tab_btn3.classList.add('active');
+            tab_content3.classList.add('active');
+        }
+        // 把重複的(大家都隱藏)寫在同一個function
+        function remove_active(){
+            tab_btn1.classList.remove('active');
+            tab_btn2.classList.remove('active'); 
+            tab_btn3.classList.remove('active');
+            tab_content1.classList.remove('active');
+            tab_content2.classList.remove('active'); 
+            tab_content3.classList.remove('active');
+        }
+        </script>
+
+</body>
+
+</html>
