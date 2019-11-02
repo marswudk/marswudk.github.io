@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>終極密碼</title>
+</head>
+    <style>
+    #container{
+        width: 400px;
+        
+        background-color: lightgreen;
+        border: 2px double yellow;
+        margin: 50px auto;
+        text-align: center;
+        padding: 50px;
+    }
+    #reset_btn{
+        display: none;
+    }
+    #reset_btn.active{
+        display: inline-block;
+        margin-top: 10px;
+    }
+    </style>
+<body>
+    <div id="container">
+        <h1 id="title">請挑戰!</h1>
+        <p id="message">數字已準備好，請填入0~100</p>
+        <p id="guess_round">回合數:0</p>
+        <input id="guess" type="text">
+        <input id="btn" type="button" value="confirm"><br />
+        <input id="reset_btn" type="button" value="reset">
+    </div>
+
+    <script>
+        var answer_number = Math.floor(Math.random()*101);
+        console.log("the answer is:",answer_number);
+        var title = document.querySelector('#title');
+        var btn = document.querySelector('#btn');
+        var guess_number;
+        var guess_round = document.querySelector('#guess_round')
+        var start_number = 0;
+        var end_number = 100;
+        var guess_round_number = 1;
+        var message = document.querySelector('#message');
+        var reset = document.querySelector('#reset_btn');
+        btn.onclick = function(){
+            // 轉換資料型態並抓取他的值
+           var guess_number = parseInt(document.querySelector('#guess').value);
+        //    var guess_round_number = document.querySelector('#guess_round_number');
+           if(guess_number === answer_number){
+                title.textContent = "恭喜";
+                message.textContent = "Congrat! You get the right number";
+                guess_round.textContent = `回合數 ${guess_round_number}`;
+                reset.classList.toggle('active');
+                
+           }else if (guess_number < start_number || guess_number > end_number){
+            message.textContent = `超過範圍啦! 請重新輸入!範圍: ${start_number} ~ ${end_number}`;
+           }
+           else if(guess_number > answer_number){
+                end_number = guess_number;
+                message.textContent =`太大了! 範圍:${start_number} ~ ${end_number}`;
+                guess_round.textContent = `回合數 ${guess_round_number++}`;
+                
+           }else{
+               start_number = guess_number;
+               message.textContent =`太小了! 範圍:${start_number} ~ ${end_number}`;
+               guess_round.textContent = `回合數 ${guess_round_number++}`;
+           }
+            
+        }
+        reset.onclick = function(){
+            answer_number = Math.floor(Math.random()*101);
+            console.log("the answer is:",answer_number);
+            start_number = 0;
+            end_number = 100;
+            guess_round_number = 1;
+            reset.classList.remove('active');
+            document.querySelector('#guess').value =""
+            message.textContent = "數字已準備好，請填入0~100";
+            guess_round.textContent = "回合數:0"
+            title.textContent = "請挑戰";
+
+        }
+        
+        
+    
+    </script>
+</body>
+</html>
