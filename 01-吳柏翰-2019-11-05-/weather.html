@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+.card{
+    width: 400px;
+    height: 400px;
+    background-color: bisque;
+    margin: 100px auto;
+}
+.location{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+
+</style>
+
+<body>
+    <div class="card">
+        <div class="location">
+            <h1></h1>
+            <h2></h2>
+        </div>
+        <div class="information">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+
+    <script>
+
+
+        $.ajax({
+            url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
+            cache: false,
+            success: function (res) {
+             
+                const cards = document.querySelector('.card');
+                const locationName = res.records.location.locationName;
+                const Wx = res.records.location[0].weatherElement[0].time[1].parameter
+                console.log("locationName:",locationName,"Wx:",Wx);
+                
+                
+
+                locations.forEach(location => {
+                    cards.innerHTML +=`<div class="location">
+                        <h1></h1>
+                        <h2></h2>
+                    </div>
+                    <div class="information">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+
+                    </div>`
+                });
+                console.log(res.records.location);
+            }
+               
+               
+        });
+
+
+    </script>
+</body>
+
+</html>
