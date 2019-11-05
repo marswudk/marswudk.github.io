@@ -25,8 +25,9 @@
         /* text-align: center; */
         color: white;
         position: relative;
-        
+
     }
+
     /* .weather_img{
         width: 100px;
         height: 100px;
@@ -38,7 +39,7 @@
 
 <body>
     <div class="cards">
-            <!-- <div class="card">
+        <!-- <div class="card">
                     <h1>${locationName}</h1>
                     <h2>${Wx}</h2>
                     <p>溫度:${MinT} ~ ${MaxT} 度C</p>
@@ -56,12 +57,43 @@
     <script>
 
 
+        // $.ajax({
+        //     url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
+        //     cache: false,
+        //     success: function (res) {
+
+        //         const cards = document.querySelector('.cards');
+        //         const locations = res.records.location;
+
+        //         locations.forEach(location => {
+        //             const locationName = location.locationName;
+        //             const Wx = res.records.location[0].weatherElement[0].time[1].parameter.parameterName;
+        //             const Pop = res.records.location[0].weatherElement[1].time[1].parameter.parameterName;
+        //             const MinT = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
+        //             const MaxT = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
+
+        //             // console.log("locationName:",locationName,"MinT:",MinT);
+
+        //             cards.innerHTML +=
+        //                 ` <div class="card">
+        //                     <h1>${locationName}</h1>
+        //                     <h2>${Wx}</h2>
+        //                     <p>溫度:${MinT} ~ ${MaxT} 度C</p>
+        //                     <p>降雨機率: ${Pop}%</p>
+                            
+                            
+        //                 </div>`
+        //         });
+        //     }
+        // });
+
+            // jQuery版本  
         $.ajax({
             url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
             cache: false,
             success: function (res) {
 
-                const cards = document.querySelector('.cards');
+                
                 const locations = res.records.location;
 
                 locations.forEach(location => {
@@ -70,28 +102,20 @@
                     const Pop = res.records.location[0].weatherElement[1].time[1].parameter.parameterName;
                     const MinT = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
                     const MaxT = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
-                   
-                    // console.log("locationName:",locationName,"MinT:",MinT);
 
-                    cards.innerHTML +=
-                        ` <div class="card">
-                            <h1>${locationName}</h1>
-                            <h2>${Wx}</h2>
-                            <p>溫度:${MinT} ~ ${MaxT} 度C</p>
-                            <p>降雨機率: ${Pop}%</p>
+                    //js版本要先選擇父層(cards) 然後用innerHTML來替換內容 jQuery則改為 append 且不用+=
+
+                    $('.cards').append( ` <div class="card">
+                                <h1>${locationName}</h1>
+                                <h2>${Wx}</h2>
+                                <p>溫度:${MinT} ~ ${MaxT} 度C</p>
+                                <p>降雨機率: ${Pop}%</p>
                             
                             
-                        </div>`
-                  
-                   
+                            </div>`) 
+                       
                 });
-
-
-
-
             }
-
-
         });
 
 
