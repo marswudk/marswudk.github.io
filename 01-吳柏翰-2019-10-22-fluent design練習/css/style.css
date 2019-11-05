@@ -90,6 +90,7 @@ nav .mainpage h1 a{
     color: white;
     text-decoration: none;
     border-spacing: 0px;
+    white-space: nowrap;
 }
 nav .links{
     margin: 0;    
@@ -204,4 +205,9 @@ nav .menu_list ul a:hover{
     nav .container .link_group{
         display: none;
     }
+}
+
+/* Main */
+
+
 }
