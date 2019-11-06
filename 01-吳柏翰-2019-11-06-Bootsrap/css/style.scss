@@ -1,0 +1,28 @@
+.all{
+    overflow: hidden;
+
+    .row{
+        position: relative;
+
+        &::before{
+            content: "";
+            display: block;
+            position: absolute;
+            left: -50%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: rgb(34, 128, 200);
+        }
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            right: -50%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: rgb(95, 207, 99);
+        }
+    }
+}

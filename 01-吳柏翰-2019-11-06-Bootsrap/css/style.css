@@ -1,0 +1,30 @@
+.all {
+  overflow: hidden;
+}
+
+.all .row {
+  position: relative;
+}
+
+.all .row::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #2280c8;
+}
+
+.all .row::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #5fcf63;
+}
+/*# sourceMappingURL=style.css.map */
