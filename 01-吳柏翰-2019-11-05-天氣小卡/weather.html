@@ -28,23 +28,24 @@
 
     }
 
-    /* .weather_img{
+    .weather_img{
         width: 100px;
         height: 100px;
         position: absolute;
-        right: 0;
-        top: 0;
-    } */
+        right: 15px;
+        top: 15px;
+    }
 </style>
 
 <body>
     <div class="cards">
         <!-- <div class="card">
-                    <h1>${locationName}</h1>
-                    <h2>${Wx}</h2>
-                    <p>溫度:${MinT} ~ ${MaxT} 度C</p>
-                    <p>降雨機率: ${Pop}%</p>
-                    <img class="weather_img" src= 'https://img.freepik.com/free-vector/classic-monsoon-season-composition-with-realistic-design_23-2147880938.jpg?size=338&ext=jpg' alt="">
+                    <h1>台中市</h1>
+                    <img class="weather_img" src= 'img\sunny.png' alt="">
+                    <h2>晴天</h2>
+                    <p>溫度:20 ~ 30 度C</p>
+                    <p>降雨機率: 0%</p>
+                    
                 </div> -->
 
     </div>
@@ -57,12 +58,55 @@
     <script>
 
 
+        $.ajax({
+            url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
+            cache: false,
+            success: function (res) {
+
+                const cards = document.querySelector('.cards');
+                const locations = res.records.location;
+                // const img = document.querySelector('.weather_img');
+
+                locations.forEach(location => {
+                    const locationName = location.locationName;
+                    const Wx = res.records.location[0].weatherElement[0].time[1].parameter.parameterName;
+                    const Pop = res.records.location[0].weatherElement[1].time[1].parameter.parameterName;
+                    const MinT = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
+                    const MaxT = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
+                    const img = document.querySelector('.weather_img');
+
+                    console.log("locationName:",locationName,"MinT:",MinT);
+
+                    cards.innerHTML +=
+                        ` <div class="card">
+                            <h1>${locationName}</h1>
+                            <h2>${Wx}</h2>
+                            <p>溫度:${MinT} ~ ${MaxT} 度C</p>
+                            <p>降雨機率: ${Pop}%</p>
+                            
+                        </div>`
+                
+                
+                });
+                // const current_src = img.setAttribute('src');
+                // const sunny = 'img\sunny.png';
+                // const cloudy = 'img\cloudy.png';
+                // const rainy = 'img\rainy.png';
+                // if (Pop <= 30) {
+                //     document.querySelector('.weather_img').src = 'img\sunny.png';
+                // }else if(Pop >50){
+                //     document.querySelector('.weather_img').src = 'img\rainy.png';
+                // }
+            }
+        });
+
+            // jQuery版本  
         // $.ajax({
         //     url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
         //     cache: false,
         //     success: function (res) {
 
-        //         const cards = document.querySelector('.cards');
+                
         //         const locations = res.records.location;
 
         //         locations.forEach(location => {
@@ -72,51 +116,21 @@
         //             const MinT = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
         //             const MaxT = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
 
-        //             // console.log("locationName:",locationName,"MinT:",MinT);
+        //             //js版本要先選擇父層(cards) 然後用innerHTML來替換內容 jQuery則改為 append 且不用+=
 
-        //             cards.innerHTML +=
-        //                 ` <div class="card">
-        //                     <h1>${locationName}</h1>
-        //                     <h2>${Wx}</h2>
-        //                     <p>溫度:${MinT} ~ ${MaxT} 度C</p>
-        //                     <p>降雨機率: ${Pop}%</p>
+        //             $('.cards').append( ` <div class="card">
+        //                         <h1>${locationName}</h1>
+        //                         <h2>${Wx}</h2>
+        //                         <p>溫度:${MinT} ~ ${MaxT} 度C</p>
+        //                         <p>降雨機率: ${Pop}%</p>
                             
                             
-        //                 </div>`
+        //                     </div>`) 
+                        
+                       
         //         });
         //     }
         // });
-
-            // jQuery版本  
-        $.ajax({
-            url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
-            cache: false,
-            success: function (res) {
-
-                
-                const locations = res.records.location;
-
-                locations.forEach(location => {
-                    const locationName = location.locationName;
-                    const Wx = res.records.location[0].weatherElement[0].time[1].parameter.parameterName;
-                    const Pop = res.records.location[0].weatherElement[1].time[1].parameter.parameterName;
-                    const MinT = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
-                    const MaxT = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
-
-                    //js版本要先選擇父層(cards) 然後用innerHTML來替換內容 jQuery則改為 append 且不用+=
-
-                    $('.cards').append( ` <div class="card">
-                                <h1>${locationName}</h1>
-                                <h2>${Wx}</h2>
-                                <p>溫度:${MinT} ~ ${MaxT} 度C</p>
-                                <p>降雨機率: ${Pop}%</p>
-                            
-                            
-                            </div>`) 
-                       
-                });
-            }
-        });
 
 
     </script>
