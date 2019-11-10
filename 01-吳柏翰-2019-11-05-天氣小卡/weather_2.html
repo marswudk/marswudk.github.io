@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天氣小卡</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .cards {
+        width: 90%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .card {
+        border: 1px solid gray;
+        padding: 2px;
+        width: 35%;
+        text-align: center;
+        margin: 15px;
+
+
+    }
+
+    .card h1 {
+        font-size: 26px;
+        font-family: 標楷體;
+        line-height: 40px;
+
+    }
+
+    .content {
+        display: flex;
+        padding: 15px;
+    }
+
+    .time {
+        position: relative;
+        border-right: 1px solid lightgray;
+        padding: 2px;
+
+    }
+
+    .card p {
+        font-size: 14px;
+        font-family: 微軟正黑體;
+    }
+
+    .img {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+    .detail{
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+
+<body>
+    <div class="cards">
+        <div class="card">
+
+            <div>
+                <h1>台中市36小時天氣預報</h1>
+            </div>
+            <section class="content">
+                <div class="time">
+                    <p>2019-11-10 18:00<br />2019-11-11 12:00</p>
+                    <img class="img" src="./img/rainy.png" alt="陣雨" title="陣雨">
+                </div>
+                <div class="detail">
+                    <p>陣雨</p>
+                    <p>降雨機率%</p>
+                </div>
+
+                <div class="time">
+                    <p>2019-11-10 18:00<br />2019-11-11 12:00</p>
+                    <img class="img" src="./img/rainy.png" alt="陣雨" title="陣雨">
+                </div>
+                <div class="detail">
+                    <p>陣雨</p>
+                    <p>降雨機率%</p>
+                </div>
+                <div class="time">
+                    <p>2019-11-10 18:00<br />2019-11-11 12:00</p>
+                    <img class="img" src="./img/rainy.png" alt="陣雨" title="陣雨">
+                </div>
+                <div class="detail">
+                    <p>陣雨</p>
+                    <p>降雨機率%</p>
+                    <p>溫度:22~28度C</p>
+                </div>
+            </section>
+
+
+
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+    <script>
+        $.ajax({
+            url:
+                "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
+            cache: false,
+            success: function (res) {
+                var cards = document.querySelector('.cards');
+                var locations = res.records.location;
+                // console.log(res);
+
+
+
+
+
+                // console.log('location:',locationName,'Pop',Pop);
+
+                for (let index = 0; index < locations.length; index++) {
+                    const location = locations[index];
+                    var startTime_1 = res.records.location[0].weatherElement[0].time[0].startTime;
+                    var endTime_1 = res.records.location[0].weatherElement[0].time[0].endTime;
+                    var startTime_2 = res.records.location[0].weatherElement[0].time[1].startTime;
+                    var endTime_2 = res.records.location[0].weatherElement[0].time[1].endTime;
+                    var startTime_3 = res.records.location[0].weatherElement[0].time[2].startTime;
+                    var endTime_3 = res.records.location[0].weatherElement[0].time[2].endTime;
+                    var locationName = location.locationName;
+                    var WxName_1 = res.records.location[0].weatherElement[0].time[0].parameter.parameterName;
+                    var WxName_2 = res.records.location[0].weatherElement[0].time[1].parameter.parameterName;
+                    var WxName_3 = res.records.location[0].weatherElement[0].time[2].parameter.parameterName;
+                    // var WxValue = res.records.location[0].weatherElement[0].time[0].parameter.parameterValue;
+                    var Pop_1 = res.records.location[0].weatherElement[1].time[0].parameter.parameterName;
+                    var Pop_2 = res.records.location[0].weatherElement[1].time[1].parameter.parameterName;
+                    var Pop_3 = res.records.location[0].weatherElement[1].time[2].parameter.parameterName;
+                    var MinT_1 = res.records.location[0].weatherElement[2].time[0].parameter.parameterName;
+                    var MinT_2 = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
+                    var MinT_3 = res.records.location[0].weatherElement[2].time[2].parameter.parameterName;
+                    var MaxT_1 = res.records.location[0].weatherElement[4].time[0].parameter.parameterName;
+                    var MaxT_2 = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
+                    var MaxT_3 = res.records.location[0].weatherElement[4].time[2].parameter.parameterName;
+                    var sunny = "./img/sunny.png";
+                    var cloudy = "./img/sunny.png";
+                    var rainy = "./img/sunny.png";
+                    var img_array = [sunny, cloudy, rainy]
+                    var img_1;
+                    var img_2;
+                    var img_3;
+
+
+                    if (Pop_1 >= '50') {
+                        img_1 = img_array[2];
+
+                    } else if (Pop_1 < "20") {
+                        img_1 = img_array[0];
+
+                    } else {
+                        img_1 = img_array[1];
+
+                    }
+                    if (Pop_2 >= '50') {
+                        img_2 = img_array[2];
+
+                    } else if (Pop_2 < "20") {
+                        img_2 = img_array[0];
+
+                    } else {
+                        img_2 = img_array[1];
+
+                    }
+                    if (Pop_3 >= '50') {
+                        img_3 = img_array[2];
+
+                    } else if (Pop_3 < "20") {
+                        img_3 = img_array[0];
+
+                    } else {
+                        img_3 = img_array[1];
+
+                    }
+
+
+
+
+                    cards.innerHTML += `<div class="card">
+
+                        <div>
+                            <h1>${locationName}36小時天氣預報</h1>
+                        </div>
+                        <section class="content">
+                            <div class="time">
+                                <p>${startTime_1}<br />${endTime_1}</p>
+                                <img class="img" src=${img_1} alt="${WxName_1}" title="${WxName_1}">
+                            </div>
+                            <div class="time">
+                                <p>${startTime_2}<br />${endTime_2}</p>
+                                <img class="img" src=${img_2} alt="${WxName_2}" title="${WxName_2}">
+                            </div>
+                            <div class="time">
+                                <p>${startTime_3}<br />${endTime_3}</p>
+                                <img class="img" src=${img_3} alt="${WxName_3}" title="${WxName_3}">
+                            </div>
+                        </section>
+
+
+
+
+                        </div>`
+
+                }
+
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
