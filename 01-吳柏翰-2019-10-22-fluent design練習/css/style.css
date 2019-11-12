@@ -209,5 +209,27 @@ nav .menu_list ul a:hover{
 
 /* Main */
 
-
+#intro{
+    width: 100%;
+    margin: 145px 0 65px;
+    background-color: black;
 }
+#intro .content{
+    width: 410px;
+    flex: 0 0 auto;
+    
+}
+.content .contentHead{
+    width: 100%;
+}
+.content .contentHead h2{
+    font-size: 64px;
+    line-height: 80px;
+    color: rgb(79, 229, 255);
+    font-weight: 600;
+    margin: 0px 0px 0px -6px;
+}
+.content .contentParagraph{
+    color: white;
+}
+
