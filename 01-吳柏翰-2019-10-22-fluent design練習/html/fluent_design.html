@@ -12,12 +12,12 @@
 <body>
     <nav>
         <div class="container flex">
-            <div class="logo">                
+            <div class="logo">
                 <a href="">
                     <img src="../img/microsoft_color.png" alt="">
                 </a>
             </div>
-            <div class="mainpage">                
+            <div class="mainpage">
                 <h1>
                     <a title="Fluent Design System" href="">Fluent Design System</a>
                 </h1>
@@ -69,23 +69,90 @@
     <main>
         <!-- Fluent Design -->
         <div id="intro" class="flex">
-            <div class="content">
-                <div class="contentHead">
-                    <h2>Fluent Design System</h2>
+            <div class="inner">
+                <div class="content">
+                    <div class="contentHead">
+                        <h2>Fluent Design System</h2>
+                    </div>
+                    <div class="contentParagraph">
+                        <p>Fluent brings the fundamentals of principled design, innovation in technology, and customer
+                            needs together as one. It’s a collective approach to creating simplicity and coherence
+                            through a shared, open design system across platforms.</p>
+                        <p>Open ecosystem, open design system.</p>
+                    </div>
+
+
                 </div>
-                <div class="contentParagraph">
-                    <p>Fluent brings the fundamentals of principled design, innovation in technology, and customer needs together as one. It’s a collective approach to creating simplicity and coherence through a shared, open design system across platforms.</p>
-                    <p>Open ecosystem, open design system.</p>
+                <div class="fluent_img">
+                    <img src="../img/icon-fluent.png" alt="">
                 </div>
-                
-                
-            </div >
-            <div id="img">
-                <img src="../img/icon-fluent.png" alt="">
             </div>
+
         </div>
         <!-- 四格選單 -->
-        <div></div>
+        <div class="four_column">
+            <div class="container">
+                <div class="row flex">
+                    <div class="WebColumn">
+                        <a href="">
+                            <div class="img">
+                                <img src="../img/icon-globe.svg" alt="">
+                            </div>
+                            <div>
+                                <h2>Web</h2>
+                                <p>Create your own web apps and add-ins.</p>
+                            </div>
+                            <div>
+                                <span><img class="arrow" src="../img/arrow-black.svg" alt=""></span><span>Get started!</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="windowsColumn">
+                        <a href="">
+                            <div class="img">
+                                <img src="../img/icon-windows.svg" alt="">
+                            </div>
+                            <div>
+                                <h2>Windows</h2>
+                                <p>Create and publish your own Windows apps.</p>
+                            </div>
+                            <div>
+                                <span><img class="arrow" src="../img/arrow-black.svg" alt=""></span><span>Get started!</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="iosColumn">
+                        <a href="">
+                            <div class="img">
+                                <img src="../img/icon-ios.svg" alt="">
+                            </div>
+                            <div>
+                                <h2>iOS</h2>
+                                <p>Take your custom apps to the mobile market.</p>
+                            </div>
+                            <div>
+                                <span><img class="arrow" src="../img/arrow-black.svg" alt=""></span><span>Get started!</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="androidColumn">
+                        <a href="">
+                            <div class="img">
+                                <img src="../img/icon-android.svg" alt="">
+                            </div>
+                            <div>
+                                <h2>Android</h2>
+                                <p>Take your custom apps to the mobile market.</p>
+                            </div>
+                            <div>
+                                <span><img class="arrow" src="../img/arrow-black.svg" alt=""></span><span>Get started!</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <!-- Natural on every device -->
         <div></div>
         <!-- 圓球 -->
@@ -110,22 +177,22 @@
 
 
     <script>
-    var menu_btn = document.querySelector('.menu_btn');
-    var menu_list = document.querySelector('.menu_list');
-    var top_bar = document.querySelector('.top_bar');
-    var mid_bar = document.querySelector('.mid_bar');
-    var btm_bar = document.querySelector('.btm_bar');
-    // 宣告變數
+        var menu_btn = document.querySelector('.menu_btn');
+        var menu_list = document.querySelector('.menu_list');
+        var top_bar = document.querySelector('.top_bar');
+        var mid_bar = document.querySelector('.mid_bar');
+        var btm_bar = document.querySelector('.btm_bar');
+        // 宣告變數
 
-    menu_btn.onclick = function () {
-        menu_list.classList.toggle("active");
-        top_bar.classList.toggle('active');
-        mid_bar.classList.toggle('active');
-        btm_bar.classList.toggle('active');
-    }
+        menu_btn.onclick = function () {
+            menu_list.classList.toggle("active");
+            top_bar.classList.toggle('active');
+            mid_bar.classList.toggle('active');
+            btm_bar.classList.toggle('active');
+        }
     // 點下按鈕後漢堡條的改變&出現選單
-    
-    
+
+
     </script>
 
 </body>

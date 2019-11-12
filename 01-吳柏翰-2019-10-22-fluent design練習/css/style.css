@@ -4,6 +4,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 .flex{
     display: flex;
@@ -14,7 +15,7 @@ nav{
     background-color: black;
     color: white;
 }
-nav .container{
+.container{
     width: 1536px;
     margin: 0 auto;
     height: 100%;
@@ -22,17 +23,17 @@ nav .container{
     
 }
 @media screen and (max-width: 1680px){
-    nav .container{
+    .container{
         width: 1336px;
     }
 }
 @media screen and (max-width: 1680px){
-    nav .container{
+    .container{
         width: 1336px;
     }
 }
 @media screen and (max-width: 1460px){
-    nav .container{
+    .container{
         width: 1136px;
     }
     nav .container .link_group{
@@ -45,7 +46,7 @@ nav .container{
     }
 }
 @media screen and (max-width: 1024px){
-    nav .container{
+    .container{
         width: 100%;
         padding: 0 30px;
     }
@@ -214,6 +215,11 @@ nav .menu_list ul a:hover{
     margin: 145px 0 65px;
     background-color: black;
 }
+#intro .inner{
+    display: flex;
+    width: 1536px;
+    margin: 0px auto;
+}
 #intro .content{
     width: 410px;
     flex: 0 0 auto;
@@ -231,5 +237,141 @@ nav .menu_list ul a:hover{
 }
 .content .contentParagraph{
     color: white;
+    width: 100%;
+    margin: 100px 0px 30px;
+    max-width: 352px;
+}
+.content .contentParagraph p{
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px 0px 24px;
+}
+.inner .fluent_img{
+    text-align: center;
+    position: relative;
+    flex: 1 1 auto;
 }
 
+/* 四格選單 */
+
+.four_column{
+    overflow: hidden;
+
+}
+.four_column .row{
+    position: relative; 
+    width: 100%;
+    margin: 0px auto;
+    display: flex;  
+    justify-content: center; 
+    
+}
+.row::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -40%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(34, 128, 200);
+    z-index: -1;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -40%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(95, 207, 99);
+    z-index: -1;
+}
+.row a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 27px;
+}
+.WebColumn{
+    background-color: rgb(37, 142, 222);
+}
+.WebColumn:hover{
+    background-color: rgb(20, 130, 200);
+}
+.windowsColumn{
+    background-color: rgb(79, 229, 255);
+}
+.windowsColumn:hover{
+    background-color: rgb(60, 200, 220);
+}
+.iosColumn{
+    background-color: rgb(207, 143, 255);
+}
+.iosColumn:hover{
+    background-color: rgb(198, 135, 220);
+}
+.androidColumn{
+    background-color: rgb(105, 229, 110);
+}
+.androidColumn:hover{
+    background-color: rgb(80, 200, 90);
+}
+.row .img {
+    margin: 0 0 75px 0;
+}
+.row h2 {
+    line-height: 36px;
+    margin-bottom: 36px;
+}
+
+.row p {
+
+    margin-bottom: 92px;
+}
+
+.row .arrow {
+    margin: 0 16px 0 0;
+}
+@media(max-width: 1200px) {
+    .four_column .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .row::before {
+        display: none;
+    }
+
+    .row::after {
+        display: none;
+    }
+
+    .col-xl-3 a {
+
+        padding: 38px;
+    }
+
+    .img {
+        margin: 0 0 70px 0;
+    }
+
+    .col-xl-3 h2 {
+
+        margin-bottom: 45px;
+    }
+
+    .col-xl-3 p {
+
+        margin-bottom: 25px;
+    }
+
+
+
+}
+
+/* Natural on every device */
