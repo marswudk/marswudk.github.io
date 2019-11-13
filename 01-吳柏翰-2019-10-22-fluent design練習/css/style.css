@@ -253,6 +253,22 @@ nav .menu_list ul a:hover{
     position: relative;
     flex: 1 1 auto;
 }
+@media (max-width: 1680px){
+    #intro .inner{
+        width: 1336px;
+    }
+}
+@media (max-width: 1460px){
+    #intro .inner{
+        width: 1136px;
+    }
+}
+@media (max-width: 1280px){
+    #intro .inner{
+        width: 960px;
+    }
+}
+    
 
 /* 四格選單 */
 
@@ -375,3 +391,37 @@ nav .menu_list ul a:hover{
 }
 
 /* Natural on every device */
+.natural{
+    width: 100%;
+    min-height: 768px;   
+    background-image: url('../img/natural_background.jpg'); 
+
+}
+.natural .natural_inner{
+    width: 1536px;
+    margin: 0px auto;
+}
+.natural .natural_inner .natural_head{
+    width: 100%;
+    padding: 10px 20px 0;
+}
+.natural_head h2{
+    color: rgb(0, 0, 0);
+    font-size: 128px;
+    line-height: 150px;
+    font-weight: 600;
+}
+.natural_para{
+    width: 100%;
+    margin: 60px 0px 0px;
+    max-width: 384px;
+    padding: 0px 16px 0px 24px;
+
+}
+.natural_para p{
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px;
+}
