@@ -425,3 +425,162 @@ nav .menu_list ul a:hover{
     font-weight: 600;
     margin: 0px;
 }
+.ball_area{
+    width: 100;
+    background-color: rgb(25, 25, 25);
+}
+.ball_inner{
+    position: relative;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 1536px;
+    margin: 0px auto;
+}
+.rect_img{
+    position: absolute;
+    top: -200px;
+    right: 130px;
+    pointer-events: none;
+    z-index: 4;
+    /* transform: translateY(20px); */
+    /* opacity: 0; */
+    /* transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+
+}
+.line_img{
+    position: absolute;
+    top: 570px;
+    left: 190px;
+    /* pointer-events: none; */
+    /* transform: translateY(400px); */
+    /* transition: transform 600ms linear 0ms; */
+}
+.ball_img{
+    width: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    /* opacity: 0; */
+    /* transform: scale(0.8); */
+    padding: 100px 100px 50px;
+    /* transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
+.ball_content{
+    width: 100%;
+    background-color: rgb(25, 25, 25);
+}
+.content_inner{
+    position: relative;
+    width: 1536px;
+    margin: 0px auto;
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+
+}
+.ball_para{
+    width: 384px;
+    margin: 0px 0px 50px;
+    padding: 0px 16px;
+}
+.ball_para p{
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px;
+}
+.intuitive_all{
+    width: 100%;
+    position: relative;
+    background-color: rgb(25, 25, 25);
+}
+.intuitive_title{
+    position: absolute;
+    bottom: 80px;
+    left: 0px;
+    width: 100%;
+    z-index: 4;
+}
+.title_inner{
+    width: 1536px;
+    margin: 0px auto;
+}
+.title_inner h2{
+    color: rgb(25, 25, 25);
+    font-size: 128px;
+    line-height: 144px;
+    font-weight: 600;
+    margin: 0px 0px 0px 26px;
+}
+.cloud_all{
+    position: relative;
+    top: 0px;
+    z-index: 2;
+    width: 100%;
+    min-height: 948px;
+    background-image: url('../img/clouds.jpg');
+
+}
+.cloud_inner{
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 1536px;
+    margin: 0px auto;
+}
+.plane{
+    position: absolute;
+    top: -240px;
+    right: -260px;
+    width: 768px;
+}
+.plane_img{
+    position: absolute;
+    top: -120px;
+    left: 2px;
+    z-index: 2;
+    opacity: 1;
+}
+.plane_line{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+.cloud_titleD h2{
+    position: absolute;
+    top: -100px;
+    left: 0px;
+    font-size: 395px;
+    line-height: 1;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    opacity: 0.993449;
+    transform: translate3d(0px, 1.31029px, 0px);
+}
+/* .cloud_content{
+    position: relative;
+} */
+.cloud_titleS h2{
+    position: absolute;
+    top: 140px;
+    right: -30px;
+    font-size: 395px;
+    line-height: 1;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    opacity: 0.971515;
+    transform: translate3d(0px, 5.69695px, 0px);
+}
+.cloud_line{
+    position: absolute;
+    top: 550px;
+    left: 370px;
+    pointer-events: none;
+    /* opacity: 0; */
+    /* transform: translateY(20px); */
+    /* transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
