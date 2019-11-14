@@ -31,7 +31,7 @@
         width: 25%;
         text-align: center;
         margin: 15px;
-   
+
     }
 
     .card h1 {
@@ -44,13 +44,17 @@
     .content {
         display: flex;
         padding: 15px;
+        justify-content: space-around;
     }
 
     .time {
         position: relative;
-        border-right: 1px solid lightgray;
         padding: 2px;
 
+    }
+
+    .time.active {
+        display: none;
     }
 
     .card p {
@@ -62,10 +66,17 @@
         width: 60px;
         height: 60px;
         margin: 0 auto;
+        cursor: pointer;
     }
-    .detail{
+
+    .detail {
         opacity: 0;
         pointer-events: none;
+    }
+
+    .detail.active {
+        opacity: 1;
+        transition: 0.5s;
     }
 </style>
 
@@ -131,72 +142,67 @@
 
                 for (let index = 0; index < locations.length; index++) {
                     const location = locations[index];
+                    var time_array = location.weatherElement[0].time;
+                    // var imgs = [];
+                    for (let j = 0; j < time_array.length; j++) {
+                        const time = time_array[j];
+
+                        var locationName = location.locationName;
+                        var WxName = location.weatherElement[0].time[0].parameter.parameterName;
+                        var Pop = location.weatherElement[1].time[0].parameter.parameterName;
+                        var MinT = location.weatherElement[2].time[0].parameter.parameterName;
+                        var MaxT = location.weatherElement[4].time[0].parameter.parameterName;
+                        var Ci = location.weatherElement[3].time[0].parameter.parameterName;
+                        var sunny = "./img/sunny.png";
+                        var cloudy = "./img/cloudy.png";
+                        var rainy = "./img/rainy.png";
+                        var img_array = [sunny, cloudy, rainy];
+                        var Pop_number = parseInt(Pop);
+                        // console.log(imgs);
+                        // console.log(time);
+
+                        var img1;
+                        var img2;
+                        var img3;
+                        
+                        while (time[0]) {
+                                                    
+                            if (Pop_number < 20) {
+                                img1 = img_array[0]
+                            } else if (Pop_number >= 50) {
+                                img1 = img_array[2]
+                            } else {
+                                img1 = img_array[1]
+                            }
+                        //    imgs.push(img);
+                        };
+                        while(time[1]) {
+                            if (Pop_number < 20) {
+                                img2 = img_array[0]
+                            } else if (Pop_number >= 50) {
+                                img2 = img_array[2]
+                            } else {
+                                img2 = img_array[1]
+                            }
+                            // imgs.push(img);
+                        } ;
+                        while(time[2]) {
+                            if (Pop_number < 20) {
+                                img3 = img_array[0]
+                            } else if (Pop_number >= 50) {
+                                img3 = img_array[2]
+                            } else {
+                                img3 = img_array[1]
+                            }
+                            // imgs.push(img);
+                            
+                        }
+                        
+                        
+
+                    }
                     
-                    var startTime_1 = res.records.location[0].weatherElement[0].time[0].startTime;
-                    var endTime_1 = res.records.location[0].weatherElement[0].time[0].endTime;
-                    var startTime_2 = res.records.location[0].weatherElement[0].time[1].startTime;
-                    var endTime_2 = res.records.location[0].weatherElement[0].time[1].endTime;
-                    var startTime_3 = res.records.location[0].weatherElement[0].time[2].startTime;
-                    var endTime_3 = res.records.location[0].weatherElement[0].time[2].endTime;
-                    var startTime = [startTime_1,startTime_2,startTime_3]
-                    var endTime = []
-                    var locationName = location.locationName;
-                    var WxName_1 = res.records.location[0].weatherElement[0].time[0].parameter.parameterName;
-                    var WxName_2 = res.records.location[0].weatherElement[0].time[1].parameter.parameterName;
-                    var WxName_3 = res.records.location[0].weatherElement[0].time[2].parameter.parameterName;
-                    // var WxValue = res.records.location[0].weatherElement[0].time[0].parameter.parameterValue;
-                    var Pop_1 = res.records.location[0].weatherElement[1].time[0].parameter.parameterName;
-                    var Pop_2 = res.records.location[0].weatherElement[1].time[1].parameter.parameterName;
-                    var Pop_3 = res.records.location[0].weatherElement[1].time[2].parameter.parameterName;
-                    var MinT_1 = res.records.location[0].weatherElement[2].time[0].parameter.parameterName;
-                    var MinT_2 = res.records.location[0].weatherElement[2].time[1].parameter.parameterName;
-                    var MinT_3 = res.records.location[0].weatherElement[2].time[2].parameter.parameterName;
-                    var MaxT_1 = res.records.location[0].weatherElement[4].time[0].parameter.parameterName;
-                    var MaxT_2 = res.records.location[0].weatherElement[4].time[1].parameter.parameterName;
-                    var MaxT_3 = res.records.location[0].weatherElement[4].time[2].parameter.parameterName;
-                    var sunny = "./img/sunny.png";
-                    var cloudy = "./img/sunny.png";
-                    var rainy = "./img/sunny.png";
-                    var img_array = [sunny, cloudy, rainy]
-                    var img_1;
-                    var img_2;
-                    var img_3;
-                    
-
-                    if (Pop_1 >= '50') {
-                        img_1 = img_array[2];
-
-                    } else if (Pop_1 < "20") {
-                        img_1 = img_array[0];
-
-                    } else {
-                        img_1 = img_array[1];
-
-                    }
-                    if (Pop_2 >= '50') {
-                        img_2 = img_array[2];
-
-                    } else if (Pop_2 < "20") {
-                        img_2 = img_array[0];
-
-                    } else {
-                        img_2 = img_array[1];
-
-                    }
-                    if (Pop_3 >= '50') {
-                        img_3 = img_array[2];
-
-                    } else if (Pop_3 < "20") {
-                        img_3 = img_array[0];
-
-                    } else {
-                        img_3 = img_array[1];
-
-                    }
-
-
-
-
+                    //Question： 如何在不同欄位分別抓取時間的資訊？
                     cards.innerHTML += `<div class="card">
 
                         <div>
@@ -205,29 +211,49 @@
                         <section class="content">
                             <div class="time">
                                 <p>12小時</p>
-                                <img class="img" src=${img_1} alt="${WxName_1}" title="${WxName_1}">
+                                <img class="img" src=${img1} alt="${WxName}" title="${WxName}">
+                            </div>
+                            <div class="detail">
+                                <p>${WxName}</p>
+                                <p>降雨機率:${Pop_number}%</p>
                             </div>
                             <div class="time">
                                 <p>24小時</p>
-                                <img class="img" src=${img_2} alt="${WxName_2}" title="${WxName_2}">
+                                <img class="img" src=${img2} alt="${WxName}" title="${WxName}">
+                            </div>
+                            <div class="detail">
+                                <p>${WxName}</p>
+                                <p>降雨機率:${Pop_number}%</p>
                             </div>
                             <div class="time">
                                 <p>36小時</p>
-                                <img class="img" src=${img_3} alt="${WxName_3}" title="${WxName_3}">
+                                <img class="img" src=${img3} alt="${WxName}" title="${WxName}">
+                            </div>
+                            <div class="detail">
+                                <p>${WxName}</p>    
+                                <p>降雨機率:${Pop_number}%</p>
                             </div>
                         </section>
-
-
-
-
                         </div>`
+                        
+                        
+                        
+                    //     var infor = document.querySelector('.time');
+                    //     var detail = document.querySelector('.detail');
+                    //     img.onclick = function () {
+                    //     infor.classList.add('active');
+                    //     detail.classList.remove('active');
+                    // }
 
                 }
 
 
             }
+            
 
         });
+
+
 
 
 

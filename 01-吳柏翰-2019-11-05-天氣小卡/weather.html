@@ -77,15 +77,15 @@
                     const MaxT = location.weatherElement[4].time[0].parameter.parameterName;
                     const Ci = location.weatherElement[3].time[0].parameter.parameterName;
                     const img_array =['./img/sunny.png','./img/cloudy.png','./img/rainy.png'];
-                    
+                    const time = location.weatherElement[0].time[0]
                     Pop_number = parseInt(Pop); 
                     
-                    // console.log(Wx);
+                    console.log(time);
                     
                     var img;
                     if (Pop_number < 20) {
                         img = img_array[0];
-                    } else if (Pop_number > 50) {
+                    } else if (Pop_number >= 50) {
                         img = img_array[2];
                     } else {
                         img = img_array[1];
