@@ -209,6 +209,9 @@ nav .menu_list ul a:hover{
 }
 
 /* Main */
+main{
+    overflow: hidden;
+}
 
 #intro{
     width: 100%;
@@ -515,6 +518,15 @@ nav .menu_list ul a:hover{
     font-weight: 600;
     margin: 0px 0px 0px 26px;
 }
+.intuitive_img{
+    width: 100%;
+}
+.intuitive_img img{
+    width: 100%;
+    min-width: 2000px;
+    position: relative;
+    align-self: center;
+}
 .cloud_all{
     position: relative;
     top: 0px;
@@ -522,7 +534,10 @@ nav .menu_list ul a:hover{
     width: 100%;
     min-height: 948px;
     background-image: url('../img/clouds.jpg');
-
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(0, 0, 0);
 }
 .cloud_inner{
     position: relative;
@@ -561,9 +576,7 @@ nav .menu_list ul a:hover{
     opacity: 0.993449;
     transform: translate3d(0px, 1.31029px, 0px);
 }
-/* .cloud_content{
-    position: relative;
-} */
+
 .cloud_titleS h2{
     position: absolute;
     top: 140px;
@@ -577,10 +590,10 @@ nav .menu_list ul a:hover{
 }
 .cloud_line{
     position: absolute;
-    top: 550px;
+    top: 670px;
     left: 370px;
     pointer-events: none;
-    /* opacity: 0; */
-    /* transform: translateY(20px); */
-    /* transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+    opacity: 1; 
+    transform: translateY(0px);
+    transition: opacity 600ms linear 0ms, transform 600ms linear 0ms;
 }

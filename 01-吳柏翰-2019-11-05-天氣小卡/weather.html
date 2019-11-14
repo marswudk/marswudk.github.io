@@ -66,33 +66,38 @@
 
                 const cards = document.querySelector('.cards');
                 const locations = res.records.location;
+                // console.log(res);
                 
-
+                
                 locations.forEach(location => {
                     const locationName = location.locationName;
-                    const Wx = res.records.location[0].weatherElement[0].time[0].parameter.parameterName;
-                    const Pop = res.records.location[0].weatherElement[1].time[0].parameter.parameterName;
-                    const MinT = res.records.location[0].weatherElement[2].time[0].parameter.parameterName;
-                    const MaxT = res.records.location[0].weatherElement[4].time[0].parameter.parameterName;
+                    const Wx = location.weatherElement[0].time[0].parameter.parameterName;
+                    const Pop = location.weatherElement[1].time[0].parameter.parameterName;
+                    const MinT = location.weatherElement[2].time[0].parameter.parameterName;
+                    const MaxT = location.weatherElement[4].time[0].parameter.parameterName;
+                    const Ci = location.weatherElement[3].time[0].parameter.parameterName;
                     const img_array =['./img/sunny.png','./img/cloudy.png','./img/rainy.png'];
-                    Pop_number = parseInt(Pop);
-
                     
+                    Pop_number = parseInt(Pop); 
+                    
+                    // console.log(Wx);
                     
                     var img;
-                    if (Pop_number <= 30) {
+                    if (Pop_number < 20) {
                         img = img_array[0];
                     } else if (Pop_number > 50) {
                         img = img_array[2];
                     } else {
                         img = img_array[1];
                     }
-                    console.log(res);
+                   console.log(Pop_number);
+                   
                     cards.innerHTML +=
                         ` <div class="card">
                             <h1>${locationName}</h1>
                             <img class="weather_img" src= ${img} alt="">
                             <h2>${Wx}</h2>
+                            <p>${Ci}</p>
                             <p>溫度:${MinT} ~ ${MaxT} 度C</p>
                             <p>降雨機率: ${Pop}%</p>
                             

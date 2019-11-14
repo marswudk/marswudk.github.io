@@ -28,11 +28,10 @@
     .card {
         border: 1px solid gray;
         padding: 2px;
-        width: 35%;
+        width: 25%;
         text-align: center;
         margin: 15px;
-
-
+   
     }
 
     .card h1 {
@@ -72,7 +71,7 @@
 
 <body>
     <div class="cards">
-        <div class="card">
+        <!-- <div class="card">
 
             <div>
                 <h1>台中市36小時天氣預報</h1>
@@ -109,7 +108,7 @@
 
 
 
-        </div>
+        </div> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
@@ -132,12 +131,15 @@
 
                 for (let index = 0; index < locations.length; index++) {
                     const location = locations[index];
+                    
                     var startTime_1 = res.records.location[0].weatherElement[0].time[0].startTime;
                     var endTime_1 = res.records.location[0].weatherElement[0].time[0].endTime;
                     var startTime_2 = res.records.location[0].weatherElement[0].time[1].startTime;
                     var endTime_2 = res.records.location[0].weatherElement[0].time[1].endTime;
                     var startTime_3 = res.records.location[0].weatherElement[0].time[2].startTime;
                     var endTime_3 = res.records.location[0].weatherElement[0].time[2].endTime;
+                    var startTime = [startTime_1,startTime_2,startTime_3]
+                    var endTime = []
                     var locationName = location.locationName;
                     var WxName_1 = res.records.location[0].weatherElement[0].time[0].parameter.parameterName;
                     var WxName_2 = res.records.location[0].weatherElement[0].time[1].parameter.parameterName;
@@ -159,7 +161,7 @@
                     var img_1;
                     var img_2;
                     var img_3;
-
+                    
 
                     if (Pop_1 >= '50') {
                         img_1 = img_array[2];
@@ -202,15 +204,15 @@
                         </div>
                         <section class="content">
                             <div class="time">
-                                <p>${startTime_1}<br />${endTime_1}</p>
+                                <p>12小時</p>
                                 <img class="img" src=${img_1} alt="${WxName_1}" title="${WxName_1}">
                             </div>
                             <div class="time">
-                                <p>${startTime_2}<br />${endTime_2}</p>
+                                <p>24小時</p>
                                 <img class="img" src=${img_2} alt="${WxName_2}" title="${WxName_2}">
                             </div>
                             <div class="time">
-                                <p>${startTime_3}<br />${endTime_3}</p>
+                                <p>36小時</p>
                                 <img class="img" src=${img_3} alt="${WxName_3}" title="${WxName_3}">
                             </div>
                         </section>
