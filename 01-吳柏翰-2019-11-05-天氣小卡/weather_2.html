@@ -143,58 +143,60 @@
                 for (let index = 0; index < locations.length; index++) {
                     const location = locations[index];
                     var time_array = location.weatherElement[0].time;
-                    // var imgs = [];
+                    var imgs = [];
                     for (let j = 0; j < time_array.length; j++) {
                         const time = time_array[j];
 
                         var locationName = location.locationName;
-                        var WxName = location.weatherElement[0].time[0].parameter.parameterName;
-                        var Pop = location.weatherElement[1].time[0].parameter.parameterName;
-                        var MinT = location.weatherElement[2].time[0].parameter.parameterName;
-                        var MaxT = location.weatherElement[4].time[0].parameter.parameterName;
-                        var Ci = location.weatherElement[3].time[0].parameter.parameterName;
+                        var WxName = time.parameter.parameterName;
+                        var Pop = time.parameter.parameterName;
+                        var MinT = time.parameter.parameterName;
+                        var MaxT = time.parameter.parameterName;
+                        var Ci = time.parameter.parameterName;
                         var sunny = "./img/sunny.png";
                         var cloudy = "./img/cloudy.png";
                         var rainy = "./img/rainy.png";
                         var img_array = [sunny, cloudy, rainy];
                         var Pop_number = parseInt(Pop);
                         // console.log(imgs);
-                        // console.log(time);
+                        console.log(MinT);
 
-                        var img1;
-                        var img2;
-                        var img3;
+                        var img;
+                        // var img2;
+                        // var img3;
                         
-                        while (time[0]) {
+                        if(time_array[0]) {
                                                     
                             if (Pop_number < 20) {
-                                img1 = img_array[0]
+                                img = img_array[0]
                             } else if (Pop_number >= 50) {
-                                img1 = img_array[2]
+                                img = img_array[2]
                             } else {
-                                img1 = img_array[1]
+                                img = img_array[1]
                             }
-                        //    imgs.push(img);
-                        };
-                        while(time[1]) {
+                            imgs.push(img);
+                            // console.log(time_array[0]);
+                            
+                        }
+                        if(time == time[1]) {
                             if (Pop_number < 20) {
-                                img2 = img_array[0]
+                                img = img_array[0]
                             } else if (Pop_number >= 50) {
-                                img2 = img_array[2]
+                                img = img_array[2]
                             } else {
-                                img2 = img_array[1]
+                                img = img_array[1]
                             }
-                            // imgs.push(img);
-                        } ;
-                        while(time[2]) {
+                            imgs.push(img);
+                        } 
+                        if(time == time[2]) {
                             if (Pop_number < 20) {
-                                img3 = img_array[0]
+                                img = img_array[0]
                             } else if (Pop_number >= 50) {
-                                img3 = img_array[2]
+                                img = img_array[2]
                             } else {
-                                img3 = img_array[1]
+                                img = img_array[1]
                             }
-                            // imgs.push(img);
+                            imgs.push(img);
                             
                         }
                         
@@ -211,7 +213,7 @@
                         <section class="content">
                             <div class="time">
                                 <p>12小時</p>
-                                <img class="img" src=${img1} alt="${WxName}" title="${WxName}">
+                                <img class="img" src=${imgs[0]} alt="${WxName}" title="${WxName}">
                             </div>
                             <div class="detail">
                                 <p>${WxName}</p>
@@ -219,7 +221,7 @@
                             </div>
                             <div class="time">
                                 <p>24小時</p>
-                                <img class="img" src=${img2} alt="${WxName}" title="${WxName}">
+                                <img class="img" src=${imgs[1]} alt="${WxName}" title="${WxName}">
                             </div>
                             <div class="detail">
                                 <p>${WxName}</p>
@@ -227,7 +229,7 @@
                             </div>
                             <div class="time">
                                 <p>36小時</p>
-                                <img class="img" src=${img3} alt="${WxName}" title="${WxName}">
+                                <img class="img" src=${imgs[2]} alt="${WxName}" title="${WxName}">
                             </div>
                             <div class="detail">
                                 <p>${WxName}</p>    
