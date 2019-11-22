@@ -298,6 +298,9 @@ main{
     background-color: rgb(34, 128, 200);
     z-index: -1;
 }
+::before{
+    box-sizing: border-box;
+}
 
 .row::after {
     content: "";
@@ -309,6 +312,9 @@ main{
     height: 100%;
     background-color: rgb(95, 207, 99);
     z-index: -1;
+}
+::after{
+    box-sizing: border-box;
 }
 .row a {
     color: black;
@@ -428,6 +434,7 @@ main{
     font-weight: 600;
     margin: 0px;
 }
+/* 圓球 */
 .ball_area{
     width: 100;
     background-color: rgb(25, 25, 25);
@@ -495,6 +502,7 @@ main{
     font-weight: 600;
     margin: 0px;
 }
+/* 水晶 */
 .intuitive_all{
     width: 100%;
     position: relative;
@@ -527,6 +535,7 @@ main{
     position: relative;
     align-self: center;
 }
+/* De--sign */
 .cloud_all{
     position: relative;
     top: 0px;
@@ -596,4 +605,53 @@ main{
     opacity: 1; 
     transform: translateY(0px);
     transition: opacity 600ms linear 0ms, transform 600ms linear 0ms;
+}
+/* Engaging and immersive */
+/* @media here */
+.engaging{
+    width: 100%;
+    background-color: rgb(204, 204, 204);
+    min-height: 820px;
+    position: relative;
+}
+
+.engaging_inner{
+    width: 1536px;
+    position: relative;
+    margin: 0px auto;
+}
+.engaging_title{
+    width: 100%;
+    padding: 140px 40px 0px 8px;
+}
+.engaging_title h2{
+    color: rgb(0, 0, 0);
+    font-size: 128px;
+    line-height: 150px;
+    font-weight: 600;
+}
+.engaging_content{
+    width: 100%;
+    margin: 60px 0px 0px;
+}
+.content_inner{
+    width: 100%;
+    max-width: 384px;
+    padding: 0px 16px;
+    margin: 0;
+}
+.content_inner p{
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px;
+}
+.engaging_img{
+    position: absolute;
+    top: 200px;
+    right: 0;
+}
+.engaging_img img{
+    max-width: 1000px;
 }
