@@ -542,11 +542,7 @@ main{
     z-index: 2;
     width: 100%;
     min-height: 948px;
-    background-image: url('../img/clouds.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: rgb(0, 0, 0);
+    background: url(https://www.microsoft.com/design/fluent/assets/images/clouds.jpg) 50% center / cover no-repeat fixed rgb(0, 0, 0);
 }
 .cloud_inner{
     position: relative;
@@ -655,3 +651,286 @@ main{
 .engaging_img img{
     max-width: 1000px;
 }
+/* 銀河 */
+.stars_sky{
+    width: 100%;
+    min-height: 768px;
+    background: url(https://www.microsoft.com/design/fluent/assets/images/space.jpg) 50% center / cover no-repeat fixed rgb(0, 0, 0);
+}
+.stars_sky .sky_inner{
+    position: relative;
+    z-index: 2;
+    width: 1536px;
+    margin: 0px auto;
+}
+.inner_first{
+    position: absolute;
+    top: -95px;
+    left: 340px;
+    pointer-events: none;   
+}
+.inner_second{
+    position: absolute;
+    top: 185px;
+    left: 165px;
+    /* pointer-events: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
+.inner_third{
+    position: absolute;
+    top: -125px;
+    left: 620px;
+    pointer-events: none;
+    /* opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
+.inner_fourth{
+    position: absolute;
+    top: 530px;
+    right: 85px;
+    pointer-events: none;
+    /* opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
+.inner_fifth{
+    position: absolute;
+    top: 370px;
+    right: 220px;
+    pointer-events: none;
+    /* opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
+/* 四格選單 */
+.columns{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin: 0px 0px 160px;
+}
+.columns_inner{
+    position: relative;
+    z-index: 2;
+    width: 1536px;
+    margin: 0px auto;
+}
+.each_column{
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.first_column{
+    background-color: rgb(0, 0, 0);
+    width: 25%;
+    height: 384px;
+    position: relative;
+    z-index: 2;
+}
+.each_column a{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    transition: background-color 200ms linear 0ms;
+}
+.each_column a:hover{
+    background-color: rgb(255, 255, 255);
+}
+.each_column a:hover .columns_title p{
+    color: black;
+}
+
+.each_column a:hover .microsoft_design label{
+    color: rgb(0,0,0);
+}
+.columns_title{
+    width: 100%;
+    padding: 16px;
+    flex: 1 1 auto;
+    margin: 2px 0px 0px;
+}
+.columns_title p{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    transition: color 200ms linear 0ms;
+}
+.columns_microsoft{
+    width: 100%;
+    display: flex;
+    padding: 16px;
+    flex: 0 0 auto;
+}
+.columns_microsoft .microsoft_img{
+    width: 24px;
+    flex: 0 0 auto;
+    margin: 0px 16px 0px 0px;
+}
+.microsoft_img img{
+    max-width: 20px;
+    height: auto;
+}
+.columns_microsoft .microsoft_design{
+    -webkit-box-align: center;
+    align-items: center;
+    flex: 1 1 auto;
+}
+.microsoft_design label{
+    color: rgb(255, 255, 255);
+}
+
+.second_column{
+    width: 25%;
+    height: 384px;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(57,57,57);
+}
+.third_column{
+    width: 25%;
+    height: 384px;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(118,118,118);
+}
+.fourth_column{
+    width: 25%;
+    height: 384px;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(204,204,204);
+}
+/* Open stars */
+.open_area{
+    width: 100%;
+}
+.open_inner{
+    width: 1536px;
+    margin: 0 auto;
+}
+.inner_all{
+    width: 100%;
+}
+.inner_upper{
+    width: 100%;
+    display: flex;
+    padding: 0px 0px 200px;
+}
+.inner_title{
+    width: 575px;
+    flex: 0 0 auto;
+}
+.inner_title h2{
+    font-size: 32px;
+    line-height: 40px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    padding: 0px 0px 0px 16px;
+}
+.inner_content{
+    flex: 1 1 auto;
+    padding: 0px 330px 35px 208px;
+}
+.content_text{
+    width: 100%;
+}
+.content_text p{
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+.content_link{
+    width: 100%;
+    margin: 70px 0 0;
+}
+.content_link a{
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.content_link span{
+    font-size: 16px;
+    font-family: "Segoe UI Mono", mono;
+    letter-spacing: 0.01rem;
+    line-height: 1;
+}
+/* footer */
+footer{
+    width: 100%;
+    height: 48px;
+}
+.footer_inner{
+    width: 1536px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin: 0px auto;
+}
+.footer_logo{
+    width: 190px;
+    height: 48px;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    flex: 0 0 auto;
+}
+.footer_logo a{
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.footer_logo a img{
+    width: 16px;
+}
+.footer_nav{
+    height: 48px;
+    flex: 1 1 auto;
+    padding: 0px 100px 0px 0px;
+}
+.footer_nav ul{
+    width: 100%;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.footer_nav ul li{
+    width: auto;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 48px;
+    font-weight: 400;
+    margin: 0px;
+    padding: 0px;
+}
+.footer_nav ul a{
+    color: rgb(255, 255, 255);
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.footer_nav ul a::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -6px;
+    width: 100%;
+    opacity: 0;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+    transition: all 200ms linear 0ms;
+}
+
