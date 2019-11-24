@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body{
     margin: 0;
@@ -41,7 +43,7 @@ nav{
     }
 }
 @media screen and (max-width: 1280px){
-    nav .container{
+    .container{
         width: 960px;
     }
 }
@@ -209,6 +211,7 @@ nav .menu_list ul a:hover{
 }
 
 /* Main */
+/* intro */
 main{
     overflow: hidden;
 }
@@ -256,21 +259,22 @@ main{
     position: relative;
     flex: 1 1 auto;
 }
-@media (max-width: 1680px){
-    #intro .inner{
-        width: 1336px;
-    }
+.inner .fluent_img .line_white2{
+    position: absolute;
+    bottom: 155px;
+    left: 180px;
+    pointer-events: none;
+
 }
-@media (max-width: 1460px){
-    #intro .inner{
-        width: 1136px;
-    }
+.inner .fluent_img .line_white1{
+    position: absolute;
+    top: -15px;
+    right: 180px;
+    pointer-events: none;
+
 }
-@media (max-width: 1280px){
-    #intro .inner{
-        width: 960px;
-    }
-}
+
+
     
 
 /* 四格選單 */
@@ -403,7 +407,8 @@ main{
 .natural{
     width: 100%;
     min-height: 768px;   
-    background-image: url('../img/natural_background.jpg'); 
+    background: url(https://www.microsoft.com/design/fluent/assets/images/msft-verge-fluent.jpg) 50% center / cover no-repeat fixed rgb(204, 204, 204);
+
 
 }
 .natural .natural_inner{
@@ -476,6 +481,9 @@ main{
     /* transform: scale(0.8); */
     padding: 100px 100px 50px;
     /* transition: opacity 600ms linear 0ms, transform 600ms linear 0ms; */
+}
+.ball_img img{
+    max-width: 100%;
 }
 .ball_content{
     width: 100%;
@@ -709,8 +717,9 @@ main{
 .columns{
     position: relative;
     width: 100%;
+    margin: 0 0 160px;
     z-index: 1;
-    margin: 0px 0px 160px;
+    
 }
 .columns_inner{
     position: relative;
@@ -863,6 +872,221 @@ main{
     letter-spacing: 0.01rem;
     line-height: 1;
 }
+/* main media query */
+@media (max-width: 6770px){
+    .ball_inner .ball_img{
+        padding: 60px 30px;
+    }
+}
+@media (max-width: 1680px){
+    #intro .inner{
+        width: 1336px;
+    }
+    .fluent_img .line_white1{
+        top: -40px;
+        right: 36px;
+    }
+    .fluent_img .line_white2{
+        bottom: 160px;
+        left: 30px;
+    }
+    .natural .natural_inner{
+        width: 1336px;
+    }
+    .ball_inner{
+        width: 1336px;
+    }
+    .ball_inner .rect_img{
+        right: 30px;
+    }
+}
+@media (max-width: 1460px){
+    #intro .inner{
+        width: 1136px;
+    }
+    .contentParagraph{
+        max-width: 384px;
+    }
+    .fluent_img .line_white1{
+        top: -15px;
+        right: 36px;
+    }
+    .fluent_img .line_white2{
+        bottom: 120px;
+        left: 30px;
+    }
+    .natural .natural_inner{
+        width: 1136px;
+    }
+    .natural .natural_inner .natural_head{
+        padding: 10px 0 0 16px;
+    }
+    .natural .natural_inner .natural_head h2{
+        font-size: 96px;
+        line-height: 120px;
+    }
+    .natural .natural_inner .natural_para{
+        margin: 40px 0 0 ;
+    }
+    .ball_inner{
+        width: 1136px;
+    }
+    .ball_inner .rect_img{
+        top: 200px;
+    }
+}
+@media (max-width: 1280px){
+    #intro .inner{
+        width: 960px;
+    }
+    #intro .inner .content{
+        width: 50%;
+    }
+    .fluent_img{
+        width: 50%;
+        padding: 0 40px;
+    }
+    .fluent_img img{
+        max-width: 100%;
+    }
+    .fluent_img .line_white1{
+        display: none;
+    }
+    .fluent_img .line_white2{
+        display: none;
+    }
+    .natural{
+        min-height: 668px;
+    }
+    .natural .natural_inner{
+        width: 960px;
+    }
+    .natural .natural_inner .natural_head{
+        padding: 20px 0 60px;
+    }
+    .natural .natural_inner .natural_para{
+        margin: 0;
+    }
+    .ball_inner{
+        width: 960px;
+    }
+}
+@media (max-width: 1024px ){
+    #intro .inner{
+        width: 100%;
+        padding: 30px;
+    }
+    .four_column .container .row{
+        flex-wrap: wrap;
+    }
+    .four_column .container .row .media{
+        width: 50%;
+        height: 320px;
+    }
+    .natural .natural_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .natural .natural_inner .natural_head{
+        padding: 29px 0 40px;
+    }
+    .natural .natural_inner .natural_head h2{
+        font-size: 86px;
+        line-height: 90px;
+        margin: 0;
+    }
+    .ball_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+
+}
+@media (max-width: 960px){
+    #intro .inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    #intro .inner .content{
+        width: 60%;
+    }
+    .contentParagraph{
+        width: 100%;
+        max-width: 352px;
+
+    }
+    .fluent_img{
+        width: 40%;
+        padding: 0 0 0 30px;
+    }
+    .natural{
+        background-attachment: scroll;
+    }
+    .natural .natural_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+@media (max-width: 767px){
+    .contentHead h2{
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .contentParagraph{
+        margin: 60px 0 30px;
+    }
+    .four_column .container .row .media{
+        width: 100%;
+    }
+    .ball_inner .rect_img{
+        top: -300px;
+        right: 100px;
+    }
+}
+@media (max-width: 670px){
+    #intro{
+        margin: 0 0 30px;
+    }
+    #intro .inner .content{
+        width: 100%;;
+    }
+    #intro .inner .content .contentHead{
+        margin: 60px 0 30px;
+    }
+    .contentHead h2{
+        font-size: 48px;
+        line-height: 58px;
+    }
+    .fluent_img{
+        display: none;
+    }
+    .natural{
+        min-height: 768px;
+    }
+    .natural .natural_inner .natural_head h2{
+        font-size: 64px;
+        line-height: 70px;       
+    }
+    .ball_inner .rect_img{
+        display: none;
+    }
+    .ball_inner .line_img{
+        left: 90vw;
+    }
+}
+@media (max-width: 500px){
+    .four_column .container .row .media{
+        height: auto;
+    }
+    .natural .natural_inner .natural_head h2{
+        font-size: 48px;
+        line-height: 60px;        
+    }
+}
+@media (max-width: 400px){
+    .natural .natural_inner{
+       padding: 0 30px 60px;
+    }
+}
 /* footer */
 footer{
     width: 100%;
@@ -932,5 +1156,22 @@ footer{
     height: 1px;
     background-color: rgb(255, 255, 255);
     transition: all 200ms linear 0ms;
+}
+.footer_social{
+    display: flex;
+    height: 48px;
+}
+.footer_social a{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: white;
+}
+.footer_social a img{
+    width: 20px;
 }
 
