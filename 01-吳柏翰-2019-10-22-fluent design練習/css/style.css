@@ -445,7 +445,7 @@ main{
     background-color: rgb(25, 25, 25);
 }
 .ball_inner{
-    position: relative;
+    position: relative;    
     -webkit-box-pack: end;
     justify-content: flex-end;
     width: 1536px;
@@ -489,7 +489,7 @@ main{
     width: 100%;
     background-color: rgb(25, 25, 25);
 }
-.content_inner{
+.ball_content .content_inner{
     position: relative;
     width: 1536px;
     margin: 0px auto;
@@ -523,11 +523,11 @@ main{
     width: 100%;
     z-index: 4;
 }
-.title_inner{
+.intuitive_title .title_inner{
     width: 1536px;
     margin: 0px auto;
 }
-.title_inner h2{
+.intuitive_title .title_inner h2{
     color: rgb(25, 25, 25);
     font-size: 128px;
     line-height: 144px;
@@ -536,12 +536,23 @@ main{
 }
 .intuitive_img{
     width: 100%;
+    /* transform: translateY(200px) scale(1.2); */
+    /* opacity: 0; */
+    display: flex;
+    -webkit-box-pack: center;
+    /* 令div中的子元素置中 */
+    justify-content: center;
+    /* 類似background-size 可使圖片不受瀏覽器縮放而跑版變形*/
+    /* object-fit可以用在替換元素如 image iframe 有自身寬高 */
+    object-fit: contain;
+    overflow: hidden;
 }
 .intuitive_img img{
     width: 100%;
     min-width: 2000px;
     position: relative;
     align-self: center;
+    
 }
 /* De--sign */
 .cloud_all{
@@ -611,7 +622,6 @@ main{
     transition: opacity 600ms linear 0ms, transform 600ms linear 0ms;
 }
 /* Engaging and immersive */
-/* @media here */
 .engaging{
     width: 100%;
     background-color: rgb(204, 204, 204);
@@ -638,13 +648,13 @@ main{
     width: 100%;
     margin: 60px 0px 0px;
 }
-.content_inner{
+.engaging_content .content_inner{
     width: 100%;
     max-width: 384px;
     padding: 0px 16px;
     margin: 0;
 }
-.content_inner p{
+.engaging_content .content_inner p{
     color: rgb(0, 0, 0);
     font-size: 16px;
     line-height: 24px;
@@ -675,8 +685,13 @@ main{
     position: absolute;
     top: -95px;
     left: 340px;
-    pointer-events: none;   
+    pointer-events: none;
+    transition: opacity 600ms linear 0ms, transform 600ms linear 0ms;
+   
 }
+/* .inner_first img{
+    display: none;
+} */
 .inner_second{
     position: absolute;
     top: 185px;
@@ -878,6 +893,11 @@ main{
         padding: 60px 30px;
     }
 }
+@media (max-width: 1940px){
+    .engaging_img img{
+        max-width: 900px;
+    }
+}
 @media (max-width: 1680px){
     #intro .inner{
         width: 1336px;
@@ -898,6 +918,51 @@ main{
     }
     .ball_inner .rect_img{
         right: 30px;
+    }
+    .ball_content .content_inner{
+        width: 1336px;
+    }
+    .intuitive_title .title_inner{
+        width: 1336px;
+    }
+    .intuitive_title .title_inner h2{
+        font-size: 96px;
+        line-height: 128px;
+    }
+    .cloud_inner{
+        width: 1336px;
+    }
+    .cloud_inner .cloud_titleD h2{
+        top: 40px;
+        font-size: 295px;
+    }
+    .cloud_inner .cloud_titleS h2{
+        top: 120px;
+        right: 30px;
+        font-size: 295px;
+    }
+    .engaging .engaging_inner{
+        width: 1336px;
+    }
+    .engaging_img img{
+        max-width: 50vw;
+    }
+    .stars_sky .sky_inner{
+        width: 1336px;
+    }
+    
+    .columns_inner{
+        width: 1336px;
+    }
+    .open_inner{
+        width: 1336px;
+    }
+    .open_inner .inner_upper .inner_title{
+        width: 50%;
+    }
+    .open_inner .inner_upper .inner_content{
+        width: 50%;
+        padding: 0 16px 35px;
     }
 }
 @media (max-width: 1460px){
@@ -933,6 +998,67 @@ main{
     }
     .ball_inner .rect_img{
         top: 200px;
+    }
+    .ball_content .content_inner{
+        width: 1136px;
+    }
+    .intuitive_title .title_inner{
+        width: 1136px;
+    }
+    .cloud_inner{
+        width: 1136px;
+    }
+    .cloud_inner .plane{
+        display: none;
+    }
+    .cloud_inner .cloud_titleD h2{
+        top: 20px;
+        left: 0px;
+    }
+    .cloud_inner .cloud_titleS h2{
+        top: 180px;
+        right: 30px;
+    }
+    .cloud_inner .cloud_line{
+        top: 550;
+        left: 370px;
+    }
+    .engaging .engaging_inner{
+        width: 1136px;
+    }
+    .engaging_title{
+        padding: 60px 40px 0 8px;
+    }
+    .stars_sky .sky_inner{
+        width: 1136px;
+    }
+    .sky_inner .inner_first{
+        top: -75px;
+        left: 50%;
+        margin: 0 0 0 -215px;
+    }
+    .sky_inner .inner_second{
+        top: 40vh;
+        left: 65px;
+    }
+    .sky_inner .inner_third{
+        top: 80px;
+        left: auto;
+        right: 60px;
+    }
+    .sky_inner .inner_fifth{
+        top: 470px;
+        right: 220px;
+    }
+    .columns{
+        position: relative;
+        z-index: 1;
+    }
+    .columns_inner{
+        width: 1136px;
+    }
+    .open_inner{
+        width: 1136px;
     }
 }
 @media (max-width: 1280px){
@@ -970,6 +1096,63 @@ main{
     .ball_inner{
         width: 960px;
     }
+    .ball_content .content_inner{
+        width: 960px;
+    }
+    .intuitive_title .title_inner{
+        width: 960px;
+    }
+    .intuitive_title .title_inner h2{
+        font-size: 96px;
+        line-height: 104px;
+    }
+    .cloud_all{
+        min-height: 668px;
+    }
+    .cloud_inner{
+        width: 960px;
+    }
+    .cloud_inner .cloud_titleD h2{
+        top: 40px;
+        left: 14px;
+        font-size: 228px;
+    }
+    .cloud_inner .cloud_titleS h2{
+        top: 220px;
+        right: 10px;
+        font-size: 228px;
+    }
+    .cloud_inner .cloud_line{
+        display: none;
+    }
+    .engaging{
+        min-height: 668px;
+    }
+    .engaging .engaging_inner{
+        width: 960px;
+    }
+    .engaging_title{
+        padding: 29px 0px 0px;
+    }
+    .engaging_title h2{
+        font-size: 96px;
+        line-height: 104px;
+    }
+    .stars_sky{
+        min-height: 668px;
+    }
+    .stars_sky .sky_inner{
+        width: 960px;
+    }
+    .columns_inner{
+        width: 960px;
+    }
+    .each_column .columns_title p{
+       font-size: 28px; 
+    }
+    .open_inner{
+        width: 960px;
+    }
 }
 @media (max-width: 1024px ){
     #intro .inner{
@@ -999,6 +1182,87 @@ main{
         width: 100%;
         padding: 0 30px;
     }
+    .ball_content .content_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .intuitive_title{
+        bottom: 60px;
+    }
+    .intuitive_title .title_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .intuitive_title .title_inner h2{
+        font-size: 86px;
+        line-height: 90px;
+        margin: 0;
+    }
+    .cloud_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .engaging .engaging_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    
+    .engaging_img img{
+        max-width: 70vw;
+    }
+    .engaging_title h2{
+        font-size: 86px;
+        line-height: 90px;
+        margin: 0;
+    }
+    .engaging_content .content_inner{
+        padding: 0 0 0 4px;
+    }
+    .engaging_img{
+        right: -20vw;
+    }
+    .stars_sky .sky_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .columns{
+        margin: 0 0 60px;
+    }
+    .columns_inner{
+        width: 100%;
+    }
+    .columns_inner .each_column{
+        flex-wrap: wrap;
+    }
+    .columns_inner .each_column .first_column{
+        width: 50%;
+    }
+    .columns_inner .each_column .second_column{
+        width: 50%;
+    }.columns_inner .each_column .third_column{
+        width: 50%;
+    }.columns_inner .each_column .fourth_column{
+        width: 50%;
+    }
+    .each_column .columns_title{
+        padding: 19px 28px;
+    }
+    .each_column .columns_microsoft{
+        padding: 0 30px 30px;
+    }
+    .open_inner{
+        width: 100%;
+    }
+    .open_inner .inner_upper .inner_title{
+        margin: 0 30px 30px;
+    }
+    .open_inner .inner_upper .inner_title h2{
+        padding: 0;
+    }
+    .open_inner .inner_upper .inner_content{
+    padding: 0 30px 35px;
+    }
+    
 
 }
 @media (max-width: 960px){
@@ -1025,6 +1289,48 @@ main{
         width: 100%;
         padding: 0 30px;
     }
+    .ball_para{
+        padding: 0;
+    }
+    .cloud_all{
+        background-attachment: scroll;
+    }
+    .engaging .engaging_inner{
+        width: 100%;
+        padding: 0 30px 40px;
+    }
+    .stars_sky{
+        background-attachment: scroll;
+    }
+    .columns{
+        margin: 0;
+    }
+    .open_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .open_inner .inner_upper{
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .open_inner .inner_upper .inner_title{
+        width: 100%;
+        margin: 30px 0;
+    }
+    .open_inner .inner_upper .inner_title h2{
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .open_inner .inner_upper .inner_content{
+        width: 50%;
+        padding: 0 0 35px;
+    }
+    .open_inner .inner_upper .inner_content .content_link{
+        margin: 30px 0 0 ;
+    }
+    .open_inner .inner_upper .inner_content .content_link span{
+        font-size: 12px;
+    }
 }
 @media (max-width: 767px){
     .contentHead h2{
@@ -1040,6 +1346,32 @@ main{
     .ball_inner .rect_img{
         top: -300px;
         right: 100px;
+    }
+    .engaging_img{
+        right: -20vw;
+    }
+    .sky_inner .inner_fifth{
+        display: none;
+    }
+    .columns_inner .each_column .first_column{
+        width: 100%;
+        height: auto;
+        min-height: 260px;
+    }
+    .columns_inner .each_column .second_column{
+        width: 100%;
+        height: auto;
+        min-height: 260px;
+    }
+    .columns_inner .each_column .third_column{
+        width: 100%;
+        height: auto;
+        min-height: 260px;
+    }
+    .columns_inner .each_column .fourth_column{
+        width: 100%;
+        height: auto;
+        min-height: 260px;
     }
 }
 @media (max-width: 670px){
@@ -1072,6 +1404,35 @@ main{
     .ball_inner .line_img{
         left: 90vw;
     }
+    .ball_content .content_inner{
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+    }
+    .intuitive_title .title_inner h2{
+        font-size: 64px;
+        line-height: 70px;
+
+    }
+    .cloud_inner .cloud_titleD h2{
+        font-size: 168px;
+    }
+    .cloud_inner .cloud_titleS h2{
+        font-size: 168px;
+    }
+    .engaging{
+        min-height: 468px;
+    }
+    .engaging_title h2{
+        font-size: 64px;
+        line-height: 70px;
+    }
+    .engaging_content{
+        margin: 40px 0 0;
+    }
+    .engaging_img{
+        display: none;
+    }
+    
 }
 @media (max-width: 500px){
     .four_column .container .row .media{
@@ -1081,11 +1442,72 @@ main{
         font-size: 48px;
         line-height: 60px;        
     }
+    .intuitive_title .title_inner h2{
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .cloud_inner .cloud_titleD h2{
+        font-size: 128px;
+    }
+    .cloud_inner .cloud_titleS h2{
+        font-size: 128px;
+    }
+    .engaging_title h2{
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .stars_sky{
+        min-height: 568px;
+    }
+    .sky_inner .inner_first{
+        width: 100%;
+        max-width: 50%;
+        left: 30%;
+        margin: 0;
+    }
+    .sky_inner .inner_second{
+        display: none;
+    }.sky_inner .inner_third{
+        display: none;
+    }.sky_inner .inner_fourth{
+        display: none;
+    }
+    .sky_inner .inner_first img{
+        max-width: 100%;
+    }
+    
 }
 @media (max-width: 400px){
     .natural .natural_inner{
        padding: 0 30px 60px;
     }
+    .cloud_all{
+        min-height: 500px;
+    }
+    .cloud_inner .cloud_titleD h2{
+        font-size: 96px;
+    }
+    .cloud_inner .cloud_titleS h2{
+        font-size: 96px;
+        top: 160px;
+    }
+    .sky_inner .inner_first{
+        top: 0px;
+        /* width: 100%; */
+        max-width: 100%;
+        left: 0px;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding: 0px 60px;
+    }
+    .sky_inner .inner_first img{
+        width: 100%;
+    }
+    .each_column .columns_title p{
+        font-size: 24px;
+        line-height: 34px;
+     }
 }
 /* footer */
 footer{
@@ -1174,4 +1596,91 @@ footer{
 .footer_social a img{
     width: 20px;
 }
-
+/* footer media query */
+@media (max-width: 1680px){
+    .footer_inner{
+        width: 1336px;
+    }
+}
+@media (max-width: 1460px){
+    .footer_inner{
+        width: 1136px;
+    }
+}
+@media (max-width: 1280px){
+    .footer_inner{
+        width: 960px;
+    }
+    .footer_inner .footer_logo{
+        width: 40px;
+    }
+}
+@media (max-width: 1024px){
+    footer{
+        height: auto;
+        padding: 0 0 18px;
+    }
+    footer .footer_inner{
+        width: 100%;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 0 30px;
+    }
+    .footer_inner .footer_logo{
+        width: 80px;
+        flex: 0 0 auto;
+    }
+    .footer_inner .footer_nav{
+        width: 100%;
+        height: auto;
+        flex: 1 1 auto;
+        padding: 0px;
+    }
+    .footer_social{
+        width: 50%;
+        top: 0px;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        position: absolute;
+        right: 30px;
+        flex: 1 1 auto;
+        padding: 0px;
+    }
+}
+@media (max-width: 960px){
+    .footer_inner{
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+@media (max-width: 670px){
+    .footer_inner{
+        width: 100%;
+        padding: 10px 30px;
+    }
+    .footer_inner .footer_nav ul{
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .footer_inner .footer_nav ul li{
+        line-height: 30px;
+        margin: 0px 20px 0px 0px;
+    }
+}
+@media (max-width: 500px){
+    .footer_social{
+        position: relative;
+        width: 100%;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        right: auto;
+        left: auto;
+        top: auto;
+        margin: 16px 0px 0px;
+    }
+    .footer_social a{
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+    }
+}
