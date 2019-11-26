@@ -1,0 +1,165 @@
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.all {
+  width: 100%;
+  height: 100%;
+}
+
+.all .banner {
+  background-image: url("../img/img_parallax.jpg");
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.all .banner .mask {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.all .banner .mask .title {
+  padding: 5px;
+  display: inline-block;
+  background-color: darkgray;
+}
+
+.all .banner .mask .title h1 {
+  font-size: 32px;
+  color: white;
+  letter-spacing: 5px;
+  line-height: 40px;
+}
+
+.all .demo {
+  background-color: white;
+  padding: 50px 80px;
+  text-align: justify;
+  color: gray;
+}
+
+.all .demo h3 {
+  font-size: 26px;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.all .demo p {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.all .lessHeight {
+  background-image: url("../img/img_parallax2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.65;
+}
+
+.all .lessHeight .title {
+  font-size: 26px;
+  color: white;
+  background-color: transparent;
+  letter-spacing: 5px;
+}
+
+.all .upNdown {
+  position: relative;
+}
+
+.all .upNdown div {
+  text-align: justify;
+  color: white;
+  padding: 50px 80px;
+  background-color: #282E34;
+}
+
+.all .camera {
+  background: url("../img/img_parallax3.jpg") center/cover no-repeat fixed;
+  min-height: 400px;
+  opacity: 0.65;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.all .camera div {
+  padding: 15px;
+  letter-spacing: 5px;
+  font-size: 26px;
+  color: white;
+}
+
+.all .scroll {
+  position: relative;
+}
+
+.all .scroll p {
+  text-align: justify;
+  color: white;
+  padding: 50px 80px;
+  background-color: #282E34;
+  margin: 0;
+}
+
+.all .final {
+  background: url("../img/img_parallax.jpg") center/cover no-repeat fixed;
+  height: 100vh;
+}
+
+.all .final .mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.all .final .mask div {
+  color: white;
+  font-size: 26px;
+  background-color: darkgray;
+  letter-spacing: 5px;
+  padding: 5px;
+}
+/*# sourceMappingURL=index.css.map */
