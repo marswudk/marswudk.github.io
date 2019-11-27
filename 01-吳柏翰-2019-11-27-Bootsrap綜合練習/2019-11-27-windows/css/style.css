@@ -1,12 +1,12 @@
-.navbar .logo {
+nav .logo {
   height: 30px;
 }
 
-.navbar .icons {
-  margin-right: 0;
+nav .icons {
+  margin-right: 0 !important;
 }
 
-.navbar .icons img {
+nav .icons img {
   width: 20px;
 }
 
@@ -78,9 +78,11 @@ main .card {
 }
 
 main .board {
-  background: url("../img/board.jpg") center/cover no-repeat;
+  background-image: url("../img/board.jpg");
+  background-position: right;
+  background-size: auto;
   width: 100%;
-  height: 60vh;
+  height: 600px;
   margin-bottom: 20px;
   position: relative;
 }
@@ -89,5 +91,16 @@ main .board .board_content {
   position: absolute;
   top: calc(50% - 60px);
   left: 80px;
+}
+
+@media (max-width: 767px) {
+  main .board {
+    width: 100%;
+    height: 800px;
+  }
+  main .board .board_content {
+    top: 80%;
+    left: calc(50% - 126px);
+  }
 }
 /*# sourceMappingURL=style.css.map */
