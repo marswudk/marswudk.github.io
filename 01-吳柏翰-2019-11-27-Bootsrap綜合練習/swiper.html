@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+
+    <!-- Demo styles -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        nav {
+            width: 100%;
+            height: 48px;
+            position: relative;
+            top: 0;
+            left: 0;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            flex: 1 1 auto;
+        }
+
+        .logo {
+            position: absolute;
+            top: 2px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .links {
+            position: absolute;
+            /* top: 5px; */
+            right: 30px;
+        }
+
+        .links ul {
+            display: flex;
+            text-decoration: none;
+            justify-content: space-between;
+            flex: 1 1 auto;
+        }
+
+        .links ul li {
+
+            list-style: none;
+            letter-spacing: 5px;
+
+        }
+
+        ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        .banner {
+            width: 100%;
+            height: calc(100vh - 48px);
+        }
+
+        .swiper_img1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper_img2 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper_img3 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper_img4 {
+            width: 100%;
+            height: 100%;
+            background: url('https://image.freepik.com/free-photo/pathway-rainforest-during-rainy-season-costa-rica_23-2148248889.jpg') center / cover no-repeat;
+            opacity: 0.65;
+        }
+
+
+        h2 {
+            background-color: darkgray;
+            letter-spacing: 5px;
+            display: inline-block;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <nav>
+        <div class="logo">
+
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">Menu</a>
+                </li>
+                <li>
+                    <a href="">About</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img class="swiper_img1" src="https://image.freepik.com/free-photo/cloud-blue-sky_1232-3108.jpg"
+                        alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper_img2"
+                        src="https://image.freepik.com/free-photo/3d-sunset-mountain-landscape_1048-11338.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper_img3" src="./img/看板-空白.jpg" alt="">
+                </div>
+                <div class="swiper-slide swiper_img4">
+                    <h2>Welcome To The Jungle</h2>
+
+                </div>
+                <div class="swiper-slide">
+                    DEF
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div>
+        <div class="album">
+                <a href="https://image.freepik.com/free-photo/monkey-nature_8327-226.jpg" data-lightbox="roadtrip"><img width="200px" src="https://image.freepik.com/free-photo/monkey-nature_8327-226.jpg" alt=""></a>
+                <a href="https://image.freepik.com/free-photo/close-up-elephant-with-raised-trunk_1205-227.jpg?1" data-lightbox="roadtrip"></a>
+                <a href="https://image.freepik.com/free-photo/elk-grass_1426-1370.jpg" data-lightbox="roadtrip"></a>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+
+        // lightbox
+
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+
+.navbar{
+   
+    .logo{
+        height: 30px;
+    }
+    .icons{
+        margin-right: 0;
+        
+        img{
+            width: 20px;
+        }
+    }
+    
+}
+.banner{
+    width: 100%;
+    height: 60vh;
+    margin-bottom: 20px;
+    .container{
+        height: 100%;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        
+      
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */        
+            display: flex;       
+            justify-content: center;       
+            align-items: center;
+
+        
+            .swiper_content{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px;
+            }
+            .swiper_img{
+                width: 50%;
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+main{
+    .card{
+        border: none;
+        margin-bottom: 20px;
+    }
+    .board{
+        background: url('../img/board.jpg') center / cover no-repeat;
+        width: 100%;
+        height: 60vh;
+        margin-bottom: 20px;
+        position: relative;
+        
+        .board_content{
+            position: absolute;
+            top: calc(50% - 60px);
+            left: 80px;
+        }
+    }
+}
+    
