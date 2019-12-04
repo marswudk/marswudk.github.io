@@ -144,22 +144,23 @@
                     const location = locations[index];
                     var time_array = location.weatherElement[0].time;
                     var imgs = [];
+
                     for (let j = 0; j < time_array.length; j++) {
                         const time = time_array[j];
 
                         var locationName = location.locationName;
-                        var WxName = time.parameter.parameterName;
-                        var Pop = time.parameter.parameterName;
-                        var MinT = time.parameter.parameterName;
-                        var MaxT = time.parameter.parameterName;
-                        var Ci = time.parameter.parameterName;
+                        var WxName = location.weatherElement[0].time[j].parameter.parameterName;
+                        var Pop = location.weatherElement[1].time[j].parameter.parameterName;
+                        var MinT = location.weatherElement[2].time[j].parameter.parameterName;
+                        var MaxT = location.weatherElement[4].time[j].parameter.parameterName;
+                        var Ci = location.weatherElement[3].time[j].parameter.parameterName;
                         var sunny = "./img/sunny.png";
                         var cloudy = "./img/cloudy.png";
                         var rainy = "./img/rainy.png";
                         var img_array = [sunny, cloudy, rainy];
                         var Pop_number = parseInt(Pop);
                         // console.log(imgs);
-                        console.log(MinT);
+                         console.log(Pop_number);
 
                         var img;
                         // var img2;
@@ -175,7 +176,7 @@
                                 img = img_array[1]
                             }
                             imgs.push(img);
-                            // console.log(time_array[0]);
+                            console.log(time_array[0]);
                             
                         }
                         if(time == time[1]) {
@@ -199,8 +200,6 @@
                             imgs.push(img);
                             
                         }
-                        
-                        
 
                     }
                     
@@ -249,6 +248,7 @@
 
                 }
 
+               
 
             }
             
