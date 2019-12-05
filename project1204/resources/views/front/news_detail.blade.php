@@ -1,4 +1,4 @@
 @extends('layouts.front_layout');
 @section('content')
-    {{ $name }}
+<h1>{{ $news_detail->title}}</h1>
 @endsection

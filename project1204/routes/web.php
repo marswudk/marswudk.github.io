@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -14,7 +15,11 @@
 Route::get('/', 'FrontController@index' );
 Route::get('/about', 'FrontController@about');
 Route::get('/news', 'FrontController@news');
-Route::get('/product', 'FrontController@product');
+Route::get('/news/{id}', 'FrontController@news_detail');
+Route::get('/products', 'FrontController@product');
+// products' content page
+Route::get('/products/{id}', 'FrontController@product_detail');
+
 Route::get('/contact', 'FrontController@contact');
 
 Auth::routes();

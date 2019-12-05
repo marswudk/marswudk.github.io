@@ -2,31 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class FrontController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         return view('front.index');
 
     }
-    public function about(){
-        $test=DB::table('news')->get();
-        return view('front.about',compact('test'));
+    public function about()
+    {
+        $name = 'Mars';
+        return view('front.about', compact('name'));
 
     }
-    public function news(){
-        $name='Mars';
-        return view('front.news',compact('name'));
+    public function news()
+    {
+        $news = DB::table('news')->get();
+        return view('front.news', compact('news'));
 
     }
-    public function product(){
-        $dogs=DB::table('products')->get();
-        return view('front.product',['dogs'=>$dogs]);
+    public function news_detail($id)
+    {
+        $news_detail = DB::table('news')->find($id);
+        // dd($news_detail);
+        return view('front.news_detail', compact('news_detail'));
 
     }
-    public function contact(){
+    public function product()
+    {
+        $dogs = DB::table('products')->get();
+        return view('front.product', ['dogs' => $dogs]);
+
+    }
+    public function product_detail($id)
+    {
+
+        $dog_detail = DB::table('products')->where('id', $id)->first();
+
+        return view('front.product_detail', compact('dog_detail'));
+
+    }
+
+    public function contact()
+    {
 
         return view('front.contact');
 
