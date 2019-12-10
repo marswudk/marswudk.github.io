@@ -25,20 +25,73 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-#index img {
+#index a {
+  position: relative;
+  top: -1000px;
+  left: calc(50% - 90px);
+  -webkit-animation: show;
+          animation: show;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes show {
+  0% {
+    position: relative;
+    top: -90px;
+  }
+  100% {
+    top: calc(50% - 90px);
+  }
+}
+
+@keyframes show {
+  0% {
+    position: relative;
+    top: -90px;
+  }
+  100% {
+    top: calc(50% - 90px);
+  }
+}
+
+#index a img {
   width: 180px;
-  opacity: 1;
+}
+
+#index a img:hover {
+  -webkit-animation: shine 2s linear infinite alternate;
+          animation: shine 2s linear infinite alternate;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes shine {
+  0% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .about_all {
@@ -63,7 +116,6 @@ body {
 }
 
 .about_all .upper nav .list {
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,8 +152,7 @@ body {
 }
 
 .about_all .upper nav .list .logo a img {
-  width: 45%;
-  min-width: 150px;
+  width: 150px;
 }
 
 .about_all .upper nav .list ul {
@@ -121,10 +172,31 @@ body {
   padding: 10px;
   font-family: "Bebas Neue", cursive;
   white-space: nowrap;
+  position: relative;
 }
 
-.about_all .upper nav .list ul li a:hover {
-  border-bottom: 2px solid gray;
+.about_all .upper nav .list ul li a::after {
+  content: '';
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left 0;
+          transform-origin: left 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  visibility: hidden;
+}
+
+.about_all .upper nav .list ul li a:hover::after {
+  background: #e54b4b;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  visibility: visible;
 }
 
 .about_all .upper nav .list ul .about {
@@ -308,8 +380,7 @@ body {
 }
 
 .corner_all .upper nav .list .logo a img {
-  width: 45%;
-  min-width: 150px;
+  width: 150px;
 }
 
 .corner_all .upper nav .list ul {
@@ -329,10 +400,31 @@ body {
   padding: 10px;
   font-family: "Bebas Neue", cursive;
   white-space: nowrap;
+  position: relative;
 }
 
-.corner_all .upper nav .list ul li a:hover {
-  border-bottom: 2px solid gray;
+.corner_all .upper nav .list ul li a::after {
+  content: '';
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left 0;
+          transform-origin: left 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  visibility: hidden;
+}
+
+.corner_all .upper nav .list ul li a:hover::after {
+  background: #e54b4b;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  visibility: visible;
 }
 
 .corner_all .upper nav .list ul .about {
@@ -526,10 +618,31 @@ body {
   padding: 10px;
   font-family: "Bebas Neue", cursive;
   white-space: nowrap;
+  position: relative;
 }
 
-.product_all .upper nav .list ul li a:hover {
-  border-bottom: 2px solid gray;
+.product_all .upper nav .list ul li a::after {
+  content: '';
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left 0;
+          transform-origin: left 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  visibility: hidden;
+}
+
+.product_all .upper nav .list ul li a:hover::after {
+  background: #e54b4b;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  visibility: visible;
 }
 
 .product_all .upper nav .list ul .about {
@@ -590,8 +703,18 @@ body {
   font-size: 30px;
 }
 
+.product_all .content .row .modal .modal-header h5 {
+  font-size: 30px;
+}
+
+.product_all .content .row .modal .modal-body {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .product_all .content .row .modal .modal-body img {
-  width: 60%;
+  width: 30%;
 }
 
 .product_all .content .row .modal .modal-body p {
@@ -725,10 +848,31 @@ body {
   padding: 10px;
   font-family: "Bebas Neue", cursive;
   white-space: nowrap;
+  position: relative;
 }
 
-.news_all .upper nav .list ul li a:hover {
-  border-bottom: 2px solid gray;
+.news_all .upper nav .list ul li a::after {
+  content: '';
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left 0;
+          transform-origin: left 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  visibility: hidden;
+}
+
+.news_all .upper nav .list ul li a:hover::after {
+  background: #e54b4b;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  visibility: visible;
 }
 
 .news_all .upper nav .list ul .about {

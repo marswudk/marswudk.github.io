@@ -25,32 +25,50 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 
-    img {
-        width: 180px;
-        opacity: 1;
-        // pointer-events: all;        
-        // animation: show;
-        // animation-duration: 3s;
-        // animation-delay: 1s;
-        // animation-timing-function: linear;
+    a {
+        position: relative;
+        top: -1000px;
+        left: calc(50% - 90px);
+        animation: show;
+        animation-duration: 3s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
 
-        // @keyframes show {
-        //     0% {
-        //         opacity: 0;
-        //         pointer-events: none;
-        //     }
+        @keyframes show {
+            0% {
+                position: relative;
+                top: -90px;
+            }
 
-        //     100% {
-        //         opacity: 1;
-        //         transition: 5s;
-        //         pointer-events: all;
 
-        //     }
-        // }
+            100% {
+                top: calc(50% - 90px);
+            }
+        }
+
+        img {
+            width: 180px;
+
+            &:hover {
+                animation: shine 2s linear infinite alternate;
+
+                @keyframes shine {
+
+                    0% {
+                        transform: scale(1.2);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
 
     }
 }
@@ -71,7 +89,7 @@ body {
         nav {
 
             .list {
-                height: 100%;
+                // height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -94,10 +112,11 @@ body {
                         justify-content: center;
 
 
+
                         img {
-                            width: 45%;
+                            // width: 45%;
                             // max-width: 400px;
-                            min-width: 150px;
+                            width: 150px;
 
                         }
                     }
@@ -114,10 +133,6 @@ body {
                         // margin-top: 25px;
                         padding: 25px;
 
-
-
-
-
                         a {
                             text-decoration: none;
                             font-size: $font_size_nav;
@@ -125,23 +140,36 @@ body {
                             padding: 10px;
                             font-family: $font_family_title;
                             white-space: nowrap;
+                            position: relative;
 
-                            &:hover {
-                                border-bottom: 2px solid gray;
+                            &::after {
+                                content: '';
+                                background: transparent;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                height: 1px;
+                                transform: scaleX(0);
+                                transform-origin: left 0;
+                                transition: all 0.5s ease;
+                                width: 100%;
+                                visibility: hidden;
                             }
 
-
+                            &:hover::after {
+                                background: #e54b4b;
+                                transform: scaleX(1);
+                                visibility: visible;
+                            }
 
                         }
-
-
 
                     }
 
                     .about {
                         margin-top: 20%;
 
-                        & a {
+                        a {
                             border-bottom: 2px solid black;
                         }
                     }
@@ -308,10 +336,7 @@ body {
 
 
                         img {
-                            width: 45%;
-                            // max-width: 400px;
-                            min-width: 150px;
-
+                            width: 150px;
                         }
                     }
                 }
@@ -338,13 +363,27 @@ body {
                             padding: 10px;
                             font-family: $font_family_title;
                             white-space: nowrap;
+                            position: relative;
 
-                            &:hover {
-                                border-bottom: 2px solid gray;
+                            &::after {
+                                content: '';
+                                background: transparent;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                height: 1px;
+                                transform: scaleX(0);
+                                transform-origin: left 0;
+                                transition: all 0.5s ease;
+                                width: 100%;
+                                visibility: hidden;
                             }
 
-
-
+                            &:hover::after {
+                                background: #e54b4b;
+                                transform: scaleX(1);
+                                visibility: visible;
+                            }
                         }
 
 
@@ -526,13 +565,27 @@ body {
                             padding: 10px;
                             font-family: $font_family_title;
                             white-space: nowrap;
+                            position: relative;
 
-                            &:hover {
-                                border-bottom: 2px solid gray;
+                            &::after {
+                                content: '';
+                                background: transparent;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                height: 1px;
+                                transform: scaleX(0);
+                                transform-origin: left 0;
+                                transition: all 0.5s ease;
+                                width: 100%;
+                                visibility: hidden;
                             }
 
-
-
+                            &:hover::after {
+                                background: #e54b4b;
+                                transform: scaleX(1);
+                                visibility: visible;
+                            }
                         }
 
 
@@ -594,8 +647,8 @@ body {
                         font-family: $font_family_text;
 
                     }
-                    
-                    button{
+
+                    button {
                         font-family: $font_family_text;
                         font-size: $font_size_text;
                     }
@@ -604,13 +657,19 @@ body {
             }
 
             .modal {
-                
-                .modal-body {
-                    // display: flex;
-                    img{
-                        width: 60%;
+                .modal-header {
+                    h5 {
+                        font-size: $font_size_text;
                     }
-                    p{
+                }
+
+                .modal-body {
+                    align-items: center;
+                    img {
+                        width: 30%;
+                    }
+
+                    p {
                         font-size: $font_size_text;
                         font-family: $font_family_text;
                     }
@@ -736,13 +795,27 @@ body {
                             padding: 10px;
                             font-family: $font_family_title;
                             white-space: nowrap;
+                            position: relative;
 
-                            &:hover {
-                                border-bottom: 2px solid gray;
+                            &::after {
+                                content: '';
+                                background: transparent;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                height: 1px;
+                                transform: scaleX(0);
+                                transform-origin: left 0;
+                                transition: all 0.5s ease;
+                                width: 100%;
+                                visibility: hidden;
                             }
 
-
-
+                            &:hover::after {
+                                background: #e54b4b;
+                                transform: scaleX(1);
+                                visibility: visible;
+                            }
                         }
 
 
