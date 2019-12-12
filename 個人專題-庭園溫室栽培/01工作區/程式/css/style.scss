@@ -9,6 +9,10 @@ body {
     padding: 0;
     overflow: hidden;
 }
+html{
+    scroll-behavior: smooth;
+}
+
 
 #index,
 #about,
@@ -16,6 +20,7 @@ body {
 #product,
 #news {
     overflow: hidden;
+    
 }
 
 #index {
