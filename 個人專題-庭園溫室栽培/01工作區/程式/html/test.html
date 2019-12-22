@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: greenyellow;
+        }
+
+        #index {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('../img/IMG_5476.JPG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #index a {
+            position: relative;
+            top: -1000px;
+            left: calc(50% - 90px);
+            animation: show;
+            animation-duration: 3s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+
+        }
+
+        @keyframes show {
+            0% {
+                position: relative;
+                top: -90px;
+            }
+
+
+            100% {
+                top: calc(50% - 90px);
+            }
+        }
+
+        #index a img {
+            width: 180px;
+        }
+
+        #index a img:hover {
+            -webkit-animation: shine 2s linear infinite alternate;
+            animation: shine 2s linear infinite alternate;
+        }
+
+        @keyframes shine {
+            0% {
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        .all {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /*插入導覽列*/
+        .nav {
+            position: fixed;
+            top: 50%;
+            left: 2%;
+            z-index: 10;
+        }
+        .nav .logo img{
+            width: 150px;
+        }
+
+        .nav ul li {
+            width: 10px;
+            height: 10px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5) inset;
+            cursor: pointer;
+            border-radius: 50%;
+            list-style: none;
+
+        }
+
+        .nav ul li.active {
+            background-color: darkcyan;
+        }
+
+        /*每頁顯示的圖片*/
+        .p01 {
+            /* background-image: url(https://placeimg.com/1000/1000/animals); */
+            background-color: black;
+            background-size: cover;
+            z-index: 5;
+        }
+
+        .p02 {
+            /* background-image: url(https://placeimg.com/1000/1000/arch); */
+            background-color: red;
+            background-size: cover;
+            z-index: 4;
+        }
+
+        .p03 {
+            /* background-image: url(https://placeimg.com/1000/1000/nature); */
+            background-color: yellow;
+            background-size: cover;
+            z-index: 3;
+        }
+
+        .p04 {
+            /* background-image: url(https://placeimg.com/1000/1000/people); */
+            background-color: green;
+            background-size: cover;
+            z-index: 2;
+        }
+
+
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: 2s;
+        }
+
+        .remove {
+            transform: translateY(-100%);
+        }
+
+        .shopping_cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .shopping_cart img {
+            width: 70px;
+        }
+
+        .footer {
+            width: 100%;
+            /* height:; */
+            background-color: #6f6f6f;
+            display: flex;
+            padding: 5px 3%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .footer ul {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            margin: 0;
+        }
+
+        .footer ul li {
+            list-style: none;
+            font-size: 36px;
+            font-family: "Noto Sans TC", sans-serif;
+            padding: 20px;
+        }
+
+        .footer ul li p {
+            margin: 0;
+        }
+
+        .footer ul li img {
+            width: 40px;
+            margin-right: 5px;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="index">
+        <a href="#about">
+            <img src="../img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="all">
+        <div class="nav">
+            <div class="logo">
+                <a href="#index">
+                    <img src="../img/logo.png" alt="">
+                </a>
+            </div>
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>               
+            </ul>
+        </div>
+
+        <div class="p01 page" id="about">
+
+        </div>
+        <div class="p02 page" id="corner">
+
+        </div>
+        <div class="p03 page" id="product">
+
+        </div>
+        <div class="p04 page" id="news">
+
+        </div>
+
+        <div class="shopping_cart">
+            <img src="../img/shopping cart.png" alt="">
+        </div>
+        <div class="footer">
+            <ul class="row">
+                <li class="phone col-md-2">
+                    <img src="../img/電話icon.png" alt="">
+                    0987654321
+                </li>
+                <li class="address col-md-5">
+                    <img src="../img/location.png" alt="">
+                    雲林縣莿桐鄉埔子村3-33號
+                </li>
+
+                <li class="col-md-1">
+                    <a href="">
+                        <img src="../img/facebook icon.png" alt="">
+                    </a>
+                </li>
+                <li class="col-md-1">
+                    <a href="">
+                        <img src="../img/line.png" alt="">
+                    </a>
+                </li>
+                <li class="col-md-1">
+                    <a href="">
+                        <img src="../img/instagram.png" alt="">
+                    </a>
+                </li>
+
+
+                <li class="copyright col-md-2">
+                    <p>2019©Mr.WUPAPA</p>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery mousewheel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+
+        var number_li = $('.nav li').length
+        n = 1
+
+        $(window).on('mousewheel', function (e) {
+            // console.log(e.deltaY);
+            if (e.deltaY == -1) {
+                if (n < number_li) {
+                    n++
+                    $(`.page:nth-child(${n})`).addClass('remove')
+                    $('.nav li').removeClass('active')
+                    $(`.nav li:nth-child(${n})`).addClass('active')
+
+                }
+            } else {
+                if (n > 1) {
+                    n--
+                    $(`.page:nth-child(${n + 1})`).removeClass('remove')
+                    $('.nav li').removeClass('active')
+                    $(`.nav li:nth-child(${n})`).addClass('active')
+
+                }
+            }
+            console.log(n);
+
+
+        })
+
+
+        $('.nav li').click(function () {
+
+            $('.nav li').removeClass('active')
+            $(this).addClass('active')
+            var index = $(".nav li").index(this);
+            $(`.page:nth-child(${index + 2})`).removeClass('remove')
+            $(`.page:nth-child(${index + 1})`).addClass('remove')
+
+            console.log(index);
+        })
+    </script>
+</body>
+
+</html>

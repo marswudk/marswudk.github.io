@@ -1,0 +1,122 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+#about {
+  z-index: 4;
+  background-color: lightblue;
+}
+
+#corner {
+  z-index: 3;
+  background-color: green;
+}
+
+#product {
+  z-index: 2;
+  background-color: yellow;
+}
+
+#news {
+  z-index: 1;
+  background-color: red;
+}
+
+#index {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/IMG_5476.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* z-index: 100; */
+}
+
+#index a {
+  position: relative;
+  top: -1000px;
+  left: calc(50% - 90px);
+  -webkit-animation: show;
+          animation: show;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes show {
+  0% {
+    position: relative;
+    top: -90px;
+  }
+  100% {
+    top: calc(50% - 90px);
+  }
+}
+
+@keyframes show {
+  0% {
+    position: relative;
+    top: -90px;
+  }
+  100% {
+    top: calc(50% - 90px);
+  }
+}
+
+#index a img {
+  width: 180px;
+}
+
+#index a img:hover {
+  -webkit-animation: shine 2s linear infinite alternate;
+          animation: shine 2s linear infinite alternate;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes shine {
+  0% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=project_style.css.map */

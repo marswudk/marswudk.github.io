@@ -1,0 +1,194 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 2s;
+}
+.remove{
+    transform: translateY(-100%);
+}
+
+
+.about_all {
+    z-index: 4;
+    background-color: lightblue;
+
+}
+
+.corner_all {
+    z-index: 3;
+    background-color: green;
+}
+
+.product_all {
+    z-index: 2;
+    background-color: yellow;
+}
+
+.news_all {
+    z-index: 1;
+    background-color: red;
+}
+
+
+#index {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/IMG_5476.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // z-index: 100;
+
+    a {
+        position: relative;
+        top: -1000px;
+        left: calc(50% - 90px);
+        animation: show;
+        animation-duration: 3s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+
+        @keyframes show {
+            0% {
+                position: relative;
+                top: -90px;
+            }
+
+
+            100% {
+                top: calc(50% - 90px);
+            }
+        }
+
+        img {
+            width: 180px;
+
+            &:hover {
+                animation: shine 2s linear infinite alternate;
+
+                @keyframes shine {
+
+                    0% {
+                        transform: scale(1.2);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+main {
+    .all {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            align-items: center;
+            position: fixed;
+            top: 10%;
+            left: 3%;
+            margin: 10px;
+            // z-index: 10;
+
+            .logo {
+
+                // position: absolute;
+                // top: 0;
+                padding: 0;
+                // z-index: 10;
+
+                a {
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+
+
+
+                    img {
+                        width: 80px;
+                    }
+                }
+            }
+
+
+            ul {
+                padding: 0px;
+                border: 2px solid pink;
+
+
+                li {
+                    list-style: none;
+                    // margin-top: 25px;
+                    padding: 25px;
+                    
+
+                    a {
+                        text-decoration: none;
+                        font-size: $font_size_nav;
+                        color: $font_color_black;
+                        padding: 10px;
+                        font-family: $font_family_title;
+                        white-space: nowrap;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            background: transparent;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            height: 1px;
+                            transform: scaleX(0);
+                            transform-origin: left 0;
+                            transition: all 0.5s ease;
+                            width: 100%;
+                            visibility: hidden;
+                        }
+
+                        &:hover::after {
+                            background: #e54b4b;
+                            transform: scaleX(1);
+                            visibility: visible;
+                        }
+
+                    }
+
+                }
+                
+            }
+        }
+
+        .shopping_cart{
+
+        }
+    }
+}

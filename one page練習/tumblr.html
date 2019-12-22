@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: greenyellow;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /*插入導覽列*/
+        .nav {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            z-index: 10;
+        }
+
+        .nav ul li {
+            width: 10px;
+            height: 10px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5) inset;
+            cursor: pointer;
+            border-radius: 50%;
+            list-style: none;
+
+        }
+
+        .nav ul li.active {
+            background-color: darkcyan;
+        }
+
+        /*每頁顯示的圖片*/
+        .p01 {
+            /* background-image: url(https://placeimg.com/1000/1000/animals); */
+            background-color: black;
+            background-size: cover;
+            z-index: 5;
+        }
+
+        .p02 {
+            /* background-image: url(https://placeimg.com/1000/1000/arch); */
+            background-color: red;
+            background-size: cover;
+            z-index: 4;
+        }
+
+        .p03 {
+            /* background-image: url(https://placeimg.com/1000/1000/nature); */
+            background-color: yellow;
+            background-size: cover;
+            z-index: 3;
+        }
+
+        .p04 {
+            /* background-image: url(https://placeimg.com/1000/1000/people); */
+            background-color: green;
+            background-size: cover;
+            z-index: 2;
+        }
+
+        .p05 {
+            /* background-image: url(https://placeimg.com/1000/1000/tech); */
+            background-color: gray;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: 2s;
+        }
+
+        .remove {
+            transform: translateY(-100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="p01 page"></div>
+        <div class="p02 page"></div>
+        <div class="p03 page"></div>
+        <div class="p04 page"></div>
+        <div class="p05 page"></div>
+    </div>
+
+    <button id="btn">button</button>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <script>
+
+
+
+        // $('body').on('mousewheel', function (event) {
+
+        //         if (event.deltaY < 0) {
+        //             if ($('.p01').hasClass('remove') == true) {
+        //                 if ($('.p02').hasClass('remove') == true) {
+        //                     if ($('.p03').hasClass('remove') == true) {
+        //                         $('.p04').addClass("remove");
+        //                     } else {
+        //                         $('.p03').addClass("remove");
+        //                     }
+        //                 } else {
+        //                     $('.p02').addClass("remove");
+        //                 }
+        //             }
+        //             else {
+        //                 $('.p01').addClass("remove");
+        //             }
+        //         }
+
+        //         else {
+        //             if ($('.p04').hasClass('remove') == true) {
+        //                 $('.p04').removeClass("remove")
+        //             }
+        //             else if ($('.p03').hasClass('remove') == true) {
+        //                 $('.p03').removeClass("remove")
+        //             }
+        //             else if ($('.p02').hasClass('remove') == true) {
+        //                 $('.p02').removeClass("remove")
+        //             }
+        //             else {
+        //                 $('.p01').removeClass("remove")
+        //             }
+        //         }
+
+        // });
+
+        var number_li = $('.nav li').length
+        n = 1
+
+        $(window).on('mousewheel', function (e) {
+            // console.log(e.deltaY);
+            if (e.deltaY == -1) {
+                if (n < number_li) {
+                    n++
+                    $(`.page:nth-child(${n})`).addClass('remove')
+                    $('.nav li').removeClass('active')
+                    $(`.nav li:nth-child(${n})`).addClass('active')
+
+                }
+            } else {
+                if (n > 1) {
+                    n--
+                    $(`.page:nth-child(${n + 1})`).removeClass('remove')
+                    $('.nav li').removeClass('active')
+                    $(`.nav li:nth-child(${n})`).addClass('active')
+
+                }
+            }
+            console.log(n);
+            
+
+        })
+
+
+        $('.nav li').click(function () {
+
+            $('.nav li').removeClass('active')
+            $(this).addClass('active')
+            var index = $(".nav li").index(this);
+            $(`.page:nth-child(${index+2})`).removeClass('remove')
+            $(`.page:nth-child(${index+1})`).addClass('remove')
+            
+            console.log(index);
+        })
+
+        
+
+
+
+
+
+
+
+        // var moving = 0
+        // $(window).on('mousewheel', function changePage (e) {
+        //     // console.log(e.deltaY);
+        //     // $('html,body').stop()
+        //     if (moving == 0) {
+        //         moving = 1
+        //         if (e.deltaY == -1) {
+        //             if (n < number_li) {
+        //                 n++
+        //             }
+        //         } else {
+        //             if (n > 1) {
+        //                 n--
+        //             }
+        //         }
+        //         console.log(e.deltaY,n);
+        //     }
+
+        //     setTimeout(changePage , 500),function(){
+        //         moving == 0
+        //     }
+
+
+        // })
+
+
+        //點擊最後一個增加自己外的remove
+        // $('.nav li:last-child').click(function () {
+        //     $('.page:not(:last-child)').addClass('remove')
+        //     $('.nav li:not(:last-child)').removeClass('active')
+        //     $('.nav li:last-child').addClass('active')
+        // })
+
+        //點擊中間,增加remove給自己以上的child
+
+        
+        // $('.nav li:not(:last-child)').click(function () {
+        //     $('.nav li').removeClass('active')
+        //     $(this).addClass('active')
+
+        //     var index = $(".nav li").index(this);
+        //     $(`.page:nth-child(${index + 1})`).addClass('remove')
+        //     for (var i = 0; i < index + 1; i++) {
+        //         $(`.page:nth-child(${i})`).addClass("remove");
+        //     }
+        // })
+
+        
+
+
+        //點擊第一個移除所有remove
+        // $('.nav li:first-child').click(function () {
+        //     $('.page').removeClass('remove')
+        // })
+
+
+
+
+
+
+        // $(document).ready(function () {
+        //     // 重新載入此頁面時，回到第一張圖，並將右方導覽列置中
+        //     $('body, html').scrollTop(0);
+
+
+        //     let numberOfListItem = $(".nav li").length;
+        //     let currentItem = 1;
+        //     let isMoving = 0;
+
+        //     // 滑鼠滾輪捲動時，移動圖片
+        //     $(window).mousewheel(debounce(e => scrollToCurrentItem(e), 100, true));
+        //     function scrollToCurrentItem(e) {
+        //         if (isMoving === 0) {
+        //             isMoving = 1;
+        //             if (e.deltaY < 0) {
+        //                 if (currentItem < numberOfListItem) {
+        //                     currentItem++;
+        //                 }
+        //             } else {
+        //                 if (currentItem > 1) {
+        //                     currentItem--;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>
