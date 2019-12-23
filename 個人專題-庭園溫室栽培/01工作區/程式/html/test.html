@@ -339,9 +339,13 @@
 
             $('.nav li').removeClass('active')
             $(this).addClass('active')
-            var index = $(".nav li").index(this);
-            $(`.page:nth-child(${index + 2})`).removeClass('remove')
-            $(`.page:nth-child(${index + 1})`).addClass('remove')
+            var index = $(".nav li").index(this)+1;
+            // $('.page').removeClass('remove')
+            $(`.page:nth-child(${index+1})`).removeClass('remove')
+            $(`.page:nth-child(${index})`).addClass('remove')
+            
+
+            
 
             console.log(index);
         })
