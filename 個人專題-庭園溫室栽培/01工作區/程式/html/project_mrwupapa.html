@@ -5,94 +5,351 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>庭園溫室栽培</title>
+    <title>Document</title>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- swiper -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
-    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
     <link rel="stylesheet" href="../css/project_style.css">
+    <!-- <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
+        body {
+            overflow: hidden;
+            background-color: greenyellow;
+        }
+
+        #index {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('../img/IMG_5476.JPG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #index a {
+            position: relative;
+            top: -1000px;
+            left: calc(50% - 90px);
+            animation: show;
+            animation-duration: 3s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+
+        }
+
+        @keyframes show {
+            0% {
+                position: relative;
+                top: -90px;
+            }
+
+
+            100% {
+                top: calc(50% - 90px);
+            }
+        }
+
+        #index a img {
+            width: 180px;
+        }
+
+        #index a img:hover {
+            -webkit-animation: shine 2s linear infinite alternate;
+            animation: shine 2s linear infinite alternate;
+        }
+
+        @keyframes shine {
+            0% {
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        .all {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            /* 進版時不顯示除了index以外的頁面 */
+            /* 點擊logo後變更下列屬性 */
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /*插入導覽列*/
+        .nav {
+            position: fixed;
+            top: 50%;
+            left: 2%;
+            z-index: 10;
+        }
+        .nav .logo img{
+            width: 150px;
+        }
+
+        .nav ul li {
+            width: 10px;
+            height: 10px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5) inset;
+            cursor: pointer;
+            border-radius: 50%;
+            list-style: none;
+
+        }
+
+        .nav ul li.active {
+            background-color: darkcyan;
+        }
+
+        /*每頁顯示的圖片*/
+        .p01 {
+            /* background-image: url(https://placeimg.com/1000/1000/animals); */
+            background-color: black;
+            background-size: cover;
+            z-index: 5;
+        }
+
+        .p02 {
+            /* background-image: url(https://placeimg.com/1000/1000/arch); */
+            background-color: red;
+            background-size: cover;
+            z-index: 4;
+        }
+
+        .p03 {
+            /* background-image: url(https://placeimg.com/1000/1000/nature); */
+            background-color: yellow;
+            background-size: cover;
+            z-index: 3;
+        }
+
+        .p04 {
+            /* background-image: url(https://placeimg.com/1000/1000/people); */
+            background-color: green;
+            background-size: cover;
+            z-index: 2;
+        }
+
+
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: 2s;
+        }
+
+        .remove {
+            transform: translateY(-100%);
+        }
+
+        .shopping_cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .shopping_cart img {
+            width: 70px;
+        }
+
+        .footer {
+            width: 100%;
+            /* height:; */
+            background-color: #6f6f6f;
+            display: flex;
+            padding: 5px 3%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .footer ul {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            margin: 0;
+        }
+
+        .footer ul li {
+            list-style: none;
+            font-size: 36px;
+            font-family: "Noto Sans TC", sans-serif;
+            padding: 20px;
+        }
+
+        .footer ul li p {
+            margin: 0;
+        }
+
+        .footer ul li img {
+            width: 40px;
+            margin-right: 5px;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+        }
+    </style> -->
 </head>
 
 <body>
-    <!-- index -->
     <div id="index">
         <a href="#about">
-            <img src="../img/logo.png" alt="">
+            <img class="start" src="../img/logo.png" alt="">
         </a>
     </div>
+    <div class="all">
+        <div class="nav">
+            <div class="logo">
+                <a href="#index">
+                    <img src="../img/logo.png" alt="">
+                </a>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="#about">關於庭園</a>
+                </li>
+                <li>
+                    <a href="#corner">庭園一隅</a>
+                </li>
+                <li>
+                    <a href="#product">庭園作物</a>
+                </li>
+                <li>
+                    <a href="#news">庭園農誌</a>
+                </li>
+            </ul>
+        </div>
 
-    <main>
-        <div class="all">
-            <div class="nav">
-                <div class="logo">
-                    <a href="#index">
-                        <img src="../img/logo.png" alt="">
-                    </a>
+        <div class="about page" id="about">
+            <div class="row">
+                <div class="col-3">
+                    <span>
+                        <h1>人物</h1>
+                        <p>日出而作，日落而息，回歸最純樸的生活，來充實退休後的人生。吳爸爸及吳媽媽攜手投入並全心經營溫室，要證明愛不只能發電，還能是最棒的肥料。</p>
+                    </span>
+                    <span>
+                        <h1>理念</h1>
+                        <p>取名庭園，志在成為每個人院子裡的一方土地，帶給大家最新鮮的水果。我們堅持使用無毒農藥及天然酵素來栽種，期盼用我們滴下的汗水灌溉，能換取吃下甜美果實的安心笑容。</p>
+                    </span>
                 </div>
-                <ul>
-                    <li>
-                        <a href="#about">about</a>
-                    </li>
-                    <li>
-                        <a href="#corner">corner</a>
-                    </li>
-                    <li>
-                        <a href="#product">product</a>
-                    </li>
-                    <li>
-                        <a href="#news">news</a>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="about_all page" id="about"></div>
-            <div class="corner_all page" id="corner"></div>
-            <div class="product_all page" id="product"></div>
-            <div class="news_all page" id="news"></div>
-            <div class="shopping_cart">
-                <img src="../img/shopping cart.png" alt="">
-            </div>
-            <div class="footer">
-                <ul class="row">
-                    <li class="phone col-md-2">
-                        <img src="../img/電話icon.png" alt="">
-                        0987654321
-                    </li>
-                    <li class="address col-md-5">
-                        <img src="../img/location.png" alt="">
-                        雲林縣莿桐鄉埔子村3-33號
-                    </li>
+                <div class="photos col-md-4 col-lg-7">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="../img/IMG_0691.JPG" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../img/IMG_5475.JPG" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../img/IMG_0717.JPG" alt="">
+                            </div>
+                            
 
-                    <li class="col-md-1">
-                        <a href="">
-                            <img src="../img/facebook icon.png" alt="">
-                        </a>
-                    </li>
-                    <li class="col-md-1">
-                        <a href="">
-                            <img src="../img/line.png" alt="">
-                        </a>
-                    </li>
-                    <li class="col-md-1">
-                        <a href="">
-                            <img src="../img/instagram.png" alt="">
-                        </a>
-                    </li>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
 
 
-                    <li class="copyright col-md-2">
-                        <p>2019©Mr.WUPAPA</p>
-                    </li>
-                </ul>
+                </div>
             </div>
         </div>
-    </main>
+        <div class="corner page" id="corner">
+            <div class="row">
+                <div class="content col-5">
+                    <h1>
+                        溫室的優點
+                    </h1>
+                    <p>
+                        溫室，就像一棟專為植物設計的豪宅，讓植物在裡頭能安心成長。不僅能克服氣候的影響來穩定作物產量，還能降低病蟲害發生率來減少農藥使用，維護消費者食之健康。
+                    </p>
+                </div>
+                <div class="imgs col-8">
+                    <div class="swiper-container corner_swiper">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">Slide 1</div>
+                          <div class="swiper-slide">Slide 2</div>
+                          <div class="swiper-slide">Slide 3</div>
+                          
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="product page" id="product">
+
+        </div>
+        <div class="news page" id="news">
+
+        </div>
+
+        <div class="shopping_cart">
+            <a href="">
+                <img src="../img/shopping_cart2.png" alt="">
+            </a>
+        </div>
+        <div class="footer">
+            <ul class="row">
+                <li class="phone col-md-2">
+                    <img src="../img/phone.png" alt="">
+                    <p>0987654321</p>
+                </li>
+                <li class="address col-md-5">
+                    <img src="../img/location.png" alt="">
+                    <p>雲林縣莿桐鄉埔子村3-33號</p>
+                </li>
+
+                <li class="facebook col-md-1">
+                    <a href="">
+                        <img src="../img/facebook.png" alt="">
+                    </a>
+                </li>
+                <li class="line col-md-1">
+                    <a href="">
+                        <img src="../img/line.png" alt="">
+                    </a>
+                </li>
+                <li class="instagram col-md-1">
+                    <a href="">
+                        <img src="../img/instagram.png" alt="">
+                    </a>
+                </li>
 
 
+                <li class="copyright col-md-2">
+                    <p>2019©Mr.WUPAPA</p>
+                </li>
+            </ul>
+        </div>
 
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -107,22 +364,9 @@
     <!-- jquery mousewheel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
     <!-- swiper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
     <script src="../html/mrwupapa.js"></script>
+
 </body>
 
 </html>

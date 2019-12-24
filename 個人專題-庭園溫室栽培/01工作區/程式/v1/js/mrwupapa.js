@@ -9,32 +9,9 @@ var swiper = new Swiper('.swiper-container', {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
-  centeredSlides: true,
-  grabCursor: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-    clickable: true,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-  },
-});
-
-var corner_swiper = new Swiper('.corner_swiper',{
-  slidesPerView: 3,
-  spaceBetween: 30,
-  loop: true,
-  // centeredSlides: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  grabCursor: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-    clickable: true,
   },
   pagination: {
     el: '.swiper-pagination',
