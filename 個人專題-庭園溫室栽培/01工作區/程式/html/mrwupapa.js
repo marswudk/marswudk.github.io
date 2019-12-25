@@ -1,8 +1,13 @@
 // bootstrap
 // modal
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
+$('.modal').on('shown.bs.modal', function () {
+  $('.modal_btn').trigger('focus')
+});
+
+// muuri
+var grid = new Muuri('.grid',{
+  dragEnabled: true,
+});
 
 // swiper
 var swiper = new Swiper('.swiper-container', {
@@ -26,10 +31,10 @@ var corner_swiper = new Swiper('.corner_swiper',{
   spaceBetween: 30,
   loop: true,
   // centeredSlides: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
   grabCursor: true,
   navigation: {
     nextEl: '.swiper-button-next',

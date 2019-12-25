@@ -17,6 +17,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
 
     a {
         position: relative;
@@ -88,16 +89,13 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
+    overflow: hidden;
 
     /* 進版時不顯示除了index以外的頁面 */
     /* 點擊logo後變更下列屬性 */
     // opacity: 0;
     // pointer-events: none;
-    .page {
-        width: 100%;
-        height: 100%;
 
-    }
 
     .nav {
         position: fixed;
@@ -224,7 +222,7 @@ body {
                     max-height: 70%;
 
                     img {
-                        height: 80%;
+                        height: 700px;
                         width: 100%;
                     }
                 }
@@ -237,53 +235,157 @@ body {
         z-index: 4;
         width: 100%;
         height: 100%;
-        .row{
+
+        .row {
             width: 100%;
             height: 100%;
-            justify-content: center;
-            align-items: stretch;
-            .content{
+            justify-content: flex-start;
+
+            .content {
                 max-width: 80%;
                 text-align: left;
-                margin-top: 178px;
-                h1{
+                margin: 178px 0 50px 400px;
+
+                h1 {
                     font-size: $font_size_title;
                     color: $font_color_black;
                     font-family: $font_family_title;
                     line-height: 1.5;
                 }
-                p{
+
+                p {
                     font-size: $font_size_text;
                     color: $font_color_black;
                     font-family: $font_family_text;
                     line-height: 1.5;
                 }
             }
-            .imgs{
-                .corner_swiper{
-                    width: 100%;
+
+            .imgs {
+                margin-left: 400px;
+
+                .corner_swiper {
                     height: 60%;
-                    .swiper
+
+                    .swiper-slide {
+                        img {
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }
 
-
-
     }
 
     .product {
-
-        background-color: yellow;
-
+        background-color: white;
         z-index: 3;
+
+        .row {
+            width: 100%;
+            height: 100%;
+            justify-content: flex-end;
+            align-items: center;
+
+            .card {
+                border: none;
+                height: 70%;
+                margin-right: 40px;
+
+                img {
+                    height: 500px;
+                    text-align: center;
+                }
+
+                .card-body {
+                    text-align: center;
+
+                    h5 {
+                        font-size: $font_size_card_title;
+                        font-family: $font_family_title;
+                        line-height: 48px;
+                    }
+
+                    p {
+                        font-size: $font_size_card_text;
+                        font-family: $font_family_text;
+
+                    }
+                }
+            }
+        }
+
+        .modal {
+            img {
+                width: 200px;
+            }
+
+            p {
+                font-size: $font_size_text;
+                font-family: $font_family_text;
+            }
+        }
+
     }
 
     .news {
-
-        background-color: green;
-
+        background-color: white;
         z-index: 2;
+        .inner{
+            width: 70%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 50px;
+            .grid {
+                position: relative;
+    
+                .item {
+                    display: block;
+                    position: absolute;
+                    margin: 20px;
+                    z-index: 1;
+                    background: url('https://picsum.photos/seed/picsum/300') center /cover no-repeat;
+                    color: #fff;
+    
+                    &:nth-child(3n+1) {
+                        width: 400px;
+                        height: 300px;
+                    }
+    
+                    &:nth-child(3n+2) {
+                        width: 400px;
+                        height: 400px;
+                    }
+    
+                    &:nth-child(3n) {
+                        width: 400px;
+                        height: 350px;
+                    }
+    
+    
+                }
+    
+                .item.muuri-item-dragging {
+                    z-index: 3;
+                }
+    
+                .item.muuri-item-releasing {
+                    z-index: 2;
+                }
+    
+                .item.muuri-item-hidden {
+                    z-index: 0;
+                }
+    
+                .item-content {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        
     }
 
     .shopping_cart {

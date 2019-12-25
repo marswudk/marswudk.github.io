@@ -17,6 +17,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 #index a {
@@ -95,14 +96,10 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
   /* 進版時不顯示除了index以外的頁面 */
   /* 點擊logo後變更下列屬性 */
   /*每頁顯示的圖片*/
-}
-
-.all .page {
-  width: 100%;
-  height: 100%;
 }
 
 .all .nav {
@@ -248,7 +245,7 @@ body {
 }
 
 .all .about .row .photos .swiper-container img {
-  height: 80%;
+  height: 700px;
   width: 100%;
 }
 
@@ -262,18 +259,15 @@ body {
 .all .corner .row {
   width: 100%;
   height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .all .corner .row .content {
   max-width: 80%;
   text-align: left;
-  margin-top: 178px;
+  margin: 178px 0 50px 400px;
 }
 
 .all .corner .row .content h1 {
@@ -290,19 +284,125 @@ body {
   line-height: 1.5;
 }
 
+.all .corner .row .imgs {
+  margin-left: 400px;
+}
+
 .all .corner .row .imgs .corner_swiper {
-  width: 100%;
   height: 60%;
 }
 
+.all .corner .row .imgs .corner_swiper .swiper-slide img {
+  width: 100%;
+}
+
 .all .product {
-  background-color: yellow;
+  background-color: white;
   z-index: 3;
 }
 
+.all .product .row {
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.all .product .row .card {
+  border: none;
+  height: 70%;
+  margin-right: 40px;
+}
+
+.all .product .row .card img {
+  height: 500px;
+  text-align: center;
+}
+
+.all .product .row .card .card-body {
+  text-align: center;
+}
+
+.all .product .row .card .card-body h5 {
+  font-size: 40px;
+  font-family: "Bebas Neue", cursive;
+  line-height: 48px;
+}
+
+.all .product .row .card .card-body p {
+  font-size: 28px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.all .product .modal img {
+  width: 200px;
+}
+
+.all .product .modal p {
+  font-size: 32px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
 .all .news {
-  background-color: green;
+  background-color: white;
   z-index: 2;
+}
+
+.all .news .inner {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.all .news .inner .grid {
+  position: relative;
+}
+
+.all .news .inner .grid .item {
+  display: block;
+  position: absolute;
+  margin: 20px;
+  z-index: 1;
+  background: url("https://picsum.photos/seed/picsum/300") center/cover no-repeat;
+  color: #fff;
+}
+
+.all .news .inner .grid .item:nth-child(3n+1) {
+  width: 400px;
+  height: 300px;
+}
+
+.all .news .inner .grid .item:nth-child(3n+2) {
+  width: 400px;
+  height: 400px;
+}
+
+.all .news .inner .grid .item:nth-child(3n) {
+  width: 400px;
+  height: 350px;
+}
+
+.all .news .inner .grid .item.muuri-item-dragging {
+  z-index: 3;
+}
+
+.all .news .inner .grid .item.muuri-item-releasing {
+  z-index: 2;
+}
+
+.all .news .inner .grid .item.muuri-item-hidden {
+  z-index: 0;
+}
+
+.all .news .inner .grid .item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .all .shopping_cart {
