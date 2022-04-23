@@ -28,7 +28,7 @@
 <meta property="og:description" content="課程連結: https:&#x2F;&#x2F;www.udemy.com&#x2F;course&#x2F;linux-administration-build-hands-on-linux-projects&#x2F;  前言 因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。 希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。  有">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-04-23T08:50:14.000Z">
-<meta property="article:modified_time" content="2022-04-23T09:03:50.538Z">
+<meta property="article:modified_time" content="2022-04-23T09:22:37.429Z">
 <meta property="article:author" content="Mars Wu">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Cloud">
@@ -124,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-1-1"><span class="nav-number">2.</span> <span class="nav-text">Lesson 1-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson1-2-%E4%BB%A5SSH-key-%E7%99%BB%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">Lesson1-2 以SSH key 登入</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-1-1"><span class="nav-number">2.</span> <span class="nav-text">Lesson 1-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E6%AD%A3%E9%A1%8C%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">以下正題：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson1-2-%E4%BB%A5SSH-key-%E7%99%BB%E5%85%A5"><span class="nav-number">4.</span> <span class="nav-text">Lesson1-2 以SSH key 登入</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,7 +197,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2022-04-23 16:50:14 / 修改時間：17:03:50" itemprop="dateCreated datePublished" datetime="2022-04-23T16:50:14+08:00">2022-04-23</time>
+      <time title="創建時間：2022-04-23 16:50:14 / 修改時間：17:22:37" itemprop="dateCreated datePublished" datetime="2022-04-23T16:50:14+08:00">2022-04-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -226,14 +226,14 @@
         <p>課程連結: <a target="_blank" rel="noopener" href="https://www.udemy.com/course/linux-administration-build-hands-on-linux-projects/">https://www.udemy.com/course/linux-administration-build-hands-on-linux-projects/</a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。<br>希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。</p>
 <p>有些內容不曉得放上來是否會有問題，所以部分資訊就不會提供，僅在本機端做紀錄，如果有需要的人可以透過email 來互相討論。</p>
-<hr>
-<h2 id="Lesson-1-1"><a href="#Lesson-1-1" class="headerlink" title="Lesson 1-1"></a>Lesson 1-1</h2><p>在 Digital Ocean 上建立主機(使用課程推薦連結，可獲得60天 USD$100)<br><a target="_blank" rel="noopener" href="https://m.do.co/c/f1d4debf213f">由此註冊</a><br>ps. 需先預刷 USD$5 測試信用卡或paypal，後續可以用在Digital Ocean 上</p>
-<p>pps. 也可以用 vm 於本機安裝環境，這次先依照課程內容執行。<br>對安裝環境有興趣的話，可以試試看，也可以參考我之前的另一篇安裝LENP(CentOs7)文章</p>
-<p>ppps. 也可以安裝老師設定好的OVA檔，直接在VMWare 上安裝即可，因為我不確定是不是可以提供老師的google drive載點，就不放上來了。</p>
-<p>以下正題：</p>
+<p>另外稍微說一下我對於這堂課的想法，也許可以給也想買課程的人一些動力：<br>這堂課都是以英文在上課，老師稍微有一些口音，但不會到很難理解，或是需要重聽好幾次，<br>通常搭配英文字幕以及指令，基本上就能懂每一段要做什麼。<br>每隔幾個章節會有小小測驗，能讓自己釐清對於前一part 的理解是否完全，我覺得是蠻不錯的方式，<br>測驗也都是英文，但主要是在問這段指令會有什麼效果，或是想達到什麼目的應該透過哪個指令的單選題，<br>只要依照課程的進度安排，一邊實作練習，應該都能回答正確。</p>
+<p>這邊我想說的是，有些人蠻害怕英文，每次開啟stackOverFlow 找解答，第一件事情就是把網站翻譯成中文，<br>但我覺得可以透過日常的閱讀訓練，讓自己的英文能力進步，也能有更多管道來學習。<br>不過如果課程的英文真的讓你卻步的話，也可以<a target="_blank" rel="noopener" href="https://softnshare.com/udemysubtitlesandgoogletranslate/">參考</a>將英文字幕轉成中文，<br>以上小小心得寫在前言，完課後再補上完整的心得！</p>
 <span id="more"></span>
 <hr>
-<ul>
+<h2 id="Lesson-1-1"><a href="#Lesson-1-1" class="headerlink" title="Lesson 1-1"></a>Lesson 1-1</h2><p>在 Digital Ocean 上建立主機(使用課程推薦連結，可獲得60天 USD$100)<br><a target="_blank" rel="noopener" href="https://m.do.co/c/f1d4debf213f">由此註冊</a><br>ps. 需先預刷 USD$5 測試信用卡或paypal，後續可以用在Digital Ocean 上</p>
+<p>pps. 也可以用 vm 於本機安裝環境，這次先依照課程內容執行。<br>對安裝環境有興趣的話，可以試試看，也可以參考我之前的另一篇<a href="https://marswudk.github.io/2022/03/23/VirtualBox%E5%BB%BA%E7%BD%AELNMP/#more">安裝LENP(CentOs7)文章</a></p>
+<p>ppps. 也可以安裝老師設定好的OVA檔，直接在VMWare 上安裝即可，因為我不確定是不是可以提供老師的google drive載點，就不放上來了。</p>
+<h2 id="以下正題："><a href="#以下正題：" class="headerlink" title="以下正題："></a>以下正題：</h2><ul>
 <li><p>選擇 create droplet (課程示範使用 ubuntu)<br>先設定用密碼登入 ，passwd: tafnv5mc2YwRut8e<br>下一堂課會教改成SSH key登入。</p>
 </li>
 <li><p>主機開立的條件選擇</p>
