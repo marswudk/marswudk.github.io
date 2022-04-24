@@ -22,13 +22,13 @@
 
     <meta name="description" content="課程連結: https:&#x2F;&#x2F;www.udemy.com&#x2F;course&#x2F;linux-administration-build-hands-on-linux-projects&#x2F;  前言 因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。 希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。  有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(一)">
+<meta property="og:title" content="Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一)">
 <meta property="og:url" content="http://marswudk.github.io/2022/04/23/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/index.html">
 <meta property="og:site_name" content="Blog - Mars Wu">
 <meta property="og:description" content="課程連結: https:&#x2F;&#x2F;www.udemy.com&#x2F;course&#x2F;linux-administration-build-hands-on-linux-projects&#x2F;  前言 因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。 希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。  有">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-04-23T08:50:14.000Z">
-<meta property="article:modified_time" content="2022-04-23T09:22:37.429Z">
+<meta property="article:modified_time" content="2022-04-24T09:06:19.742Z">
 <meta property="article:author" content="Mars Wu">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Cloud">
@@ -42,10 +42,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/2022/04/23/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/","path":"2022/04/23/課程筆記一/","title":"Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(一)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/2022/04/23/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/","path":"2022/04/23/課程筆記一/","title":"Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(一) | Blog - Mars Wu</title>
+<title>Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一) | Blog - Mars Wu</title>
   
 
 
@@ -180,12 +180,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(一) | Blog - Mars Wu">
+      <meta itemprop="name" content="Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一) | Blog - Mars Wu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(一)
+          Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一)
         </h1>
 
         <div class="post-meta-container">
@@ -195,9 +195,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2022-04-23 16:50:14 / 修改時間：17:22:37" itemprop="dateCreated datePublished" datetime="2022-04-23T16:50:14+08:00">2022-04-23</time>
+      <time title="創建時間：2022-04-23 16:50:14" itemprop="dateCreated datePublished" datetime="2022-04-23T16:50:14+08:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-04-24 17:06:19" itemprop="dateModified" datetime="2022-04-24T17:06:19+08:00">2022-04-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,8 +309,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/23/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%BA%8C/" rel="prev" title="Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(二)">
-                  <i class="fa fa-chevron-left"></i> Linux Administration Build 5 Hands-On Linux Projects 2022 課程筆記(二)
+                <a href="/2022/04/23/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%BA%8C/" rel="prev" title="Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(二)">
+                  <i class="fa fa-chevron-left"></i> Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(二)
                 </a>
             </div>
             <div class="post-nav-item">
