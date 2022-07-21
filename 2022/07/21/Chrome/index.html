@@ -23,13 +23,13 @@
     <meta name="description" content="最近剛好遇到了需要提供下載PDF的案子，之前的做法是透過TCPDF 這個套件處理， 有機會再分享實作的方法，而這次要分享的，則是使用chrome 的語法將寫好的html 內容轉成PDF。 會想要使用chrome 來執行，是因為大多數的電腦都有裝chrome，在server上要裝chrome 也很容易， 相信許多MIS都不會介意在自己家主機裝chrome，所以就嘗試了這個方法，也將遇到的雷點記錄下來">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Slim PHP Print HTML to PDF By Chrome">
-<meta property="og:url" content="http://marswudk.github.io/2022/07/21/%E9%80%8F%E9%81%8Echrome%E7%94%A2%E5%87%BApdf(PHP)/index.html">
+<meta property="og:url" content="http://marswudk.github.io/2022/07/21/Chrome/index.html">
 <meta property="og:site_name" content="Blog - Mars Wu">
 <meta property="og:description" content="最近剛好遇到了需要提供下載PDF的案子，之前的做法是透過TCPDF 這個套件處理， 有機會再分享實作的方法，而這次要分享的，則是使用chrome 的語法將寫好的html 內容轉成PDF。 會想要使用chrome 來執行，是因為大多數的電腦都有裝chrome，在server上要裝chrome 也很容易， 相信許多MIS都不會介意在自己家主機裝chrome，所以就嘗試了這個方法，也將遇到的雷點記錄下來">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/9Grk3u3.png">
-<meta property="article:published_time" content="2022-07-21T12:45:52.000Z">
-<meta property="article:modified_time" content="2022-07-21T13:47:47.659Z">
+<meta property="article:published_time" content="2022-07-21T14:16:35.000Z">
+<meta property="article:modified_time" content="2022-07-21T14:17:59.065Z">
 <meta property="article:author" content="Mars Wu">
 <meta property="article:tag" content="php">
 <meta property="article:tag" content="html to pdf">
@@ -39,11 +39,11 @@
 <meta name="twitter:image" content="https://i.imgur.com/9Grk3u3.png">
 
 
-<link rel="canonical" href="http://marswudk.github.io/2022/07/21/%E9%80%8F%E9%81%8Echrome%E7%94%A2%E5%87%BApdf(PHP)/">
+<link rel="canonical" href="http://marswudk.github.io/2022/07/21/Chrome/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/2022/07/21/%E9%80%8F%E9%81%8Echrome%E7%94%A2%E5%87%BApdf(PHP)/","path":"2022/07/21/透過chrome產出pdf(PHP)/","title":"Slim PHP Print HTML to PDF By Chrome"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/2022/07/21/Chrome/","path":"2022/07/21/Chrome/","title":"Slim PHP Print HTML to PDF By Chrome"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Slim PHP Print HTML to PDF By Chrome | Blog - Mars Wu</title>
@@ -168,7 +168,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/2022/07/21/%E9%80%8F%E9%81%8Echrome%E7%94%A2%E5%87%BApdf(PHP)/">
+    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/2022/07/21/Chrome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,7 +198,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2022-07-21 20:45:52 / 修改時間：21:47:47" itemprop="dateCreated datePublished" datetime="2022-07-21T20:45:52+08:00">2022-07-21</time>
+      <time title="創建時間：2022-07-21 22:16:35 / 修改時間：22:17:59" itemprop="dateCreated datePublished" datetime="2022-07-21T22:16:35+08:00">2022-07-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
