@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"marswudk.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"marswudk.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="首先，一開始接觸到Markdown是在職訓期間，老師用的 HackMD所編寫的共筆，之後發現在Github專案上，readme也是需要透過Markdown語法來編寫，在網路上找了一些大大的教學，並參考Markdown 文件，邊學邊寫，於是想在這裡做個紀錄，也當作練習寫文章的開頭，以下會整理一些目前較常用到的語法：  標題 1 2 3   1. # h1 2. ## h2 3. ### h3   與">
 <meta property="og:type" content="article">
@@ -30,8 +30,8 @@
 <meta property="article:published_time" content="2022-03-06T05:22:52.000Z">
 <meta property="article:modified_time" content="2022-03-06T06:01:08.012Z">
 <meta property="article:author" content="Mars Wu">
-<meta property="article:tag" content="markdown">
 <meta property="article:tag" content="hexo">
+<meta property="article:tag" content="markdown">
 <meta name="twitter:card" content="summary">
 
 
@@ -89,7 +89,6 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
   </ul>
 </nav>
@@ -130,6 +129,14 @@
   <p class="site-author-name" itemprop="name">Mars Wu</p>
   <div class="site-description" itemprop="description">切換靈魂，有時寫技術，有時寫文章</div>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/marswudk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;marswudk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:marswu.dk@gmail.com" title="E-Mail → mailto:marswu.dk@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -288,25 +295,24 @@
 <p>以上是我目前較常使用到的語法，整理成筆記，方便之後忘記可以查閱。</p>
 <p>另外，我自己習慣使用VScode來當作 markdown的編譯器。開啟md檔後，VScode可以點選在側邊開啟預覽模式，這樣在編寫md檔的時候，就比較能知道自己打出來的內容，實際上看起來長什麼樣子，可以避免一些錯誤或麻煩。</p>
 
-        <hr>
-        <span style="font-weight:900;font-size: 16px;">感謝看到最後，歡迎登入Liker並為我鼓掌5次，或是給我一些支持，鼓勵我繼續努力精進寫文章的能力</span>
-        <div>
-  <script type="text/javascript">
-    document.write(
-      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/dk_mars/button?referrer=" +
-      encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
-  </script>
-</div>
     </div>
 
     
     
     
 
-    <footer class="post-footer">
+    <footer class="post-footer"><hr>
+  <span style="font-weight:900;font-size: 16px;">感謝看到最後，歡迎登入Liker並為我鼓掌5次，或是給我一些支持，鼓勵我繼續努力精進寫文章的能力</span>
+<div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/dk_mars/button?referrer=" +
+      encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
           <div class="post-tags">
-              <a href="/tags/markdown/" rel="tag"># markdown</a>
               <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/markdown/" rel="tag"># markdown</a>
           </div>
 
         
