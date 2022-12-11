@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"marswudk.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="寫在前面 今日特餐：策略模式  接續上一篇筆記《設計模式學習筆記 - 1》，瞭解了基本的物件導向原則， 今天要正式進入設計模式的內容，未來每一篇的前言，都會先破題內容會涵蓋哪一個或哪一些設計模式，方便日後查找或要補充的時候，可以更快速的找到對應的內容。  以下正文：  STRATEGY 策略模式 可以定義和封裝一系列的演算法，並且讓它們是可替換的。這個模式可以讓你在不影響用戶端的情況下獨立改變演算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="設計模式學習筆記 - 2">
+<meta property="og:url" content="http://marswudk.github.io/2022/12/11/DesignPattern2/index.html">
+<meta property="og:site_name" content="Blog - Mars Wu">
+<meta property="og:description" content="寫在前面 今日特餐：策略模式  接續上一篇筆記《設計模式學習筆記 - 1》，瞭解了基本的物件導向原則， 今天要正式進入設計模式的內容，未來每一篇的前言，都會先破題內容會涵蓋哪一個或哪一些設計模式，方便日後查找或要補充的時候，可以更快速的找到對應的內容。  以下正文：  STRATEGY 策略模式 可以定義和封裝一系列的演算法，並且讓它們是可替換的。這個模式可以讓你在不影響用戶端的情況下獨立改變演算">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/AlZJjMv.png">
+<meta property="article:published_time" content="2022-12-11T02:49:18.000Z">
+<meta property="article:modified_time" content="2022-12-11T04:11:35.998Z">
+<meta property="article:author" content="Mars Wu">
+<meta property="article:tag" content="OO">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/AlZJjMv.png">
+
+
+<link rel="canonical" href="http://marswudk.github.io/2022/12/11/DesignPattern2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/2022/12/11/DesignPattern2/","path":"2022/12/11/DesignPattern2/","title":"設計模式學習筆記 - 2"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>設計模式學習筆記 - 2 | Blog - Mars Wu</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog - Mars Wu</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AB%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">寫在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STRATEGY-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">STRATEGY 策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B8%E4%B8%8A%E7%9A%84%E8%A8%AD%E8%A8%88%E8%AC%8E%E9%A1%8C%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">書上的設計謎題：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mars Wu</p>
+  <div class="site-description" itemprop="description">切換靈魂，有時寫技術，有時寫文章</div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/marswudk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;marswudk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:marswu.dk.pi@gmail.com" title="E-Mail → mailto:marswu.dk.pi@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/2022/12/11/DesignPattern2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog - Mars Wu">
+      <meta itemprop="description" content="切換靈魂，有時寫技術，有時寫文章">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="設計模式學習筆記 - 2 | Blog - Mars Wu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          設計模式學習筆記 - 2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2022-12-11 10:49:18 / 修改時間：12:11:35" itemprop="dateCreated datePublished" datetime="2022-12-11T10:49:18+08:00">2022-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">開發</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="寫在前面"><a href="#寫在前面" class="headerlink" title="寫在前面"></a>寫在前面</h2><p>今日特餐：策略模式</p>
+<p>接續上一篇筆記<a href="https://marswudk.github.io/2022/11/06/DesignPattern1/">《設計模式學習筆記 - 1》</a>，瞭解了基本的物件導向原則，<br>今天要正式進入設計模式的內容，未來每一篇的前言，都會先破題內容會涵蓋哪一個或哪一些設計模式，方便日後查找或要補充的時候，可以更快速的找到對應的內容。</p>
+<p>以下正文：</p>
+<h2 id="STRATEGY-策略模式"><a href="#STRATEGY-策略模式" class="headerlink" title="STRATEGY 策略模式"></a>STRATEGY 策略模式</h2><blockquote>
+<p>可以定義和封裝一系列的演算法，並且讓它們是可替換的。這個模式可以讓你在不影響用戶端的情況下獨立改變演算法。</p>
+</blockquote>
+<p>換句話說，將可能會需要被替換的實作內容抽離出來，多經過一個interface介面來將實做面隔離開來，簡單的例子像是資料庫連線，可能會遇到開發使用mysql，但是實際要部屬的時候，客戶指定要用postgreSQL。<br>在不討論語法有不同的問題的前提下，若我們是在每個使用資料庫的地方，都有留下連線資料庫的語法，這個時候就需要把整個專案中的連線方式都一一改過。<br>但如果我們連線資料庫是透過同一個介面，那只要替換掉實做的方式，就可以很快的完成變更。</p>
+<h3 id="書上的設計謎題："><a href="#書上的設計謎題：" class="headerlink" title="書上的設計謎題："></a>書上的設計謎題：</h3><p>有一款冒險遊戲，要離開新手村展開冒險旅程之前，需要先選擇職業（角色），每個職業會使用的武器不同，武器的使用方式也不同，職業與武器的攻擊模式可以參考下圖：<br><img src="https://i.imgur.com/AlZJjMv.png" alt="strage"></p>
+<p>每個職業在冒險的旅程中，可能會學到不同武器的使用方式，所以在每次戰鬥的時候，都應該保留可以選擇要使用的武器，呼叫useWeapon()方法，使怪物受傷。</p>
+<ul>
+<li><p>角色抽象類別</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//&gt;</span></span><br><span class="line">Abstract <span class="class"><span class="keyword">class</span> <span class="title">Character</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setWeapon</span>(<span class="params">WeaponBehavior <span class="variable">$weaponBehavior</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;weaponBehavior = <span class="variable">$weaponBehavior</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">fight</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//DO SOMETHING</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>King</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">King</span> <span class="keyword">extends</span> <span class="title">Character</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="comment">/** <span class="doctag">@var</span> WeaponBehavior */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="variable">$weaponBehavior</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;I am the King!&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setWeapon</span>(<span class="params">WeaponBehavior <span class="variable">$weaponBehavior</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;weaponBehavior = <span class="variable">$weaponBehavior</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fight</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="variable">$useWeapon</span> = <span class="variable language_">$this</span>-&gt;weaponBehavior-&gt;<span class="title function_ invoke__">useWeapon</span>();</span><br><span class="line">    	<span class="keyword">echo</span> <span class="variable">$useWeapon</span>[<span class="string">&#x27;action&#x27;</span>];</span><br><span class="line">        <span class="keyword">echo</span> PHP_EOL;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="string">&#x27;Cause Damage: &#x27;</span> . <span class="variable">$useWeapon</span>[<span class="string">&#x27;damage&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>WeaponBehavior Interface</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//&gt;</span></span><br><span class="line">Interface WeaponBehavior</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">useWeapon</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SwordBehavior infrastructure</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">useWeapon</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$action</span> = <span class="string">&#x27;Swing A Sword&#x27;</span>;</span><br><span class="line">        <span class="variable">$damage</span> = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;action&#x27;</span> =&gt; <span class="variable">$action</span>, <span class="string">&#x27;damage&#x27;</span> =&gt; <span class="variable">$damage</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>測試</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//&gt;</span></span><br><span class="line"><span class="variable">$character</span> = <span class="keyword">new</span> <span class="title class_">King</span>();</span><br><span class="line"><span class="variable">$weapon</span> = <span class="keyword">new</span> <span class="title class_">SwordBehavior</span>();</span><br><span class="line"><span class="variable">$character</span>-&gt;<span class="title function_ invoke__">setWeapon</span>(<span class="variable">$weapon</span>);</span><br><span class="line"><span class="variable">$character</span>-&gt;<span class="title function_ invoke__">fight</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果</span></span><br><span class="line"><span class="comment"># I am the King!</span></span><br><span class="line"><span class="comment"># Swing A Sword</span></span><br><span class="line"><span class="comment"># Cause Damage: 50</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<p>以上簡單用角色-國王，武器-劍來作為範例，未來冒險家要出新手村的時候，就可以有一個選擇角色的機制，去實例化各個角色；<br>遇到怪物的時候，就可以根據角色會使用的武器，來作為攻擊的方法。<br>如果要擴大一點，可能還可以延伸變成每個角色使用武器所造成的傷害會不同，還可以熟練使用武器的方式等等，就可以在現有基礎下進行擴展及延伸。</p>
+<p>今天的筆記-策略模式到這邊告一段落，如果有謬誤的地方，歡迎email 給我指正或來信討論，謝謝！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><hr>
+  <span style="font-weight:900;font-size: 16px;">感謝看到最後，歡迎登入Liker並為我鼓掌5次，或是給我一些支持，鼓勵我繼續努力精進寫文章的能力</span>
+<div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/dk_mars/button?referrer=" +
+      encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/tags/OO/" rel="tag"># OO</a>
+              <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/06/DesignPattern1/" rel="prev" title="設計模式學習筆記 - 1">
+                  <i class="fa fa-chevron-left"></i> 設計模式學習筆記 - 1
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mars - 轉載文章請附上出處及原文連結</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
