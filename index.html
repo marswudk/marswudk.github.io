@@ -165,6 +165,113 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/2022/12/18/OAuthLogin-Google/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog - Mars Wu">
+      <meta itemprop="description" content="切換靈魂，有時寫技術，有時寫文章">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Blog - Mars Wu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/18/OAuthLogin-Google/" class="post-title-link" itemprop="url">網頁使用第三方登入服務-Google</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2022-12-18 12:19:48 / 修改時間：13:07:49" itemprop="dateCreated datePublished" datetime="2022-12-18T12:19:48+08:00">2022-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">開發</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          寫在前面
+ * Oauth 2.0 流程
+   
+    1. 客戶端提供其自身的信息，在資源所有者的允許下，向認證服務請求 Access Token。
+    2. 認證服務驗證通過後，返回 Access Token 給客戶端。
+    3. 客戶端使用 Access Token 向資源服務請求用戶數據。
+    4. 資源服務驗證 Access Token 有效後，返回資源數據。
+   
+   
+ * 角色
+   客戶端 – 網頁/ App
+   資源所有者 – 使用者
+   認證服務 – 總管授權事務
+   資源服務 – 提供訪問資源的api
+   
+   
+
+參考-簡單易懂的 OAut
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/12/18/OAuthLogin-Google/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/2022/12/17/DesignPattern3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,7 +290,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/12/17/DesignPattern3/" class="post-title-link" itemprop="url">DesignPattern3</a>
+          <a href="/2022/12/17/DesignPattern3/" class="post-title-link" itemprop="url">設計模式學習筆記 - 3</a>
         </h2>
 
         <div class="post-meta-container">
@@ -201,7 +308,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-12-18 12:18:30" itemprop="dateModified" datetime="2022-12-18T12:18:30+08:00">2022-12-18</time>
+      <time title="修改時間：2022-12-18 13:07:31" itemprop="dateModified" datetime="2022-12-18T13:07:31+08:00">2022-12-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1072,115 +1179,6 @@ Lesson2-1 Docker
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/03/24/VirtualBox%E5%BB%BA%E7%BD%AELNMP-2/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/2022/03/23/VirtualBox%E5%BB%BA%E7%BD%AELNMP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog - Mars Wu">
-      <meta itemprop="description" content="切換靈魂，有時寫技術，有時寫文章">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Blog - Mars Wu">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/23/VirtualBox%E5%BB%BA%E7%BD%AELNMP/" class="post-title-link" itemprop="url">VirtualBox建置LNMP-1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2022-03-23 18:49:16" itemprop="dateCreated datePublished" datetime="2022-03-23T18:49:16+08:00">2022-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-03-24 09:20:06" itemprop="dateModified" datetime="2022-03-24T09:20:06+08:00">2022-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AD%86%E8%A8%98/%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">開發</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          最近遇到客戶家的主機因被要求要升級php 版本，為了測試升級是否會造成程式出現問題，所以決議要雲主機建立符合需求的環境，再將專案搬遷過去。
-因為之前都沒碰過主機環境建置，只有在剛開始學程式的時候做過一次，筆記也有點零散，所以在正式執行之前，先透過虛擬機練習建置環境，以減少之後會發生的錯誤，及加快作業速度，並將過程記錄下來，待日後可以查看。
-
-
-
-
-下載所需的CentOS7 映像檔
-官網
-
-新增虛擬主機
- 1. VirtualBox 選單中點選新增，命名後依照主機需求選擇記憶體及硬碟(我選 2048M / 立即建立)
-    
-    
- 2. 硬碟檔類型這邊因為只需要個人使用，所以選擇 VDI
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/23/VirtualBox%E5%BB%BA%E7%BD%AELNMP/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
