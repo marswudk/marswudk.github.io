@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/Gk1O87T.png">
 <meta property="article:published_time" content="2022-12-17T04:15:01.000Z">
-<meta property="article:modified_time" content="2022-12-11T09:00:04.652Z">
+<meta property="article:modified_time" content="2022-12-18T04:18:30.181Z">
 <meta property="article:author" content="Mars Wu">
 <meta property="article:tag" content="OO">
 <meta property="article:tag" content="Design Pattern">
@@ -122,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AB%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">寫在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Observer-%E8%A7%80%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">Observer 觀察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">2.1.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E5%B0%BE"><span class="nav-number">2.2.</span> <span class="nav-text">結尾</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AB%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">寫在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Observer-%E8%A7%80%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">Observer 觀察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">2.1.</span> <span class="nav-text">思考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -209,7 +209,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-12-11 17:00:04" itemprop="dateModified" datetime="2022-12-11T17:00:04+08:00">2022-12-11</time>
+      <time title="修改時間：2022-12-18 12:18:30" itemprop="dateModified" datetime="2022-12-18T12:18:30+08:00">2022-12-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,7 +270,9 @@
 
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>這邊例子僅簡單以echo 訊息的方式表示通知。未來可能要思考，通知的時候是傳遞哪些資料過去，傳遞所有資訊的話會不會造成觀察者的負擔。<br>再以書上的例子作為思考的出發點，要設計一個氣象站(Subject)，每當天氣資訊更新的時候，就通知觀察者(Observer)們溫度、濕度、氣壓、降雨機率…等所有的天氣資訊。<br>但可能不是每個觀察者都需要所有的天氣資訊，比方說我每天出門前，我會在意的是今天的溫度及降雨機率，那麼其他資訊對我來說就是多餘的了。</p>
 <p>所以可以調整為，天氣站要開放讓觀察者們自行取得需要的資料，而通知僅僅是告知他們，天氣資訊已經更新了。<br>個別的觀察者因為收到這則通知，自行向氣象站索取所需的資料：<br>getTemperature();<br>getHumidity();<br>…</p>
-<h3 id="結尾"><a href="#結尾" class="headerlink" title="結尾"></a>結尾</h3>
+<hr>
+<p>以Youtube 的例子稍微說明，但實際的Youtube 應該做了更多更複雜的事情，<br>今天的筆記-觀察者模式到這邊告一段落，如果有謬誤的地方，歡迎email 給我指正或來信討論，謝謝！</p>
+
     </div>
 
     
