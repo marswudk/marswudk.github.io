@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"marswudk.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="課程連結: https:&#x2F;&#x2F;www.udemy.com&#x2F;course&#x2F;linux-administration-build-hands-on-linux-projects&#x2F;  前言 因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。 希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。  有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一)">
+<meta property="og:url" content="http://marswudk.github.io/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/index.html">
+<meta property="og:site_name" content="Blog - Mars Wu">
+<meta property="og:description" content="課程連結: https:&#x2F;&#x2F;www.udemy.com&#x2F;course&#x2F;linux-administration-build-hands-on-linux-projects&#x2F;  前言 因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。 希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。  有">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-04-23T08:50:14.000Z">
+<meta property="article:modified_time" content="2022-04-24T09:06:19.742Z">
+<meta property="article:author" content="Mars Wu">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Host">
+<meta property="article:tag" content="DigitalOcean">
+<meta property="article:tag" content="Udemy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://marswudk.github.io/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/","path":"課程筆記一/","title":"Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一) | Blog - Mars Wu</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog - Mars Wu</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-1-1"><span class="nav-number">2.</span> <span class="nav-text">Lesson 1-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E6%AD%A3%E9%A1%8C%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">以下正題：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson1-2-%E4%BB%A5SSH-key-%E7%99%BB%E5%85%A5"><span class="nav-number">4.</span> <span class="nav-text">Lesson1-2 以SSH key 登入</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mars Wu</p>
+  <div class="site-description" itemprop="description">切換靈魂，有時寫技術，有時寫文章</div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/marswudk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;marswudk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:marswu.dk.pi@gmail.com" title="E-Mail → mailto:marswu.dk.pi@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog - Mars Wu">
+      <meta itemprop="description" content="切換靈魂，有時寫技術，有時寫文章">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一) | Blog - Mars Wu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(一)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-04-23 16:50:14" itemprop="dateCreated datePublished" datetime="2022-04-23T16:50:14+08:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-04-24 17:06:19" itemprop="dateModified" datetime="2022-04-24T17:06:19+08:00">2022-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">開發</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>課程連結: <a target="_blank" rel="noopener" href="https://www.udemy.com/course/linux-administration-build-hands-on-linux-projects/">https://www.udemy.com/course/linux-administration-build-hands-on-linux-projects/</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因為最近工作剛好有機會碰到主機的內容，剛好看到這個課程正在udemy 上特價，對於課程內容蠻有興趣的，所以就買了課程補充一下相關知識。<br>希望透過邊上課邊做筆記，一方面加深自己印象，一方面之後有需要的話也可以翻查。</p>
+<p>有些內容不曉得放上來是否會有問題，所以部分資訊就不會提供，僅在本機端做紀錄，如果有需要的人可以透過email 來互相討論。</p>
+<p>另外稍微說一下我對於這堂課的想法，也許可以給也想買課程的人一些動力：<br>這堂課都是以英文在上課，老師稍微有一些口音，但不會到很難理解，或是需要重聽好幾次，<br>通常搭配英文字幕以及指令，基本上就能懂每一段要做什麼。<br>每隔幾個章節會有小小測驗，能讓自己釐清對於前一part 的理解是否完全，我覺得是蠻不錯的方式，<br>測驗也都是英文，但主要是在問這段指令會有什麼效果，或是想達到什麼目的應該透過哪個指令的單選題，<br>只要依照課程的進度安排，一邊實作練習，應該都能回答正確。</p>
+<p>這邊我想說的是，有些人蠻害怕英文，每次開啟stackOverFlow 找解答，第一件事情就是把網站翻譯成中文，<br>但我覺得可以透過日常的閱讀訓練，讓自己的英文能力進步，也能有更多管道來學習。<br>不過如果課程的英文真的讓你卻步的話，也可以<a target="_blank" rel="noopener" href="https://softnshare.com/udemysubtitlesandgoogletranslate/">參考</a>將英文字幕轉成中文，<br>以上小小心得寫在前言，完課後再補上完整的心得！</p>
+<span id="more"></span>
+<hr>
+<h2 id="Lesson-1-1"><a href="#Lesson-1-1" class="headerlink" title="Lesson 1-1"></a>Lesson 1-1</h2><p>在 Digital Ocean 上建立主機(使用課程推薦連結，可獲得60天 USD$100)<br><a target="_blank" rel="noopener" href="https://m.do.co/c/f1d4debf213f">由此註冊</a><br>ps. 需先預刷 USD$5 測試信用卡或paypal，後續可以用在Digital Ocean 上</p>
+<p>pps. 也可以用 vm 於本機安裝環境，這次先依照課程內容執行。<br>對安裝環境有興趣的話，可以試試看，也可以參考我之前的另一篇<a href="https://marswudk.github.io/2022/03/23/VirtualBox%E5%BB%BA%E7%BD%AELNMP/#more">安裝LENP(CentOs7)文章</a></p>
+<p>ppps. 也可以安裝老師設定好的OVA檔，直接在VMWare 上安裝即可，因為我不確定是不是可以提供老師的google drive載點，就不放上來了。</p>
+<h2 id="以下正題："><a href="#以下正題：" class="headerlink" title="以下正題："></a>以下正題：</h2><ul>
+<li><p>選擇 create droplet (課程示範使用 ubuntu)<br>先設定用密碼登入 ，passwd: tafnv5mc2YwRut8e<br>下一堂課會教改成SSH key登入。</p>
+</li>
+<li><p>主機開立的條件選擇</p>
+<ul>
+<li>Ubuntu</li>
+<li>每個月 USD$10 (50GB)</li>
+<li>建議開啟備份，但因為我只是要上課，不希望多花錢，所以就沒有勾選。</li>
+</ul>
+</li>
+<li><p>登入，可使用網頁上的console 登入，但不建議，除非被防火牆擋住還是其他問題無法登入，<br>這邊使用 putty 來登入主機：</p>
+</li>
+</ul>
+<ol>
+<li>複製主機的ip</li>
+<li>login as root &amp;&amp; password</li>
+<li>執行更新<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt full-upgrade -y</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Lesson1-2-以SSH-key-登入"><a href="#Lesson1-2-以SSH-key-登入" class="headerlink" title="Lesson1-2 以SSH key 登入"></a>Lesson1-2 以SSH key 登入</h2><ul>
+<li>建立ssh keys</li>
+</ul>
+<ol>
+<li>使用linux 語法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 2048 -C &#x27;keys generated on Apr 2022&#x27;</span><br><span class="line">#         |-type-|-length-|-comment-|     </span><br></pre></td></tr></table></figure></li>
+<li>使用putty gen 工具<br><a target="_blank" rel="noopener" href="https://www.techcoke.com/2017/01/puttygen-ssh-rsa-dsa-public-private-key-pair.html">參考</a></li>
+</ol>
+<p>這邊可以使用git bash 來操作第一個選項，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls ~/.ssh</span><br><span class="line"># 可以看到建立起來的id_rsa(私鑰) &amp; id_rsa.pub(公鑰)</span><br><span class="line"></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line">#注意，是將公鑰放到主機上，絕對不要把私鑰提供給任何人</span><br><span class="line">#看到公鑰內容，並選取複製起來，待會要貼到digital ocean 的設定上</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>DigitalOcean-&gt; Settings -&gt; Security -&gt; Add SSH Keys<br>將公鑰內容貼上，並命名</li>
+<li>將ssh 註冊到主機上<br>於本地輸入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id root@your_ip_addr</span><br><span class="line">#yes</span><br></pre></td></tr></table></figure></li>
+<li>於主機上檢查 ssh key 是否被正確註冊上去<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/authorized_keys</span><br><span class="line"># 可看到一把公鑰在上面</span><br></pre></td></tr></table></figure></li>
+<li>透過ssh 連線到主機<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@your_ip_addr</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>補充：可以透過alias 設定縮寫，下次只要輸入alias 的名稱就可以連線<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias alias_name=&#x27;ssh root@your_ip_addr&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="7">
+<li>取消密碼登入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">#找到PasswordAuthentication 將yes 改成no</span><br></pre></td></tr></table></figure></li>
+<li>重啟ssh <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ssh</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>這樣我們就開了一台主機，並且可以在本機端透過ssh 方式連線到主機，<br>未來我們的操作都會在本機，透過git bash 連線來進行操作。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><hr>
+  <span style="font-weight:900;font-size: 16px;">感謝看到最後，歡迎登入Liker並為我鼓掌5次，或是給我一些支持，鼓勵我繼續努力精進寫文章的能力</span>
+<div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/dk_mars/button?referrer=" +
+      encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Cloud/" rel="tag"># Cloud</a>
+              <a href="/tags/Host/" rel="tag"># Host</a>
+              <a href="/tags/DigitalOcean/" rel="tag"># DigitalOcean</a>
+              <a href="/tags/Udemy/" rel="tag"># Udemy</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/VirtualBox%E5%BB%BA%E7%BD%AELNMP-2/" rel="prev" title="VirtualBox建置LNMP-2">
+                  <i class="fa fa-chevron-left"></i> VirtualBox建置LNMP-2
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E4%BA%8C/" rel="next" title="Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(二)">
+                  Linux Administration Build 5 Hands-On Linux Projects 2022 Docker篇(二) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mars - 轉載文章請附上出處及原文連結</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
