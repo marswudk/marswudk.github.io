@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"marswudk.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="寫在前面 聖誕節快樂～ 冷冷的天不曉得大家有沒有出門溜達，還是昨天平安夜裡已經在外狂歡，正在補眠中XD  延續上一篇的Google 登入，今天要介紹的是Facebook 登入， 跟上一篇一樣，截圖的部分可能會與實做的內容，在名稱上有些微的調整，但實在懶得重新截圖了， 請各位看倌不要介意，斟酌參考。  Facebook 相關文件  * 註冊應用程式  * 官方文件說明  使用套件 php-graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OAuthLogin-Facebook">
+<meta property="og:url" content="http://marswudk.github.io/OAuthLogin-Facebook/index.html">
+<meta property="og:site_name" content="Blog - Mars Wu">
+<meta property="og:description" content="寫在前面 聖誕節快樂～ 冷冷的天不曉得大家有沒有出門溜達，還是昨天平安夜裡已經在外狂歡，正在補眠中XD  延續上一篇的Google 登入，今天要介紹的是Facebook 登入， 跟上一篇一樣，截圖的部分可能會與實做的內容，在名稱上有些微的調整，但實在懶得重新截圖了， 請各位看倌不要介意，斟酌參考。  Facebook 相關文件  * 註冊應用程式  * 官方文件說明  使用套件 php-graph">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/YIBKueT.png">
+<meta property="og:image" content="https://i.imgur.com/iayzrqa.png">
+<meta property="og:image" content="https://i.imgur.com/cs3TD03.png">
+<meta property="og:image" content="https://i.imgur.com/RyCuI9j.png">
+<meta property="og:image" content="https://i.imgur.com/fSQRrKw.png">
+<meta property="og:image" content="https://i.imgur.com/jA9KqgA.png">
+<meta property="og:image" content="https://i.imgur.com/K1B2Wcs.png">
+<meta property="og:image" content="https://i.imgur.com/OSdtuw6.png">
+<meta property="og:image" content="https://i.imgur.com/xMSHs0e.png">
+<meta property="og:image" content="https://i.imgur.com/j38Scm0.png">
+<meta property="og:image" content="https://i.imgur.com/ioUk8tO.png">
+<meta property="article:published_time" content="2022-12-25T03:37:35.000Z">
+<meta property="article:modified_time" content="2022-12-25T03:52:17.147Z">
+<meta property="article:author" content="Mars Wu">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="oauth">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/YIBKueT.png">
+
+
+<link rel="canonical" href="http://marswudk.github.io/OAuthLogin-Facebook/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/OAuthLogin-Facebook/","path":"OAuthLogin-Facebook/","title":"OAuthLogin-Facebook"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OAuthLogin-Facebook | Blog - Mars Wu</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog - Mars Wu</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AB%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">寫在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Facebook-%E7%9B%B8%E9%97%9C%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Facebook 相關文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%A5%97%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">使用套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E5%86%8A%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">註冊流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%8F%83%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">程式碼參考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">6.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mars Wu</p>
+  <div class="site-description" itemprop="description">切換靈魂，有時寫技術，有時寫文章</div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/marswudk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;marswudk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:marswu.dk.pi@gmail.com" title="E-Mail → mailto:marswu.dk.pi@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://marswudk.github.io/OAuthLogin-Facebook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog - Mars Wu">
+      <meta itemprop="description" content="切換靈魂，有時寫技術，有時寫文章">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="OAuthLogin-Facebook | Blog - Mars Wu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OAuthLogin-Facebook
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2022-12-25 11:37:35 / 修改時間：11:52:17" itemprop="dateCreated datePublished" datetime="2022-12-25T11:37:35+08:00">2022-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AD%86%E8%A8%98/%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">開發</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="寫在前面"><a href="#寫在前面" class="headerlink" title="寫在前面"></a>寫在前面</h2><p>聖誕節快樂～<br>冷冷的天不曉得大家有沒有出門溜達，還是昨天平安夜裡已經在外狂歡，正在補眠中XD</p>
+<p>延續上一篇的Google 登入，今天要介紹的是Facebook 登入，<br>跟上一篇一樣，截圖的部分可能會與實做的內容，在名稱上有些微的調整，但實在懶得重新截圖了，<br>請各位看倌不要介意，斟酌參考。</p>
+<h2 id="Facebook-相關文件"><a href="#Facebook-相關文件" class="headerlink" title="Facebook 相關文件"></a>Facebook 相關文件</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.facebook.com/apps">註冊應用程式</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.facebook.com/docs/development/create-an-app">官方文件說明</a></li>
+</ul>
+<h2 id="使用套件"><a href="#使用套件" class="headerlink" title="使用套件"></a>使用套件</h2><p><a target="_blank" rel="noopener" href="https://github.com/facebookarchive/php-graph-sdk">php-graph-sdk</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require facebook/graph-sdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="註冊流程"><a href="#註冊流程" class="headerlink" title="註冊流程"></a>註冊流程</h2><ul>
+<li><p>建立應用程式<br><img src="https://i.imgur.com/YIBKueT.png" alt="建立應用程式"></p>
+</li>
+<li><p>選擇類型<br><img src="https://i.imgur.com/iayzrqa.png" alt="選擇類型"></p>
+</li>
+<li><p>基本資訊<br><img src="https://i.imgur.com/cs3TD03.png" alt="基本資訊"></p>
+</li>
+<li><p>選擇剛建立的應用程式<br><img src="https://i.imgur.com/RyCuI9j.png" alt="選擇剛建立的應用程式"></p>
+</li>
+<li><p>選擇Facebook 登入<br><img src="https://i.imgur.com/fSQRrKw.png" alt="選擇Facebook 登入"></p>
+</li>
+<li><p>選擇網站<br><img src="https://i.imgur.com/jA9KqgA.png" alt="選擇網站"></p>
+</li>
+<li><p>填入網站資訊<br><img src="https://i.imgur.com/K1B2Wcs.png" alt="填入網站資訊"></p>
+</li>
+<li><p>設定OAuth<br>* 重新導向URI 需與程式內相同<br><img src="https://i.imgur.com/OSdtuw6.png" alt="設定OAuth"></p>
+</li>
+<li><p>基本資料<br><img src="https://i.imgur.com/xMSHs0e.png" alt="基本資料"></p>
+</li>
+<li><p>開啟權限<br><img src="https://i.imgur.com/j38Scm0.png" alt="開啟權限1"><br><img src="https://i.imgur.com/ioUk8tO.png" alt="開啟權限2"></p>
+</li>
+</ul>
+<h2 id="程式碼參考"><a href="#程式碼參考" class="headerlink" title="程式碼參考"></a>程式碼參考</h2><ul>
+<li><p>前端使用sdk 產生按鈕</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">fb:login-button</span> <span class="attr">scope</span>=<span class="string">&quot;public_profile,email&quot;</span> <span class="attr">onlogin</span>=<span class="string">&quot;checkLoginState();&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">fb:login-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="property">fbAsyncInit</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable constant_">FB</span>.<span class="title function_">init</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                appId      : <span class="string">&#x27;&#123;&#123; app_id &#125;&#125;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                cookie     : <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">                xfbml      : <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">                version    : <span class="string">&#x27;v13.0&#x27;</span></span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="variable constant_">FB</span>.<span class="property">AppEvents</span>.<span class="title function_">logPageView</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">statusChangeCallback</span>(<span class="params">response</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        (<span class="keyword">function</span>(<span class="params">d, s, id</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> js, fjs = d.<span class="title function_">getElementsByTagName</span>(s)[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (d.<span class="title function_">getElementById</span>(id)) &#123;<span class="keyword">return</span>;&#125;</span></span><br><span class="line"><span class="language-javascript">            js = d.<span class="title function_">createElement</span>(s); js.<span class="property">id</span> = id;</span></span><br><span class="line"><span class="language-javascript">            js.<span class="property">src</span> = <span class="string">&quot;https://connect.facebook.net/en_US/sdk.js&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">            fjs.<span class="property">parentNode</span>.<span class="title function_">insertBefore</span>(js, fjs);</span></span><br><span class="line"><span class="language-javascript">        &#125;(<span class="variable language_">document</span>, <span class="string">&#x27;script&#x27;</span>, <span class="string">&#x27;facebook-jssdk&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">checkLoginState</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable constant_">FB</span>.<span class="title function_">getLoginStatus</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                location.<span class="property">href</span>=<span class="string">&quot;&#123;&#123; redirect_url &#125;&#125;?access_token=&quot;</span>+response.<span class="property">authResponse</span>.<span class="property">accessToken</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>callback<br>* 此處method 為GET</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 視各專案儲存config 的方式有所差異</span></span><br><span class="line"><span class="variable">$app_id</span> = <span class="variable">$config</span>[<span class="string">&#x27;app_id&#x27;</span>];</span><br><span class="line"><span class="variable">$app_secret</span> = <span class="variable">$config</span>[<span class="string">&#x27;app_secret&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$fb</span> = <span class="keyword">new</span> \Facebook\<span class="title function_ invoke__">Facebook</span>([</span><br><span class="line">    <span class="string">&#x27;app_id&#x27;</span> =&gt; <span class="variable">$app_id</span>,</span><br><span class="line">    <span class="string">&#x27;app_secret&#x27;</span> =&gt; <span class="variable">$app_secret</span>,</span><br><span class="line">    <span class="string">&#x27;default_graph_version&#x27;</span> =&gt; <span class="string">&#x27;v13.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;default_access_token&#x27;</span> =&gt; <span class="variable">$_GET</span>[<span class="string">&#x27;access_token&#x27;</span>] <span class="comment">// 從fb 傳過來的access_token</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$fb</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;/me?fields=name,email,birthday,gender,hometown,location&#x27;</span>); <span class="comment">// 參數可帶需要的資訊</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (\Facebook\Exceptions\FacebookResponseException <span class="variable">$e</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span> =&gt; <span class="literal">false</span>];</span><br><span class="line">&#125; <span class="keyword">catch</span> (\Facebook\Exceptions\FacebookSDKException <span class="variable">$e</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span> =&gt; <span class="literal">false</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// graphUser</span></span><br><span class="line"><span class="variable">$me</span> = <span class="variable">$response</span>-&gt;<span class="title function_ invoke__">getGraphUser</span>();</span><br><span class="line"><span class="variable">$name</span> = <span class="variable">$me</span>-&gt;<span class="title function_ invoke__">getName</span>();</span><br><span class="line"><span class="variable">$email</span> = <span class="variable">$me</span>-&gt;<span class="title function_ invoke__">getEmail</span>();</span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$me</span>-&gt;<span class="title function_ invoke__">getId</span>();</span><br><span class="line"><span class="variable">$birthday</span> = <span class="variable">$me</span>-&gt;<span class="title function_ invoke__">getBirthday</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// graphNode</span></span><br><span class="line"><span class="comment">// $graphNode = $response-&gt;getGraphNode();</span></span><br><span class="line"><span class="comment">// $name = $graphNode-&gt;getField(&#x27;name&#x27;);</span></span><br><span class="line"><span class="comment">// $email = $graphNode-&gt;getField(&#x27;email&#x27;);</span></span><br><span class="line"><span class="comment">// $id = $graphNode-&gt;getField(&#x27;id&#x27;);</span></span><br><span class="line"><span class="comment">// $birthday = $graphNode-&gt;getField(&#x27;birthday&#x27;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// graphNode Instance method</span></span><br><span class="line"><span class="comment">// $userInfo = $graphNode-&gt;asArray();</span></span><br><span class="line"><span class="comment">// $name = $userInfo[&#x27;name&#x27;];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上三種方法皆可取得userData</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>若不想要使用前端sdk 產生按鈕，也可以透過FB提供的getLoginUrl<br>取得導向連結，再將連結放入自己客製的登入按鈕中，當使用者點擊該按鈕，就導向登入網址，<br>後續動作差異不大，有興趣的話可以稍微研究一下。</p>
+<p>目前Facebook 登入取得的email, 姓名等等都是參考用的，若要應用在商城或者是其他需要會員資料的地方，<br>需要斟酌使用，畢竟無法保證其正確性。</p>
+<p>下一篇會介紹Line 登入，先預祝大家新年快樂～</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><hr>
+  <span style="font-weight:900;font-size: 16px;">感謝看到最後，歡迎登入Liker並為我鼓掌5次，或是給我一些支持，鼓勵我繼續努力精進寫文章的能力</span>
+<div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/dk_mars/button?referrer=" +
+      encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"># php</a>
+              <a href="/tags/oauth/" rel="tag"># oauth</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/OAuthLogin-Google/" rel="prev" title="網頁使用第三方登入服務-Google">
+                  <i class="fa fa-chevron-left"></i> 網頁使用第三方登入服務-Google
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mars - 轉載文章請附上出處及原文連結</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
