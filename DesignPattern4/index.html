@@ -33,14 +33,14 @@
 
     <meta name="description" content="寫在前面 今日特餐：裝飾器模式 (Decorator)  先稍微複習上一篇筆記《設計模式學習筆記 - 3》的內容-觀察者模式：  觀察者模式定義務鍵之間的一對多依賴關係，當一個物件改變狀態時，依賴它的物件都會自動收到通知與更新。  我們以Youtube 訂閱、開啟小鈴鐺為例，認識了觀察者（Observer)與 Subject 之間運作的方式。  今天要學習的設計模式是裝飾器模式，以下正文：  De">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DesignPattern4">
+<meta property="og:title" content="設計模式學習筆記 - 4">
 <meta property="og:url" content="http://marswudk.github.io/DesignPattern4/index.html">
 <meta property="og:site_name" content="Blog - Mars Wu">
 <meta property="og:description" content="寫在前面 今日特餐：裝飾器模式 (Decorator)  先稍微複習上一篇筆記《設計模式學習筆記 - 3》的內容-觀察者模式：  觀察者模式定義務鍵之間的一對多依賴關係，當一個物件改變狀態時，依賴它的物件都會自動收到通知與更新。  我們以Youtube 訂閱、開啟小鈴鐺為例，認識了觀察者（Observer)與 Subject 之間運作的方式。  今天要學習的設計模式是裝飾器模式，以下正文：  De">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/YbK06sO.png">
 <meta property="article:published_time" content="2022-12-30T03:53:15.000Z">
-<meta property="article:modified_time" content="2022-12-25T04:20:21.582Z">
+<meta property="article:modified_time" content="2023-01-17T01:06:20.552Z">
 <meta property="article:author" content="Mars Wu">
 <meta property="article:tag" content="OO">
 <meta property="article:tag" content="Design Pattern">
@@ -52,10 +52,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/DesignPattern4/","path":"DesignPattern4/","title":"DesignPattern4"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://marswudk.github.io/DesignPattern4/","path":"DesignPattern4/","title":"設計模式學習筆記 - 4"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>DesignPattern4 | Blog - Mars Wu</title>
+<title>設計模式學習筆記 - 4 | Blog - Mars Wu</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZV9NL46R0"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-8ZV9NL46R0","only_pageview":false,"localhost_ignored":true}</script>
@@ -200,12 +200,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="DesignPattern4 | Blog - Mars Wu">
+      <meta itemprop="name" content="設計模式學習筆記 - 4 | Blog - Mars Wu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          DesignPattern4
+          設計模式學習筆記 - 4
         </h1>
 
         <div class="post-meta-container">
@@ -223,7 +223,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-12-25 12:20:21" itemprop="dateModified" datetime="2022-12-25T12:20:21+08:00">2022-12-25</time>
+      <time title="修改時間：2023-01-17 09:06:20" itemprop="dateModified" datetime="2023-01-17T09:06:20+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
