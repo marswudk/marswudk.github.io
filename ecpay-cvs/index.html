@@ -39,7 +39,7 @@
 <meta property="og:description" content="寫在前面 最近手上要處理的事情偏多，不管是公事還是私事都一起跑出來，所以就有些發懶沒有維持寫筆記的習慣。 找了個空檔，把前陣子串接綠界超商物流的東西整理起來，這個作法是不依賴官方提供的sdk 或是網路上其他開源套件， 用比較基本的方法來進行實做，好處是不用擔心版本支援還是其他異動，缺點則是重複造輪子。  但是在造輪子的過程，也是可以學到蠻多東西，而且這次的內容，會整併到公司的框架中，未來就可以直接">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-05-31T07:43:15.000Z">
-<meta property="article:modified_time" content="2023-05-31T08:58:37.250Z">
+<meta property="article:modified_time" content="2023-05-31T09:06:38.979Z">
 <meta property="article:author" content="Mars Wu">
 <meta property="article:tag" content="php">
 <meta property="article:tag" content="javascript">
@@ -216,7 +216,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2023-05-31 15:43:15 / 修改時間：16:58:37" itemprop="dateCreated datePublished" datetime="2023-05-31T15:43:15+08:00">2023-05-31</time>
+      <time title="創建時間：2023-05-31 15:43:15 / 修改時間：17:06:38" itemprop="dateCreated datePublished" datetime="2023-05-31T15:43:15+08:00">2023-05-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 從網址取下的info</span></span><br><span class="line"><span class="keyword">const</span> info = <span class="string">&quot;網址列上的?info=&#x27;超商資訊&#x27;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或是樣版引擎傳出來的參數</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 因為是另開頁面，所以可以呼叫opener的全域變數，也就是我們原本結帳頁面準備好要接收資訊的function，將info 傳回去並關閉此頁</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">opener</span>.<span class="title function_">ecpayShippingCvsMapReturn</span>(info);</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">close</span>();</span><br></pre></td></tr></table></figure>
 
-<h4 id="成立綠界物流門市訂單"><a href="#成立綠界物流門市訂單" class="headerlink" title="成立綠界物流門市訂單"></a>成立綠界物流門市訂單</h4><p>根據我們的前提，站方不提供超商取貨時才付款的功能，所以會先在我們的網站成立一筆訂單，並引導消費者進行付款，<br>付款完成後才會告知綠界，我們要成立這筆門市訂單。</p>
+<h4 id="成立綠界物流門市訂單"><a href="#成立綠界物流門市訂單" class="headerlink" title="成立綠界物流門市訂單"></a>成立綠界物流門市訂單</h4><p>根據我們的前提，站方不提供超商取貨時才付款的功能，所以會先在我們的網站成立一筆訂單，並引導消費者進行付款，<br>付款完成後，待站方確認出貨時，才會告訴綠界我要建立這筆門市訂單。</p>
 <ol>
 <li>建立門市訂單</li>
 </ol>
